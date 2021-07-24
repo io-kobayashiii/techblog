@@ -1,6 +1,15 @@
 import { client } from '../../libs/client'
 import styles from '../../styles/Home.module.scss'
 
+type Blog = {
+	id: number
+	title: string
+}
+
+type Res = {
+	contents: Blog[]
+}
+
 export default function BlogId({ blog }) {
 	return (
 		<main className={styles.main}>
@@ -16,7 +25,9 @@ export default function BlogId({ blog }) {
 }
 
 export const getStaticPaths = async () => {
-	const data = await client.get({ endpoint: 'blog' })
+	const data = await client.get<Res>({
+		endpoint: 'blog',
+	})
 	const paths = data.contents.map(content => `/blog/${content.id}`)
 	return { paths, fallback: false }
 }
