@@ -32,7 +32,7 @@ const Home: NextPage<Props> = ({ blogs }) => {
 	)
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
 	const data: Res = await client.get({
 		endpoint: 'blog',
 	})
