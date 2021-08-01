@@ -1,3 +1,4 @@
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { NextPage } from 'next'
 import Link from 'next/link'
 import { client } from '../libs/client'
@@ -31,8 +32,8 @@ const Home: NextPage<Props> = ({ blogs }) => {
 	)
 }
 
-export const getStaticProps = async () => {
-	const data = await client.get<Res>({
+export const getStaticProps: GetStaticProps = async () => {
+	const data: Res = await client.get({
 		endpoint: 'blog',
 	})
 	return {

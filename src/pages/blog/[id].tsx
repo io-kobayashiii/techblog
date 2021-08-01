@@ -1,3 +1,4 @@
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { client } from '../../libs/client'
 import styles from '../../styles/Home.module.scss'
 
@@ -25,7 +26,7 @@ export default function BlogId({ blog }) {
 }
 
 export const getStaticPaths = async () => {
-	const data = await client.get<Res>({
+	const data: Res = await client.get({
 		endpoint: 'blog',
 	})
 	const paths = data.contents.map(content => `/blog/${content.id}`)
@@ -34,7 +35,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async context => {
 	const id = context.params.id
-	const data = await client.get<Res>({
+	const data: Res = await client.get({
 		endpoint: 'blog',
 		contentId: id,
 	})
