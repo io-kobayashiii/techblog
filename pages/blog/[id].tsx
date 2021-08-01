@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { client } from '../../src/libs/client'
-import styles from '../../styles/Home.module.scss'
+import styles from '../../src/styles/Home.module.scss'
 
 type Blog = {
 	id: number
