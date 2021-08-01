@@ -23,11 +23,11 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"src/libs/client.js",
-		"src/pages/api/hello.js",
-		"src/pages/blog/[id].tsx",
-		"src/pages/_app.tsx",
-		"src/pages/404.tsx",
-		"src/pages/index.js"  ],
+		"pages/api/hello.js",
+		"pages/blog/[id].tsx",
+		"pages/_app.tsx",
+		"pages/404.tsx",
+		"pages/index.js"  ],
 	"exclude": [
 		"node_modules"
 	]
