@@ -1,9 +1,6 @@
-import { InferGetStaticPropsType } from 'next';
 import Link from 'next/link'
-import { client } from '../libs/client'
 
 export default function Home({ blogs }) {
-	type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 	const blogList = blogs.map(blog => (
 		<li key={ blog.id }>
@@ -19,10 +16,18 @@ export default function Home({ blogs }) {
 }
 
 export const getStaticProps = async () => {
-	const { data } = await client.get({ endpoint: 'blog' })
+	const url = 'https://for.microcms.io/api/v1/blog'
+	const key = {
+		headers: {
+			'X-API-KEY': 'dc69c2a6-f791-4ddd-a2b6-d1f552cb5718',
+		}
+	}
+	let data = null
+	fetch(url, key).then(res => data = res.json())
+
 	return {
 		props: {
-			blogs: data.contents,
+			blogs: data.contents
 		},
 	}
 }
