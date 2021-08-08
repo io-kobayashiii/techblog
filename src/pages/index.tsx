@@ -1,4 +1,4 @@
-import { fetchByEndpoint } from '../libs/fetch'
+import { fetchMicroCMS } from '../libs/fetch'
 import Link from 'next/link'
 
 export default function Home({ articles }) {
@@ -16,10 +16,8 @@ export default function Home({ articles }) {
 }
 
 export const getStaticProps = async () => {
-	const url = 'https://for.microcms.io/api/v1/articles'
-	const fetchArticles = await fetch(url, { headers: { 'X-API-KEY': 'dc69c2a6-f791-4ddd-a2b6-d1f552cb5718' } })
-	const res = fetchArticles
-	const data = await res.json()
+	const fetchArticles = await fetchMicroCMS(['articles'])
+	const data = await fetchArticles.json()
 
 	return {
 		props: {
