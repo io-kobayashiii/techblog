@@ -1,5 +1,9 @@
 import { fetchMicroCMS } from '../libs/fetch'
 import Link from 'next/link'
+import {
+	ArticleList,
+	getStaticPropsArticles
+} from '../types/global'
 
 export default function Home({ articles }) {
 	const articleList = articles.map(article => (
@@ -15,9 +19,9 @@ export default function Home({ articles }) {
 	)
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: getStaticPropsArticles = async () => {
 	const fetchArticles = await fetchMicroCMS(['articles'])
-	const data = await fetchArticles.json()
+	const data: ArticleList = await fetchArticles.json()
 
 	return {
 		props: {
