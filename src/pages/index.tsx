@@ -1,22 +1,17 @@
 import { fetchMicroCMS } from '../libs/fetch'
 import Link from 'next/link'
-import {
-	ArticleList,
-	getStaticPropsArticles
-} from '../types/global'
+import { ArticleList, getStaticPropsArticles } from '../types/global'
 
 export default function Home({ articles }) {
-	const articleList = articles.map(article => (
-		<li key={ article.id }>
+	const articleList = articles.map((article) => (
+		<li key={article.id}>
 			<Link href={`/articles/${article.id}`}>
-				<a>{ article.title }</a>
+				<a>{article.title}</a>
 			</Link>
 		</li>
 	))
 
-	return (
-		<ul>{ articleList }</ul>
-	)
+	return <ul>{articleList}</ul>
 }
 
 export const getStaticProps: getStaticPropsArticles = async () => {
@@ -25,7 +20,7 @@ export const getStaticProps: getStaticPropsArticles = async () => {
 
 	return {
 		props: {
-			articles: data.contents
+			articles: data.contents,
 		},
 	}
 }
