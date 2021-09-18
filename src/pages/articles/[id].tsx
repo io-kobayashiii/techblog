@@ -1,5 +1,3 @@
-import styles from '../../styles/Home.module.scss'
-
 import { fetchMicroCMS } from '../../libs/fetch'
 
 export default function BlogId({ article }) {
