@@ -2,7 +2,7 @@ import { fetchMicroCMS } from '../../libs/fetch'
 
 export default function BlogId({ article }) {
 	return (
-		<main className={styles.main}>
+		<main>
 			<h1>{ article.title }</h1>
 			<p>{ article.publishedAt }</p>
 		</main>
