@@ -6,7 +6,7 @@ export default function Home({ articles }) {
 	const articleList = articles.map((article) => (
 		<li key={article.id}>
 			<Link href={`/articles/${article.id}`}>
-				<a>{article.title}</a>
+				<a className='bg-gray-500'>{article.title}</a>
 			</Link>
 		</li>
 	))
