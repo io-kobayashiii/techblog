@@ -1,6 +1,7 @@
 import { fetchMicroCMS } from '../libs/fetch'
 import Link from 'next/link'
-import { ArticleList, getStaticPropsArticles } from '../types/global'
+import NeumorphismButton from '../components/atoms/button/NeumorphismButton'
+import { ArticleList, getStaticPropsArticles } from '../types/Global'
 
 export default function Home({ articles }) {
 	const articleList = articles.map((article) => (
@@ -11,7 +12,17 @@ export default function Home({ articles }) {
 		</li>
 	))
 
-	return <ul>{articleList}</ul>
+	return (
+		<>
+			<ul>{articleList}</ul>
+			<NeumorphismButton unevenness={'dents'} displayText='TypeScript' additionalClasses={['default']}></NeumorphismButton>
+			<Link href='https://nextjs.org/'>
+				<a target='_blank'>
+					<NeumorphismButton unevenness={'bumps'} displayText='JavaScript' additionalClasses={['default', 'ml-4']}></NeumorphismButton>
+				</a>
+			</Link>
+		</>
+	)
 }
 
 export const getStaticProps: getStaticPropsArticles = async () => {
