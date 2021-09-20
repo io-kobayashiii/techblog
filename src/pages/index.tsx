@@ -1,7 +1,7 @@
 import { fetchMicroCMS } from '../libs/fetch'
 import Link from 'next/link'
 import NeumorphismButton from '../components/atoms/button/NeumorphismButton'
-import { ArticleList, getStaticPropsArticles } from '../types/Global'
+import { ArticleList, getStaticPropsArticles } from '../types/GlobalTypes'
 
 export default function Home({ articles }) {
 	const articleList = articles.map((article) => (
