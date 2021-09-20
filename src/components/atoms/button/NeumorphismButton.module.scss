@@ -1,0 +1,22 @@
+@mixin commonStyle {
+	border-radius: 100vh;
+	color: #fff;
+	font-size: 1.2rem;
+}
+
+.dents {
+	@include commonStyle();
+	&.default {
+		box-shadow: 4px 4px 3px 0 rgba(6, 13, 19, 0.5) inset,  -3px -3px 3px 0 rgba(231, 231, 231, 0.5) inset;
+	}
+	&:hover {
+		cursor: auto;
+	}
+}
+
+.bumps {
+	@include commonStyle();
+	&.default {
+		box-shadow: 2px 2px 2px 0 rgba(4, 9, 14, 0.5),  -2px -2px 2px 0 rgba(36, 81, 129, 0.5);
+	}
+}
