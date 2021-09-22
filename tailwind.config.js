@@ -15,6 +15,22 @@ module.exports = {
 				return m
 			}, {}),
 		},
+		padding: {
+			...[...Array(100)].reduce((m, _, i) => {
+				m[i] = `${i}px`
+				return m
+			}, {}),
+		},
+		margin: {
+			...[...Array(100)].reduce((m, _, i) => {
+				m[i] = `${i}px`
+				return m
+			}, {}),
+			...[...Array(100)].reduce((m, _, i) => {
+				m[`minus-${i}`] = `-${i}px`
+				return m
+			}, {}),
+		},
 	},
 	variants: {
 		extend: {},

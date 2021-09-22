@@ -8,9 +8,9 @@ type Props = {
 	additionalClasses?: string[]
 }
 
-const NeumorphismButton = ({unevenness, displayText, additionalClasses}: Props) => {
+const NeumorphismButton = ({unevenness, displayText, additionalClasses = ['']}: Props): JSX.Element => {
 	const unevennessClass = unevenness == 'dents' ? styles.dents : styles.bumps
-	const commonClasses = ['py-1', 'px-3', 'text-white', 'md:py-2', 'md:px-6', 'text-12', 'md:text-14']
+	const commonClasses = ['text-white', 'py-5', 'px-15', 'md:py-8', 'md:px-12', 'text-12', 'md:text-14']
 	const classes = [unevennessClass, ...commonClasses, ...CheckIfItExistsInStyles(additionalClasses, styles)]
 	return (
 		<button className={classes.join(' ')}>{displayText}</button>
