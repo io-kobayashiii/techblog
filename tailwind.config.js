@@ -1,6 +1,6 @@
 module.exports = {
-	// mode: 'jit',
-	// purge: [ './src/pages/**/*.{js,ts,tsx}', './src/components/**/*.{js,ts,tsx}' ],
+	mode: 'jit',
+	purge: [ './src/pages/**/*.{js,ts,tsx}', './src/components/**/*.{js,ts,tsx}' ],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {},
@@ -30,6 +30,12 @@ module.exports = {
 				m[`minus-${i}`] = `-${i}px`
 				return m
 			}, {}),
+			'auto': 'auto',
+		},
+		maxWidth: {
+			'560': '560px',
+			'768': '768px',
+			'1000': '1000px',
 		},
 	},
 	variants: {

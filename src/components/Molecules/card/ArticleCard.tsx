@@ -30,7 +30,7 @@ const ArticleCard = ({unevenness, data, additionalClasses = ['']}: Props): JSX.E
 							return <NeumorphismButton key={index} unevenness='dents' displayText={category} additionalClasses={['default', 'm-5']} />
 						}))}
 					</div>
-					<p className='text-12 text-white text-right mt-15'>{data.date}</p>
+					<p className='text-12 md:text-14 text-white text-right mt-15'>{data.date}</p>
 				</div>
 			</a>
 		</Link>

@@ -1,10 +1,11 @@
 import { fetchMicroCMS } from '../../libs/fetch'
 
-export default function BlogId({ article }) {
+export default function createArticle({ article }) {
 	return (
 		<main>
 			<h1>{ article.title }</h1>
 			<p>{ article.publishedAt }</p>
+			<div dangerouslySetInnerHTML={{ __html: `${article.body}` }}></div>
 		</main>
 	)
 }
