@@ -9,7 +9,9 @@ body {
 }
 
 body {
-  background-color: $primary-color;
+  // background-color: $primary-color;
+  background-color: #f1f1f1;
+  color: #3c3c3c;
 }
 
 a {
@@ -19,9 +21,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-.container {
-  max-width: 1000px;
-  padding: 15px;
 }
