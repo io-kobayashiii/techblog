@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from './Header.module.scss'
-import NeumorphismButton from '../atoms/button/NeumorphismButton'
+import NeumorphismButton from '../../atoms/button/NeumorphismButton'
 
 const Header = ({categories}): JSX.Element => {
 	const ref = useRef(true)
@@ -14,7 +14,11 @@ const Header = ({categories}): JSX.Element => {
 		}
 		document.getElementsByTagName('header')[0].classList.toggle(styles.isGnavSpOpen)
 	}, [isOpen])
-	console.log(categories)
+	if(process.browser) {
+		window.addEventListener('resize', () => {
+			if(window.innerWidth >= 768) document.getElementsByTagName('header')[0].classList.remove(styles.isGnavSpOpen)
+		})
+	}
 	return (
 		<>
 			<header className={`${styles.default} ${styles.header} w-full overflow-hidden`}>

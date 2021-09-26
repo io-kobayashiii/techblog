@@ -21,6 +21,8 @@
 		]
 	},
 	"dependencies": {
+		"@coreui/icons": "^2.0.1",
+		"@coreui/icons-react": "^1.1.0",
 		"@storybook/addon-a11y": "^6.3.8",
 		"@storybook/addon-actions": "^6.3.8",
 		"@storybook/addon-docs": "^6.3.8",

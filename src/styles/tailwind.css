@@ -595,6 +595,15 @@ video {
   display: none;
 }
 
+*, ::before, ::after {
+  --tw-border-opacity: 1;
+  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+}
+
+.static {
+  position: static;
+}
+
 .m-minus-5 {
   margin: -5px;
 }
@@ -608,12 +617,24 @@ video {
   margin-right: auto;
 }
 
+.mt-70 {
+  margin-top: 70px;
+}
+
 .mt-15 {
   margin-top: 15px;
 }
 
 .mb-15 {
   margin-bottom: 15px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
+.mt-30 {
+  margin-top: 30px;
 }
 
 .block {
@@ -628,16 +649,69 @@ video {
   display: contents;
 }
 
+.hidden {
+  display: none;
+}
+
+.w-full {
+  width: 100%;
+}
+
 .max-w-1000 {
   max-width: 1000px;
+}
+
+.resize {
+  resize: both;
 }
 
 .flex-wrap {
   flex-wrap: wrap;
 }
 
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rounded-12 {
+  border-radius: 12px;
+}
+
+.rounded-100vh {
+  border-radius: 100vh;
+}
+
+.rounded-6 {
+  border-radius: 6px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-gray-700 {
+  --tw-border-opacity: 1;
+  border-color: rgba(55, 65, 81, var(--tw-border-opacity));
+}
+
 .p-15 {
   padding: 15px;
+}
+
+.p-8 {
+  padding: 8px;
+}
+
+.p-16 {
+  padding: 16px;
 }
 
 .px-15 {
@@ -650,6 +724,14 @@ video {
   padding-bottom: 5px;
 }
 
+.pb-5 {
+  padding-bottom: 5px;
+}
+
+.pt-15 {
+  padding-top: 15px;
+}
+
 .text-right {
   text-align: right;
 }
@@ -658,17 +740,20 @@ video {
   font-size: 12px;
 }
 
+.text-32 {
+  font-size: 32px;
+}
+
 .text-16 {
   font-size: 16px;
 }
 
-.font-bold {
-  font-weight: 700;
+.text-24 {
+  font-size: 24px;
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
+.leading-0 {
+  line-height: 0px;
 }
 
 @media (min-width: 560px) {
@@ -678,6 +763,22 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:mt-120 {
+    margin-top: 120px;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:p-16 {
+    padding: 16px;
+  }
+
   .md\:py-8 {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -690,6 +791,14 @@ video {
 
   .md\:text-14 {
     font-size: 14px;
+  }
+
+  .md\:text-40 {
+    font-size: 40px;
+  }
+
+  .md\:text-24 {
+    font-size: 24px;
   }
 
   .md\:text-20 {

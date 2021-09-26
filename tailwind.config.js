@@ -1,6 +1,6 @@
 module.exports = {
 	mode: 'jit',
-	purge: [ './src/pages/**/*.{js,ts,tsx}', './src/components/**/*.{js,ts,tsx}' ],
+	purge: [ './src/pages/index.tsx', './src/pages/**/*.{js,ts,tsx}', './src/components/**/*.{js,ts,tsx}' ],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {},
@@ -8,6 +8,13 @@ module.exports = {
 			sm: '560px',
 			md: '768px',
 			lg: '1000px',
+		},
+		borderRadius: {
+			...[...Array(32)].reduce((m, _, i) => {
+				m[i] = `${i}px`
+				return m
+			}, {}),
+			'100vh': '100vh',
 		},
 		fontSize: {
 			...[...Array(100)].reduce((m, _, i) => {
@@ -22,7 +29,7 @@ module.exports = {
 			}, {}),
 		},
 		margin: {
-			...[...Array(100)].reduce((m, _, i) => {
+			...[...Array(200)].reduce((m, _, i) => {
 				m[i] = `${i}px`
 				return m
 			}, {}),
@@ -37,6 +44,18 @@ module.exports = {
 			'768': '768px',
 			'1000': '1000px',
 		},
+		height: {
+			...[...Array(1000)].reduce((m, _, i) => {
+				m[i] = `${i}px`
+				return m
+			}, {}),
+		},
+		lineHeight: {
+			...[...Array(100)].reduce((m, _, i) => {
+				m[i] = `${i}px`
+				return m
+			}, {}),
+		},		
 	},
 	variants: {
 		extend: {},
