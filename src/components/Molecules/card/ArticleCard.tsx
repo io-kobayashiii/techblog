@@ -18,7 +18,7 @@ type Props = {
 
 const ArticleCard = ({unevenness, data, additionalClasses = ['']}: Props): JSX.Element => {
 	const unevennessClass = unevenness == 'dents' ? styles.dents : styles.bumps
-	const commonClasses = ['p-15']
+	const commonClasses = ['p-15', 'rounded-12']
 	const classes = [unevennessClass, ...commonClasses, ...CheckIfItExistsInStyles(additionalClasses, styles)]
 	return (
 		<Link href={data.href} >
@@ -27,10 +27,10 @@ const ArticleCard = ({unevenness, data, additionalClasses = ['']}: Props): JSX.E
 					<ArticleCardTitle displayText={data.title} additionalClasses={['mb-15']} />
 					<div className='flex flex-wrap m-minus-5'>
 						{!!data.categories && (data.categories.map((category, index) => {
-							return <NeumorphismButton key={index} unevenness='dents' displayText={category} additionalClasses={['default', 'm-5']} />
+							return <NeumorphismButton key={index} unevenness='dents' displayText={category} additionalClasses={['default', 'm-5', 'rounded-100vh', 'py-5', 'px-15', 'md:py-8', 'md:px-12', 'text-12', 'md:text-14']} />
 						}))}
 					</div>
-					<p className='text-12 md:text-14 text-white text-right mt-15'>{data.date}</p>
+					<p className='text-12 md:text-14 text-right mt-15'>{data.date}</p>
 				</div>
 			</a>
 		</Link>
