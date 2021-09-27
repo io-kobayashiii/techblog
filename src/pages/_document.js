@@ -1,7 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import Header from '../components/Organisms/header/Header'
-import { fetchMicroCMS } from '../libs/fetch'
-
 
 class CustomDocument extends Document {
 	render() {

@@ -1,7 +1,6 @@
 import { fetchMicroCMS } from '../libs/fetch'
-import TopLayout from '../components/templates/TopLayout'
-import ArticleCard from '../components/Molecules/card/ArticleCard'
-import Header from '../components/Organisms/header/Header'
+import ArticleCard from '../components/molecules/card/ArticleCard'
+import Header from '../components/organisms/header/Header'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
@@ -10,7 +9,7 @@ export default function Home({ articles, categories }) {
 	dayjs.extend(utc)
 	dayjs.extend(timezone)
 	return (
-		<TopLayout>
+		<>
 			<Header categories={categories.map(category => category.name)} />
 			<main className='mt-70 md:mt-120'>
 				<div className='px-15 max-w-1000 mx-auto'>
@@ -38,7 +37,7 @@ export default function Home({ articles, categories }) {
 					</ul>
 				</div>
 			</main>
-		</TopLayout>
+		</>
 	)
 }
 
