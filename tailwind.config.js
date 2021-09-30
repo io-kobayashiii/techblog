@@ -23,17 +23,17 @@ module.exports = {
 			}, {}),
 		},
 		padding: {
-			...[...Array(100)].reduce((m, _, i) => {
+			...[...Array(201)].reduce((m, _, i) => {
 				m[i] = `${i}px`
 				return m
 			}, {}),
 		},
 		margin: {
-			...[...Array(200)].reduce((m, _, i) => {
+			...[...Array(201)].reduce((m, _, i) => {
 				m[i] = `${i}px`
 				return m
 			}, {}),
-			...[...Array(100)].reduce((m, _, i) => {
+			...[...Array(201)].reduce((m, _, i) => {
 				m[`minus-${i}`] = `-${i}px`
 				return m
 			}, {}),
@@ -43,6 +43,16 @@ module.exports = {
 			'560': '560px',
 			'768': '768px',
 			'1000': '1000px',
+		},
+		width: {
+			...[...Array(1001)].reduce((m, _, i) => {
+				m[i] = `${i}px`
+				return m
+			}, {}),
+			...[...Array(101)].reduce((m, _, i) => {
+				m[`${i}p`] = `${i}%`
+				return m
+			}, {}),
 		},
 		height: {
 			...[...Array(1000)].reduce((m, _, i) => {

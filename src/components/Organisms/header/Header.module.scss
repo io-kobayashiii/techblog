@@ -3,9 +3,8 @@
 }
 .default {
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5),  0 -2px 2px 0 rgba(255, 255, 255, 0.5);
-	background-color: #f1f1f1;
 }
-.primary-color {
+.primaryColor {
 	box-shadow: 2px 2px 2px 0 rgba(6, 13, 19, 0.5) inset,  -2px -2px 2px 0 rgba(231, 231, 231, 0.5) inset;
 }
 .header {
@@ -24,4 +23,7 @@
 		height: 100vh;
 		transition: height 0.5s ease;
 	}
+}
+.headerInner {
+	box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset,  -2px -2px 2px 0 rgba(255, 255, 255, 0.5) inset;
 }

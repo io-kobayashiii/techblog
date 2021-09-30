@@ -3,8 +3,8 @@ import { fetchMicroCMS } from '../../libs/fetch'
 export default function createArticle({ article }) {
 	return (
 		<main>
-			<h1>{ article.title }</h1>
-			<p>{ article.publishedAt }</p>
+			<h1>{article.title}</h1>
+			<p>{article.publishedAt}</p>
 			<div dangerouslySetInnerHTML={{ __html: `${article.body}` }}></div>
 		</main>
 	)
@@ -13,11 +13,11 @@ export default function createArticle({ article }) {
 export const getStaticPaths = async () => {
 	const fetchArticles = await fetchMicroCMS(['articles'])
 	const data = await fetchArticles.json()
-	const paths = data.contents.map(content => `/articles/${content.id}`)
+	const paths = data.contents.map((content) => `/articles/${content.id}`)
 	return { paths, fallback: false }
 }
 
-export const getStaticProps = async context => {
+export const getStaticProps = async (context) => {
 	const fetchArticles = await fetchMicroCMS(['articles', context.params.id])
 	const data = await fetchArticles.json()
 	return {
