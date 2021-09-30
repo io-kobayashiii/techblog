@@ -2,7 +2,7 @@
 	&.default {
 		box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset,  -2px -2px 2px 0 rgba(255, 255, 255, 0.5) inset;
 	}
-	&.primary-color {
+	&.primaryColor {
 		box-shadow: 2px 2px 2px 0 rgba(6, 13, 19, 0.5) inset,  -2px -2px 2px 0 rgba(231, 231, 231, 0.5) inset;
 	}
 	&:hover {
@@ -15,7 +15,7 @@
 	&.default {
 		box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5),  -2px -2px 2px 0 rgba(255, 255, 255, 0.5);
 	}
-	&.primary-color {
+	&.primaryColor {
 		box-shadow: 2px 2px 2px 0 rgba(4, 9, 14, 0.5),  -2px -2px 2px 0 rgba(36, 81, 129, 0.5);
 	}
 }
