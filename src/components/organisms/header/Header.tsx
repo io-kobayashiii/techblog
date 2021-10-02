@@ -30,7 +30,7 @@ const Header = ({ categories }): JSX.Element => {
 			<header
 				className={`${styles.default} ${styles.header} w-100p overflow-hidden bg-white`}
 			>
-				<div className="flex justify-between items-center max-w-1000 mx-auto px-15 w-100p">
+				<div className="flex justify-between items-center max-w-1000 mx-auto px-15 md:px-30 w-100p">
 					<Link href="/">
 						<a>
 							<p className={`text-32 md:text-40 ${styles.logo}`}>

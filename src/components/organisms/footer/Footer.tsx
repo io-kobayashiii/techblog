@@ -7,7 +7,7 @@ const Footer = ({ categories }): JSX.Element => {
 	return (
 		<>
 			<footer className={`${styles.default} py-30 md:py-50 bg-white`}>
-				<div className="max-w-1000 mx-auto px-15">
+				<div className="max-w-1000 mx-auto px-15 md:px-30">
 					<div className="hidden md:block">
 						<div
 							className={`${styles.footerInner} p-15 md:p-30 rounded-12 bg-gray-100`}
