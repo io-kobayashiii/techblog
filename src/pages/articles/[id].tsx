@@ -6,7 +6,7 @@ import NeumorphismButton from '../../components/atoms/button/NeumorphismButton'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
-import styles from './articles.module.scss'
+import styles from '../../styles/articles.module.scss'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/stackoverflow-dark.css'
 
