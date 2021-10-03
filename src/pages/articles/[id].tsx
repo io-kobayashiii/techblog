@@ -6,7 +6,7 @@ import NeumorphismButton from '../../components/atoms/button/NeumorphismButton'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
-import styles from '../../styles/articles.module.scss'
+import styles from '../../styles/pages/articles/articles.module.scss'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/stackoverflow-dark.css'
 
@@ -14,12 +14,6 @@ export default function CreateArticle({ article, categories }) {
 	dayjs.extend(utc)
 	dayjs.extend(timezone)
 	useEffect(() => {
-		const blockquoteElems = document.getElementsByTagName('blockquote')
-		if(blockquoteElems.length > 0) {
-			Array.prototype.forEach.call(blockquoteElems, elem => {
-				elem.insertAdjacentHTML('afterbegin', `<div class="${styles.blockquoteBorder}"></div>`)
-			})
-		}
 		const preElems = document.querySelectorAll('pre')
 		if(preElems.length > 0) {
 			Array.prototype.forEach.call(preElems, preElem => {
@@ -39,8 +33,8 @@ export default function CreateArticle({ article, categories }) {
 			<main className="pt-70 md:pt-180 pb-50 md:pb-80 bg-gray-100">
 				<article className="px-15 md:px-30 max-w-1000 mx-auto">
 					<p className='text-18'>{dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD')}</p>
-					<h1 className='text-24 mt-25'>{article.title}</h1>
-					<div className="flex flex-wrap m-minus-5 mt-20">
+					<h1 className={`${styles.heading} mt-22`}>{article.title}</h1>
+					<div className="flex flex-wrap m-minus-5 mt-25">
 						{!!categories &&
 							categories.map((category, index) => {
 								return (
@@ -59,6 +53,7 @@ export default function CreateArticle({ article, categories }) {
 											'text-12',
 											'md:text-14',
 											'bg-gray-100',
+											'pointer-events-none',
 										]}
 									/>
 								)
@@ -66,7 +61,7 @@ export default function CreateArticle({ article, categories }) {
 						}
 					</div>
 					<div
-						className={`${styles.articles} mt-30 pt-60 border-t-2 border-gray-200 text-16`}
+						className={`${styles.articles} mt-80 border-t-2 border-gray-200 text-16`}
 						dangerouslySetInnerHTML={{ __html: article.body }}
 					/>
 				</article>
