@@ -116,7 +116,7 @@ const Header = ({ categories }): JSX.Element => {
 					<div
 						className={`${styles.headerInner} p-15 rounded-12 bg-gray-100`}
 					>
-						<p className="text-16 text-bold pb-5 border-b border-gray-700">
+						<p className="text-16 text-bold pb-5 border-b-2 border-gray-200">
 							Categories
 						</p>
 						<ul className="flex flex-wrap m-minus-5 pt-15">
@@ -124,13 +124,13 @@ const Header = ({ categories }): JSX.Element => {
 								return (
 									<Link
 										key={index}
-										href={`/category/${category}`}
+										href={`/categories/${category.slug}`}
 									>
 										<a>
 											<li>
 												<NeumorphismButton
 													unevenness={'bumps'}
-													displayText={category}
+													displayText={category.name}
 													additionalClasses={[
 														'default',
 														'rounded-100vh',
@@ -153,7 +153,7 @@ const Header = ({ categories }): JSX.Element => {
 					<div
 						className={`${styles.headerInner} p-15 rounded-12 bg-gray-100`}
 					>
-						<p className="text-16 text-bold pb-5 border-b border-gray-700">
+						<p className="text-16 text-bold pb-5 border-b-2 border-gray-200">
 							Profile
 						</p>
 

@@ -20,13 +20,13 @@ const Footer = ({ categories }): JSX.Element => {
 									return (
 										<Link
 											key={index}
-											href={`/category/${category}`}
+											href={`/categories/${category.slug}`}
 										>
 											<a>
 												<li>
 													<NeumorphismButton
 														unevenness={'bumps'}
-														displayText={category}
+														displayText={category.name}
 														additionalClasses={[
 															'default',
 															'rounded-100vh',

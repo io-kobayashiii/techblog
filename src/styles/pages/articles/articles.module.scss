@@ -1,14 +1,19 @@
 .heading {
-	font-size: 28px;
 	font-weight: 700;
 }
 .articles {
 	h2 {
 		position: relative;
-		font-size: 24px;
+		font-size: 20px;
 		font-weight: 700;
 		padding: 1.5em 0;
 		margin: 1.5em 0;
+		@media screen and (min-width: 560px) {
+			font-size: 22px;
+		}
+		@media screen and (min-width: 768px) {
+			font-size: 24px;
+		}
 		&::after {
 			content: '';
 			position: absolute;
@@ -21,10 +26,16 @@
 	}
 	h3 {
 		position: relative;
-		font-size: 20px;
+		font-size: 16px;
 		font-weight: 700;
 		padding: 1em 0;
 		margin: 1em 0;
+		@media screen and (min-width: 560px) {
+			font-size: 18px;
+		}
+		@media screen and (min-width: 768px) {
+			font-size: 20px;
+		}
 		&::after {
 			content: '';
 			position: absolute;
@@ -37,10 +48,16 @@
 	}
 	h4 {
 		position: relative;
-		font-size: 18px;
+		font-size: 14px;
 		font-weight: 700;
 		padding: 1em 0;
 		margin: 1em 0;
+		@media screen and (min-width: 560px) {
+			font-size: 16px;
+		}
+		@media screen and (min-width: 768px) {
+			font-size: 18px;
+		}
 		&::after {
 			content: '';
 			position: absolute;
@@ -52,23 +69,42 @@
 		}
 	}
 	p {
-		font-size: 16px;
+		font-size: 14px;
 		line-height: 2em;
+		@media screen and (min-width: 560px) {
+			font-size: 16px;
+		}
 		code {
 			padding: 4px 8px;
 			margin: 0 5px;
 			color: rgb(236, 0, 0);
 			border-radius: 4px;
 			box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset,  -2px -2px 2px 0 rgba(255, 255, 255, 1) inset;
+			font-size: 12px;
+			@media screen and (min-width: 560px) {
+				font-size: 13px;
+			}
+			@media screen and (min-width: 768px) {
+				font-size: 14px;
+			}
 		}
 	}
 	pre {
 		margin: 1em 0;
 		position: relative;
 		code {
-			padding: 4em 2em 2em !important;
+			padding: 5em 2em 2em !important;
 			border-radius: 12px;
 			box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 1) inset,  -2px -2px 2px 0 rgba(255, 255, 255, 1) inset;
+			font-size: 12px;
+			@media screen and (min-width: 560px) {
+				padding: 4.5em 2em 2em !important;
+				font-size: 13px;
+			}
+			@media screen and (min-width: 768px) {
+				padding: 4em 2em 2em !important;
+				font-size: 14px;
+			}
 		}
 	}
 	blockquote {
@@ -77,6 +113,10 @@
 		padding-left: 1em;
 		border-left: 4px solid #E5E7EB;
 		color: #9CA3AF;
+		font-size: 14px;
+		@media screen and (min-width: 560px) {
+			font-size: 16px;
+		}
 	}
 }
 .preCodeLanguage::before {

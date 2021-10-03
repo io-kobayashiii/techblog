@@ -29,12 +29,12 @@ export default function CreateArticle({ article, categories }) {
 	}, [])
 	return (
 		<>
-			<Header categories={categories.map((category) => category.name)} />
+			<Header categories={categories} />
 			<main className="pt-70 md:pt-180 pb-50 md:pb-80 bg-gray-100">
 				<article className="px-15 md:px-30 max-w-1000 mx-auto">
-					<p className='text-18'>{dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD')}</p>
-					<h1 className={`${styles.heading} mt-22`}>{article.title}</h1>
-					<div className="flex flex-wrap m-minus-5 mt-25">
+					<p className='text-14 md:text-18'>{dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD')}</p>
+					<h1 className={`${styles.heading} text-20 sm:text-24 md:text-28 mt-16 md:mt-22`}>{article.title}</h1>
+					<div className="flex flex-wrap m-minus-5 mt-15 md:mt-25">
 						{!!categories &&
 							categories.map((category, index) => {
 								return (
@@ -61,12 +61,12 @@ export default function CreateArticle({ article, categories }) {
 						}
 					</div>
 					<div
-						className={`${styles.articles} mt-80 border-t-2 border-gray-200 text-16`}
+						className={`${styles.articles} mt-40 sm:mt-60 md:mt-80 border-t-2 border-gray-200 text-16`}
 						dangerouslySetInnerHTML={{ __html: article.body }}
 					/>
 				</article>
 			</main>
-			<Footer categories={categories.map((category) => category.name)} />
+			<Footer categories={categories} />
 		</>
 	)
 }
