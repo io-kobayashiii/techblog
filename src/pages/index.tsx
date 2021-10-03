@@ -13,7 +13,7 @@ export default function Home({ articles, categories }) {
 		<>
 			<Header categories={categories.map((category) => category.name)} />
 			<main className="pt-70 md:pt-180 pb-50 md:pb-80 bg-gray-100">
-				<div className="px-15 max-w-1000 mx-auto">
+				<div className="px-15 md:px-30 max-w-1000 mx-auto">
 					<ul className="md:flex md:flex-wrap md:justify-between">
 						{articles.map((article, index) => (
 							<li
