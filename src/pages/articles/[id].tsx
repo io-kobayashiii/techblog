@@ -22,7 +22,7 @@ export default function CreateArticle({ article, categories }) {
 				const splittedElemInner = codeElem.innerHTML.split('_____')
 				codeElem.className = `hljs ${splittedElemInner[0]}`
 				codeElem.innerHTML = splittedElemInner[1]
-				preElem.setAttribute('data-langage', splittedElemInner[0])
+				preElem.setAttribute('data-language', splittedElemInner[0])
 			})
 			hljs.highlightAll()
 		}
