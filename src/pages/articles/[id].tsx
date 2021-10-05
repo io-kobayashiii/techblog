@@ -40,7 +40,8 @@ export default function CreateArticle({ article, categories }) {
 								return (
 									<NeumorphismButton
 										key={index}
-										unevenness="dents"
+										unevenness={'dents'}
+										color={'default'}
 										displayText={category.name}
 										additionalClasses={[
 											'default',

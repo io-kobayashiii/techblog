@@ -1,22 +1,24 @@
 import * as React from 'react'
-import styles from './NeumorphismButton.module.scss'
+import styles from './NeumorphismButton.module.css'
 import { CheckIfItExistsInStyles } from '../../../libs/CheckIfItExistsInStyles'
 
 type Props = {
 	unevenness: 'dents' | 'bumps'
+	color: 'default' | 'primary'
 	displayText: string
 	additionalClasses?: string[]
 }
 
 const NeumorphismButton = ({
 	unevenness,
+	color,
 	displayText,
 	additionalClasses = [''],
 }: Props): JSX.Element => {
-	const unevennessClass = unevenness == 'dents' ? styles.dents : styles.bumps
+	const styleClass = styles[`${unevenness}_${color}`]
 	const commonClasses = ['']
 	const classes = [
-		unevennessClass,
+		styleClass,
 		...commonClasses,
 		...CheckIfItExistsInStyles(additionalClasses, styles),
 	]

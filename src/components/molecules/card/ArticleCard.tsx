@@ -42,7 +42,8 @@ const ArticleCard = ({
 								return (
 									<NeumorphismButton
 										key={index}
-										unevenness="dents"
+										unevenness='dents'
+										color='default'
 										displayText={category}
 										additionalClasses={[
 											'default',

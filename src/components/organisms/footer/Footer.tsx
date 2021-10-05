@@ -26,6 +26,7 @@ const Footer = ({ categories }): JSX.Element => {
 												<li>
 													<NeumorphismButton
 														unevenness={'bumps'}
+														color={'default'}
 														displayText={category.name}
 														additionalClasses={[
 															'default',
@@ -58,6 +59,7 @@ const Footer = ({ categories }): JSX.Element => {
 									<a target="_blank">
 										<NeumorphismButton
 											unevenness={'bumps'}
+											color={'default'}
 											displayText={`<i class='cib-twitter'></i>`}
 											additionalClasses={[
 												'default',
@@ -74,6 +76,7 @@ const Footer = ({ categories }): JSX.Element => {
 									<a target="_blank">
 										<NeumorphismButton
 											unevenness={'bumps'}
+											color={'default'}
 											displayText={`<i class='cib-qiita'></i>`}
 											additionalClasses={[
 												'default',
@@ -91,6 +94,7 @@ const Footer = ({ categories }): JSX.Element => {
 									<a target="_blank">
 										<NeumorphismButton
 											unevenness={'bumps'}
+											color={'default'}
 											displayText={`<i class="cib-github"></i>`}
 											additionalClasses={[
 												'default',
