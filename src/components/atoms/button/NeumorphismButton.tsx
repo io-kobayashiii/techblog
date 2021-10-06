@@ -4,18 +4,18 @@ import { CheckIfItExistsInStyles } from '../../../libs/CheckIfItExistsInStyles'
 
 type Props = {
 	unevenness: 'dents' | 'bumps'
-	color: 'default' | 'primary'
+	shadowColor: 'default' | 'primary'
 	displayText: string
 	additionalClasses?: string[]
 }
 
 const NeumorphismButton = ({
 	unevenness,
-	color,
+	shadowColor,
 	displayText,
 	additionalClasses = [''],
 }: Props): JSX.Element => {
-	const styleClass = styles[`${unevenness}_${color}`]
+	const styleClass = styles[`${unevenness}_${shadowColor}`]
 	const commonClasses = ['']
 	const classes = [
 		styleClass,

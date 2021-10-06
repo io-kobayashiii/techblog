@@ -7,7 +7,7 @@ const Footer = ({ categories }): JSX.Element => {
 	return (
 		<>
 			<footer className={`${styles.default} py-30 md:py-50 bg-white`}>
-				<div className="max-w-1000 mx-auto px-15 md:px-30">
+				<div className="max-w-lg mx-auto px-15 md:px-30">
 					<div className="hidden md:block">
 						<div
 							className={`${styles.footerInner} p-15 md:p-30 rounded-12 bg-gray-100`}
@@ -26,7 +26,7 @@ const Footer = ({ categories }): JSX.Element => {
 												<li>
 													<NeumorphismButton
 														unevenness={'bumps'}
-														color={'default'}
+														shadowColor={'default'}
 														displayText={category.name}
 														additionalClasses={[
 															'default',
@@ -59,7 +59,7 @@ const Footer = ({ categories }): JSX.Element => {
 									<a target="_blank">
 										<NeumorphismButton
 											unevenness={'bumps'}
-											color={'default'}
+											shadowColor={'default'}
 											displayText={`<i class='cib-twitter'></i>`}
 											additionalClasses={[
 												'default',
@@ -76,7 +76,7 @@ const Footer = ({ categories }): JSX.Element => {
 									<a target="_blank">
 										<NeumorphismButton
 											unevenness={'bumps'}
-											color={'default'}
+											shadowColor={'default'}
 											displayText={`<i class='cib-qiita'></i>`}
 											additionalClasses={[
 												'default',
@@ -94,7 +94,7 @@ const Footer = ({ categories }): JSX.Element => {
 									<a target="_blank">
 										<NeumorphismButton
 											unevenness={'bumps'}
-											color={'default'}
+											shadowColor={'default'}
 											displayText={`<i class="cib-github"></i>`}
 											additionalClasses={[
 												'default',

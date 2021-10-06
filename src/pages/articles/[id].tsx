@@ -31,7 +31,7 @@ export default function CreateArticle({ article, categories }) {
 		<>
 			<Header categories={categories} />
 			<main className="pt-70 md:pt-180 pb-50 md:pb-80 bg-gray-100">
-				<article className="px-15 md:px-30 max-w-1000 mx-auto">
+				<article className="px-15 md:px-30 max-w-lg mx-auto">
 					<p className='text-14 md:text-18'>{dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD')}</p>
 					<h1 className={`${styles.heading} text-20 sm:text-24 md:text-28 mt-16 md:mt-22`}>{article.title}</h1>
 					<div className="flex flex-wrap m-minus-5 mt-15 md:mt-25">
@@ -41,7 +41,7 @@ export default function CreateArticle({ article, categories }) {
 									<NeumorphismButton
 										key={index}
 										unevenness={'dents'}
-										color={'default'}
+										shadowColor={'default'}
 										displayText={category.name}
 										additionalClasses={[
 											'default',

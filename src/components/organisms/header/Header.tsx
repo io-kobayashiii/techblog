@@ -30,7 +30,7 @@ const Header = ({ categories }): JSX.Element => {
 			<header
 				className={`${styles.default} ${styles.header} w-100p overflow-hidden bg-white`}
 			>
-				<div className="flex justify-between items-center max-w-1000 mx-auto px-15 md:px-30 w-100p">
+				<div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p">
 					<Link href="/">
 						<a>
 							<p className={`text-32 md:text-40 ${styles.logo}`}>
@@ -44,7 +44,7 @@ const Header = ({ categories }): JSX.Element => {
 					>
 						<NeumorphismButton
 							unevenness={'bumps'}
-							color={'default'}
+							shadowColor={'default'}
 							displayText={`<i class='cil-hamburger-menu'></i>`}
 							additionalClasses={[
 								'default',
@@ -62,7 +62,7 @@ const Header = ({ categories }): JSX.Element => {
 							<a target="_blank">
 								<NeumorphismButton
 									unevenness={'bumps'}
-									color={'default'}
+									shadowColor={'default'}
 									displayText={`<i class='cib-twitter'></i>`}
 									additionalClasses={[
 										'default',
@@ -70,7 +70,7 @@ const Header = ({ categories }): JSX.Element => {
 										'leading-0',
 										'p-16',
 										'text-24',
-										'bg-[#00acee]',
+										'bg-product-twitter',
 										'text-white',
 									]}
 								/>
@@ -80,7 +80,7 @@ const Header = ({ categories }): JSX.Element => {
 							<a target="_blank">
 								<NeumorphismButton
 									unevenness={'bumps'}
-									color={'default'}
+									shadowColor={'default'}
 									displayText={`<i class='cib-qiita'></i>`}
 									additionalClasses={[
 										'default',
@@ -89,7 +89,7 @@ const Header = ({ categories }): JSX.Element => {
 										'ml-15',
 										'p-16',
 										'text-24',
-										'bg-[#59bb0c]',
+										'bg-product-qiita',
 										'text-white',
 									]}
 								/>
@@ -99,7 +99,7 @@ const Header = ({ categories }): JSX.Element => {
 							<a target="_blank">
 								<NeumorphismButton
 									unevenness={'bumps'}
-									color={'default'}
+									shadowColor={'default'}
 									displayText={`<i class="cib-github"></i>`}
 									additionalClasses={[
 										'default',
@@ -108,7 +108,7 @@ const Header = ({ categories }): JSX.Element => {
 										'ml-15',
 										'p-16',
 										'text-24',
-										'bg-[#171515]',
+										'bg-product-github',
 										'text-white',
 									]}
 								/>
@@ -134,7 +134,7 @@ const Header = ({ categories }): JSX.Element => {
 											<li>
 												<NeumorphismButton
 													unevenness={'bumps'}
-													color={'default'}
+													shadowColor={'default'}
 													displayText={category.name}
 													additionalClasses={[
 														'default',
@@ -167,7 +167,7 @@ const Header = ({ categories }): JSX.Element => {
 								<a target="_blank">
 									<NeumorphismButton
 										unevenness={'bumps'}
-										color={'default'}
+										shadowColor={'default'}
 										displayText={`<i class='cib-twitter'></i>`}
 										additionalClasses={[
 											'default',
@@ -184,7 +184,7 @@ const Header = ({ categories }): JSX.Element => {
 								<a target="_blank">
 									<NeumorphismButton
 										unevenness={'bumps'}
-										color={'default'}
+										shadowColor={'default'}
 										displayText={`<i class='cib-qiita'></i>`}
 										additionalClasses={[
 											'default',
@@ -202,7 +202,7 @@ const Header = ({ categories }): JSX.Element => {
 								<a target="_blank">
 									<NeumorphismButton
 										unevenness={'bumps'}
-										color={'default'}
+										shadowColor={'default'}
 										displayText={`<i class="cib-github"></i>`}
 										additionalClasses={[
 											'default',
