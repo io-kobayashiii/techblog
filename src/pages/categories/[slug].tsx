@@ -16,7 +16,7 @@ export default function CreateCategoryPage({ articles, categories, slug }) {
 		<>
 			<Header categories={categories} />
 			<main className="pt-80 md:pt-160 pb-50 md:pb-80 bg-gray-100">
-				<div className="px-15 md:px-30 max-w-1000 mx-auto">
+				<div className="px-15 md:px-30 max-w-lg mx-auto">
 					<h1 className={`${styles.heading} text-24 sm:text-28 md:text-32`}>Category: {slug}</h1>
 					<ul className="mt-30 md:mt-50 md:flex md:flex-wrap md:justify-between">
 						{articles.map((article, index) => (
