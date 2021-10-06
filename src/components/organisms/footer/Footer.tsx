@@ -12,7 +12,9 @@ const Footer = ({ categories }): JSX.Element => {
 						<div
 							className={`${styles.footerInner} p-15 md:p-30 rounded-12 bg-gray-100`}
 						>
-							<p className={`text-16 text-bold pb-10 border-b-2 border-gray-200`}>
+							<p
+								className={`text-16 text-bold pb-10 border-b-2 border-gray-200`}
+							>
 								Categories
 							</p>
 							<ul className="flex flex-wrap m-minus-5 pt-15">
@@ -27,7 +29,9 @@ const Footer = ({ categories }): JSX.Element => {
 													<NeumorphismButton
 														unevenness={'bumps'}
 														shadowColor={'default'}
-														displayText={category.name}
+														displayText={
+															category.name
+														}
 														additionalClasses={[
 															'default',
 															'rounded-100vh',
