@@ -18,6 +18,12 @@ const Header = ({ categories }): JSX.Element => {
 		document.getElementsByTagName('body')[0].classList.toggle('is-fixed')
 	}, [isOpen])
 	if (process.browser) {
+		document
+			.getElementById('list--category')
+			.querySelectorAll('a')
+			.forEach((elem) =>
+				elem.addEventListener('click', () => setIsOpen(false))
+			)
 		window.addEventListener('resize', () => {
 			if (window.innerWidth >= 768)
 				document
@@ -123,7 +129,10 @@ const Header = ({ categories }): JSX.Element => {
 						<p className="text-16 text-bold pb-5 border-b-2 border-gray-200">
 							Categories
 						</p>
-						<ul className="flex flex-wrap m-minus-5 pt-15">
+						<ul
+							id="list--category"
+							className="flex flex-wrap m-minus-5 pt-15"
+						>
 							{categories.map((category, index) => {
 								return (
 									<Link

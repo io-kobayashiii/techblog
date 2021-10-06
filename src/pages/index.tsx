@@ -26,6 +26,7 @@ export default function Home({ articles, categories }) {
 							>
 								<ArticleCard
 									unevenness="bumps"
+									shadowColor="default"
 									data={{
 										title: article.title,
 										date: dayjs

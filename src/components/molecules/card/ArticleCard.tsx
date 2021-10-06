@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styles from './ArticleCard.module.scss'
+import styles from './ArticleCard.module.css'
 import { CheckIfItExistsInStyles } from '../../../libs/CheckIfItExistsInStyles'
 import Link from 'next/link'
 import ArticleCardTitle from '../../atoms/text/ArticleCardTitle'
@@ -7,6 +7,7 @@ import NeumorphismButton from '../../atoms/button/NeumorphismButton'
 
 type Props = {
 	unevenness: 'dents' | 'bumps'
+	shadowColor: 'default' | 'primary'
 	data: {
 		title: string
 		date: string
@@ -18,13 +19,14 @@ type Props = {
 
 const ArticleCard = ({
 	unevenness,
+	shadowColor,
 	data,
 	additionalClasses = [''],
 }: Props): JSX.Element => {
-	const unevennessClass = unevenness == 'dents' ? styles.dents : styles.bumps
+	const styleClass = styles[`${unevenness}_${shadowColor}`]
 	const commonClasses = ['p-15', 'md:p-30', 'rounded-12']
 	const classes = [
-		unevennessClass,
+		styleClass,
 		...commonClasses,
 		...CheckIfItExistsInStyles(additionalClasses, styles),
 	]
@@ -42,8 +44,8 @@ const ArticleCard = ({
 								return (
 									<NeumorphismButton
 										key={index}
-										unevenness='dents'
-										shadowColor='default'
+										unevenness="dents"
+										shadowColor="default"
 										displayText={category}
 										additionalClasses={[
 											'default',
