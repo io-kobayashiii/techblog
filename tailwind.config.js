@@ -3,7 +3,20 @@ module.exports = {
 	purge: [ './src/pages/index.tsx', './src/pages/**/*.{js,ts,tsx}', './src/components/**/*.{js,ts,tsx}' ],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				product: {
+					qiita: '#59bb0c',
+					twitter: '#00acee',
+					github: '#171515',
+				},
+			},
+			maxWidth: {
+				sm: '560px',
+				md: '768px',
+				lg: '1000px',
+			},
+		},
 		screens: {
 			sm: '560px',
 			md: '768px',
@@ -38,11 +51,6 @@ module.exports = {
 				return m
 			}, {}),
 			'auto': 'auto',
-		},
-		maxWidth: {
-			'560': '560px',
-			'768': '768px',
-			'1000': '1000px',
 		},
 		width: {
 			...[...Array(1001)].reduce((m, _, i) => {

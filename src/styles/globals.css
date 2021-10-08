@@ -1,4 +1,6 @@
-$primary-color: #00294d;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 html,
 body {

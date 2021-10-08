@@ -1,57 +1,63 @@
 {
-	"name": "techblog",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev --port 3100",
-		"build": "next build",
-		"start": "next start",
-		"tailwind": "tailwind build src/styles/tailwind-import.css -o src/styles/tailwind.css",
-		"lint": "next lint",
-		"format": "prettier --write src/**/*.{js,json,ts,tsx}"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"*.{js,ts,tsx}": [
-			"eslint --fix"
-		]
-	},
-	"dependencies": {
-		"@coreui/icons": "^2.0.1",
-		"@coreui/icons-react": "^1.1.0",
-		"@storybook/addon-a11y": "^6.3.8",
-		"@storybook/addon-actions": "^6.3.8",
-		"@storybook/addon-docs": "^6.3.8",
-		"@storybook/addon-knobs": "^6.3.1",
-		"@storybook/addon-links": "^6.3.8",
-		"@storybook/addon-storyshots": "^6.3.8",
-		"@storybook/addons": "^6.3.8",
-		"@storybook/react": "^6.3.8",
-		"@types/react": "^17.0.16",
-		"dayjs": "^1.10.7",
-		"highlight.js": "^11.2.0",
-		"next": "11.0.1",
-		"react": "17.0.2",
-		"react-dom": "17.0.2",
-		"sass": "^1.35.2",
-		"typescript": "^4.3.5"
-	},
-	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^4.31.1",
-		"@typescript-eslint/parser": "^4.31.1",
-		"autoprefixer": "^10.3.4",
-		"cross-env": "^7.0.3",
-		"eslint": "7.31.0",
-		"eslint-config-next": "11.0.1",
-		"eslint-config-prettier": "^8.3.0",
-		"husky": "^7.0.2",
-		"lint-staged": "^11.1.2",
-		"postcss": "^8.3.6",
-		"prettier": "^2.4.0",
-		"tailwindcss": "^2.2.15"
-	}
+  "name": "techblog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3100",
+    "build": "next build",
+    "start": "next start",
+    "tailwind": "tailwind build src/styles/globals.css -o src/styles/tailwind.css",
+    "lint": "next lint",
+    "format": "prettier --write src/**/*.{js,json,ts,tsx}",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@coreui/icons": "^2.0.1",
+    "@coreui/icons-react": "^1.1.0",
+    "@storybook/addon-a11y": "^6.3.8",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-docs": "^6.3.8",
+    "@storybook/addon-knobs": "^6.3.1",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/addon-storyshots": "^6.3.8",
+    "@storybook/addons": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "@types/react": "^17.0.16",
+    "dayjs": "^1.10.7",
+    "highlight.js": "^11.2.0",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.35.2",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@storybook/addon-essentials": "^6.3.9",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "autoprefixer": "^10.3.4",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "eslint": "7.31.0",
+    "eslint-config-next": "11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.3.6",
+    "prettier": "^2.4.0",
+    "storybook-css-modules-preset": "^1.1.1",
+    "tailwindcss": "^2.2.15"
+  }
 }
