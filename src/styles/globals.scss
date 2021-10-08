@@ -2,28 +2,25 @@ $primary-color: #00294d;
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-size: 10px;
-  font-family: 'Noto Sans JP', sans-serif;
+	padding: 0;
+	margin: 0;
+	font-size: 10px;
 }
 
 body {
-  // background-color: $primary-color;
-  // background-color: #ebebeb;
-  font-family: 'Noto Sans JP', sans-serif;
-  color: #3c3c3c;
+	font-family: 'M PLUS 1p', sans-serif;
+	color: #3c3c3c;
 }
 
 body.is-fixed {
-  position: fixed;
+	position: fixed;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
