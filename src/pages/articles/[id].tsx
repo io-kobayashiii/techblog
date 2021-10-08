@@ -19,7 +19,7 @@ export default function CreateArticle({ article, categories }) {
 			Array.prototype.forEach.call(preElems, (preElem) => {
 				preElem.classList.add(styles.preCodeLanguage)
 				const codeElem = preElem.querySelector('code')
-				const splittedElemInner = codeElem.innerHTML.split('_____')
+				const splittedElemInner = codeElem.innerHTML.match(/_____/) ? codeElem.innerHTML.split('_____') : codeElem.innerHTML
 				codeElem.className = `hljs ${splittedElemInner[0]}`
 				codeElem.innerHTML = splittedElemInner[1]
 				preElem.setAttribute('data-language', splittedElemInner[0])

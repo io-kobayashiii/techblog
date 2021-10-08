@@ -15,7 +15,7 @@ const Header = ({ categories }): JSX.Element => {
 		document
 			.getElementsByTagName('header')[0]
 			.classList.toggle(styles.isGnavSpOpen)
-		document.getElementsByTagName('body')[0].classList.toggle('is-fixed')
+		document.getElementsByTagName('body')[0].classList.toggle('overflow-hidden')
 	}, [isOpen])
 	if (process.browser) {
 		document
@@ -39,7 +39,7 @@ const Header = ({ categories }): JSX.Element => {
 				<div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p">
 					<Link href="/">
 						<a>
-							<p className={`text-32 md:text-40 ${styles.logo}`}>
+							<p className={`text-32 md:text-40 ${styles.logo}`} onClick={() => setIsOpen(false)}>
 								For
 							</p>
 						</a>
