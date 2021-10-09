@@ -11,9 +11,9 @@ export default function Home({ articles, categories }) {
 	dayjs.extend(timezone)
 	return (
 		<>
-			<Header categories={categories.map((category) => category.name)} />
+			<Header categories={categories} />
 			<main className="pt-70 md:pt-180 pb-50 md:pb-80 bg-gray-100">
-				<div className="px-15 max-w-1000 mx-auto">
+				<div className="px-15 md:px-30 max-w-lg mx-auto">
 					<ul className="md:flex md:flex-wrap md:justify-between">
 						{articles.map((article, index) => (
 							<li
@@ -26,6 +26,7 @@ export default function Home({ articles, categories }) {
 							>
 								<ArticleCard
 									unevenness="bumps"
+									shadowColor="default"
 									data={{
 										title: article.title,
 										date: dayjs
@@ -44,7 +45,7 @@ export default function Home({ articles, categories }) {
 					</ul>
 				</div>
 			</main>
-			<Footer categories={categories.map((category) => category.name)} />
+			<Footer categories={categories} />
 		</>
 	)
 }

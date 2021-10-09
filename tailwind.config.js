@@ -1,9 +1,26 @@
 module.exports = {
 	mode: 'jit',
-	purge: [ './src/pages/index.tsx', './src/pages/**/*.{js,ts,tsx}', './src/components/**/*.{js,ts,tsx}' ],
+	purge: [
+		'./src/pages/index.tsx',
+		'./src/pages/**/*.{js,ts,tsx}',
+		'./src/components/**/*.{js,ts,tsx}',
+	],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				product: {
+					qiita: '#59bb0c',
+					twitter: '#00acee',
+					github: '#171515',
+				},
+			},
+			maxWidth: {
+				sm: '560px',
+				md: '768px',
+				lg: '1000px',
+			},
+		},
 		screens: {
 			sm: '560px',
 			md: '768px',
@@ -27,6 +44,10 @@ module.exports = {
 				m[i] = `${i}px`
 				return m
 			}, {}),
+			...[...Array(5)].reduce((m, _, i) => {
+				m[i] = `${i}em`
+				return m
+			}, {}),
 		},
 		margin: {
 			...[...Array(201)].reduce((m, _, i) => {
@@ -37,12 +58,7 @@ module.exports = {
 				m[`minus-${i}`] = `-${i}px`
 				return m
 			}, {}),
-			'auto': 'auto',
-		},
-		maxWidth: {
-			'560': '560px',
-			'768': '768px',
-			'1000': '1000px',
+			auto: 'auto',
 		},
 		width: {
 			...[...Array(1001)].reduce((m, _, i) => {
@@ -65,7 +81,7 @@ module.exports = {
 				m[i] = `${i}px`
 				return m
 			}, {}),
-		},		
+		},
 	},
 	variants: {
 		extend: {},

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import styles from './ArticleCardTitle.module.css'
 
 type Props = {
 	displayText: string
@@ -9,7 +10,12 @@ const ArticleCardTitle = ({
 	displayText,
 	additionalClasses = [''],
 }: Props): JSX.Element => {
-	const commonClasses = ['text-16', 'sm:text-18', 'lg:text-20']
+	const commonClasses = [
+		styles.heading,
+		'text-16',
+		'sm:text-18',
+		'lg:text-20',
+	]
 	const classes = [...commonClasses, ...additionalClasses]
 	return <h3 className={classes.join(' ')}>{displayText}</h3>
 }
