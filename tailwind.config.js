@@ -1,6 +1,10 @@
 module.exports = {
 	mode: 'jit',
-	purge: [ './src/pages/index.tsx', './src/pages/**/*.{js,ts,tsx}', './src/components/**/*.{js,ts,tsx}' ],
+	purge: [
+		'./src/pages/index.tsx',
+		'./src/pages/**/*.{js,ts,tsx}',
+		'./src/components/**/*.{js,ts,tsx}',
+	],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {
@@ -40,6 +44,10 @@ module.exports = {
 				m[i] = `${i}px`
 				return m
 			}, {}),
+			...[...Array(5)].reduce((m, _, i) => {
+				m[i] = `${i}em`
+				return m
+			}, {}),
 		},
 		margin: {
 			...[...Array(201)].reduce((m, _, i) => {
@@ -50,7 +58,7 @@ module.exports = {
 				m[`minus-${i}`] = `-${i}px`
 				return m
 			}, {}),
-			'auto': 'auto',
+			auto: 'auto',
 		},
 		width: {
 			...[...Array(1001)].reduce((m, _, i) => {
@@ -73,7 +81,7 @@ module.exports = {
 				m[i] = `${i}px`
 				return m
 			}, {}),
-		},		
+		},
 	},
 	variants: {
 		extend: {},
