@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styles from './NeumorphismButton.module.css'
-import { CheckIfItExistsInStyles } from '../../../libs/CheckIfItExistsInStyles'
+import { CheckIfItExistsInStyles } from '@/libs/CheckIfItExistsInStyles'
 
 type Props = {
 	unevenness: 'dents' | 'bumps'

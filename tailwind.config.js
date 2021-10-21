@@ -45,7 +45,7 @@ module.exports = {
 				return m
 			}, {}),
 			...[...Array(5)].reduce((m, _, i) => {
-				m[i] = `${i}em`
+				m[`${i}em`] = `${i}em`
 				return m
 			}, {}),
 		},

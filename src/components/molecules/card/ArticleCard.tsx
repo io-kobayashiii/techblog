@@ -1,9 +1,9 @@
 import * as React from 'react'
 import styles from './ArticleCard.module.css'
-import { CheckIfItExistsInStyles } from '../../../libs/CheckIfItExistsInStyles'
+import { CheckIfItExistsInStyles } from '@/libs/CheckIfItExistsInStyles'
 import Link from 'next/link'
-import ArticleCardTitle from '../../atoms/text/ArticleCardTitle'
-import NeumorphismButton from '../../atoms/button/NeumorphismButton'
+import ArticleCardTitle from '@/components/atoms/text/ArticleCardTitle'
+import NeumorphismButton from '@/components/atoms/button/NeumorphismButton'
 
 type Props = {
 	unevenness: 'dents' | 'bumps'
