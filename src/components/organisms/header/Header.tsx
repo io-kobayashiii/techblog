@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from './Header.module.scss'
-import NeumorphismButton from '../../atoms/button/NeumorphismButton'
+import NeumorphismButton from '@/components/atoms/button/NeumorphismButton'
 
 const Header = ({ categories }): JSX.Element => {
 	const ref = useRef(true)
@@ -15,7 +15,9 @@ const Header = ({ categories }): JSX.Element => {
 		document
 			.getElementsByTagName('header')[0]
 			.classList.toggle(styles.isGnavSpOpen)
-		document.getElementsByTagName('body')[0].classList.toggle('overflow-hidden')
+		document
+			.getElementsByTagName('body')[0]
+			.classList.toggle('overflow-hidden')
 	}, [isOpen])
 	if (process.browser) {
 		document
@@ -39,7 +41,10 @@ const Header = ({ categories }): JSX.Element => {
 				<div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p">
 					<Link href="/">
 						<a>
-							<p className={`text-32 md:text-40 ${styles.logo}`} onClick={() => setIsOpen(false)}>
+							<p
+								className={`text-32 md:text-40 ${styles.logo}`}
+								onClick={() => setIsOpen(false)}
+							>
 								For
 							</p>
 						</a>
