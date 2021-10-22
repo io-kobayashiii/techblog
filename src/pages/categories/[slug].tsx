@@ -1,15 +1,15 @@
-import { fetchMicroCMS } from '../../libs/fetch'
-import Header from '../../components/organisms/header/Header'
-import Footer from '../../components/organisms/footer/Footer'
-import ArticleCard from '../../components/molecules/card/ArticleCard'
-import styles from '../../styles/pages/categories/categories.module.scss'
+import { fetchMicroCMS } from '@/libs/fetch'
+import { Category, Article, Articles } from '@/types/GlobalTypes'
+import Header from '@/components/organisms/header/Header'
+import Footer from '@/components/organisms/footer/Footer'
+import ArticleCard from '@/components/molecules/card/ArticleCard'
+import styles from '@/styles/pages/categories/categories.module.scss'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import 'highlight.js/styles/stackoverflow-dark.css'
 
 export default function CreateCategoryPage({ articles, categories, slug }) {
-	console.log(articles)
 	dayjs.extend(utc)
 	dayjs.extend(timezone)
 	return (
@@ -68,13 +68,12 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
 	const fetchArticles = await fetchMicroCMS(['articles'])
 	const articles = await fetchArticles.json()
-	const matchedArticles = []
-	articles.contents.map((article) => {
-		article.categories.map((category) => {
-			category.slug === context.params.slug &&
-				matchedArticles.push(article)
-		})
-	})
+	// prettier-ignore
+	const matchedArticles: Articles = articles.contents.reduce((array: Articles, article: Article): Articles =>
+			article.categories.reduce((bool: boolean, category: Category): boolean =>
+				category.slug === context.params.slug ? true : bool
+			, false) ? array.concat([article]) : array
+		, [])
 	const fetchCategories = await fetchMicroCMS(['categories'])
 	const categoryList = await fetchCategories.json()
 	return {
