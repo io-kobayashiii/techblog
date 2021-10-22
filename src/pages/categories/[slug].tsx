@@ -1,4 +1,5 @@
 import { fetchMicroCMS } from '@/libs/fetch'
+import { Category, Article, Articles } from '@/types/GlobalTypes'
 import Header from '@/components/organisms/header/Header'
 import Footer from '@/components/organisms/footer/Footer'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
@@ -67,16 +68,12 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
 	const fetchArticles = await fetchMicroCMS(['articles'])
 	const articles = await fetchArticles.json()
-	const matchedArticles = articles.contents.reduce((array, article) => {
-		if (
-			article.categories.reduce((bool, category) => {
-				return category.slug === context.params.slug ? true : bool
-			}, false)
-		) {
-			array.push(article)
-			return array
-		}
-	}, [])
+	// prettier-ignore
+	const matchedArticles: Articles = articles.contents.reduce((array: Articles, article: Article): Articles =>
+			article.categories.reduce((bool: boolean, category: Category): boolean =>
+				category.slug === context.params.slug ? true : bool
+			, false) ? array.concat([article]) : array
+		, [])
 	const fetchCategories = await fetchMicroCMS(['categories'])
 	const categoryList = await fetchCategories.json()
 	return {
