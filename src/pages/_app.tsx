@@ -17,6 +17,12 @@ function App({ Component, pageProps }) {
 					<Component {...pageProps} />
 				</DefaultLayout>
 			)
+		case '500':
+			return (
+				<DefaultLayout categories={pageProps.categories}>
+					<Component {...pageProps} />
+				</DefaultLayout>
+			)
 	}
 }
 
