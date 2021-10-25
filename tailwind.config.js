@@ -34,7 +34,7 @@ module.exports = {
 			'100vh': '100vh',
 		},
 		fontSize: {
-			...[...Array(100)].reduce((m, _, i) => {
+			...[...Array(101)].reduce((m, _, i) => {
 				m[i] = `${i}px`
 				return m
 			}, {}),
@@ -71,13 +71,13 @@ module.exports = {
 			}, {}),
 		},
 		height: {
-			...[...Array(1000)].reduce((m, _, i) => {
+			...[...Array(1001)].reduce((m, _, i) => {
 				m[i] = `${i}px`
 				return m
 			}, {}),
 		},
 		lineHeight: {
-			...[...Array(100)].reduce((m, _, i) => {
+			...[...Array(101)].reduce((m, _, i) => {
 				m[i] = `${i}px`
 				return m
 			}, {}),

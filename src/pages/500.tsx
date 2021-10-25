@@ -1,7 +1,7 @@
 import { fetchMicroCMS } from '@/libs/fetch'
 
-export default function Custom404() {
-	return <h1 className="text-24">Not found.</h1>
+export default function Custom500() {
+	return <h1 className="text-24">Server Error.</h1>
 }
 
 export const getStaticProps = async () => {
@@ -10,7 +10,7 @@ export const getStaticProps = async () => {
 
 	return {
 		props: {
-			layout: '404',
+			layout: '500',
 			categories: categoryList.contents,
 		},
 	}
