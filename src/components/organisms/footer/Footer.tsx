@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import styles from './Footer.module.scss'
-import NeumorphismButton from '../../atoms/button/NeumorphismButton'
+import NeumorphismButton from '@/components/atoms/button/NeumorphismButton'
 
 const Footer = ({ categories }): JSX.Element => {
 	return (
