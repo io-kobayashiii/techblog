@@ -1,4 +1,5 @@
-import { fetchMicroCMS } from '@/libs/fetch'
+import { FetchMicroCMS } from '@/libs/fetch'
+import { Layout, Articles } from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -42,10 +43,18 @@ export default function Home({ articles }) {
 	)
 }
 
-export const getStaticProps = async () => {
-	const fetchArticles = await fetchMicroCMS(['articles'])
+type _GetStaticProps = () => Promise<{
+	props: {
+		layout: Layout
+		articles: Articles
+		categories: string[]
+	}
+}>
+
+export const getStaticProps: _GetStaticProps = async () => {
+	const fetchArticles = await FetchMicroCMS(['articles'])
 	const articleList = await fetchArticles.json()
-	const fetchCategories = await fetchMicroCMS(['categories'])
+	const fetchCategories = await FetchMicroCMS(['categories'])
 	const categoryList = await fetchCategories.json()
 
 	return {
