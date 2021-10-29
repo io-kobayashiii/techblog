@@ -1,4 +1,4 @@
-import { fetchMicroCMS } from '@/libs/fetch'
+import { FetchMicroCMS } from '@/libs/fetch'
 import { Category, Article, Articles } from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
 import styles from '@/styles/pages/categories/categories.module.scss'
@@ -49,14 +49,14 @@ export default function CreateCategoryPage({ articles, slug }) {
 }
 
 export const getStaticPaths = async () => {
-	const fetchCategories = await fetchMicroCMS(['categories'])
+	const fetchCategories = await FetchMicroCMS(['categories'])
 	const data = await fetchCategories.json()
 	const paths = data.contents.map((content) => `/categories/${content.slug}`)
 	return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
-	const fetchArticles = await fetchMicroCMS(['articles'])
+	const fetchArticles = await FetchMicroCMS(['articles'])
 	const articles = await fetchArticles.json()
 	// prettier-ignore
 	const matchedArticles: Articles = articles.contents.reduce((array: Articles, article: Article): Articles =>
@@ -64,7 +64,7 @@ export const getStaticProps = async (context) => {
 				category.slug === context.params.slug ? true : bool
 			, false) ? array.concat([article]) : array
 		, [])
-	const fetchCategories = await fetchMicroCMS(['categories'])
+	const fetchCategories = await FetchMicroCMS(['categories'])
 	const categoryList = await fetchCategories.json()
 	return {
 		props: {

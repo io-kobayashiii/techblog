@@ -1,3 +1,5 @@
+export type Layout = 'default' | 'article' | '404' | '500'
+
 export type Category = {
 	id: string
 	createdAt: string
@@ -15,6 +17,7 @@ export type Article = {
 	publishedAt: string
 	revisedAt: string
 	title: string
+	description: string
 	body: string | null
 	categories: Category[]
 }
