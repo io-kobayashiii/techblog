@@ -1,10 +1,6 @@
 module.exports = {
 	mode: 'jit',
-	purge: [
-		'./src/pages/index.tsx',
-		'./src/pages/**/*.{js,ts,tsx}',
-		'./src/components/**/*.{js,ts,tsx}',
-	],
+	purge: ['./src/pages/index.tsx', './src/pages/**/*.{js,ts,tsx}', './src/components/**/*.{js,ts,tsx}'],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {
@@ -73,6 +69,10 @@ module.exports = {
 		height: {
 			...[...Array(1001)].reduce((m, _, i) => {
 				m[i] = `${i}px`
+				return m
+			}, {}),
+			...[...Array(101)].reduce((m, _, i) => {
+				m[`${i}p`] = `${i}%`
 				return m
 			}, {}),
 		},

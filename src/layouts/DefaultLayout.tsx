@@ -13,9 +13,7 @@ const DefaultLayout = ({ children, categories }) => {
 			</Head>
 			<Header categories={categories} />
 			<main className="pt-70 md:pt-180 pb-50 md:pb-80 bg-gray-100">
-				<div className="px-15 md:px-30 max-w-lg mx-auto">
-					{children}
-				</div>
+				<div className="px-15 md:px-30 max-w-lg mx-auto">{children}</div>
 			</main>
 			<Footer categories={categories} />
 		</>

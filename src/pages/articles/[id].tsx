@@ -26,12 +26,7 @@ export default function CreateArticle({ article }) {
 						codeElem.className = `hljs ${splittedElemInner[0]}`
 						break
 				}
-				preElem.setAttribute(
-					'data-language',
-					splittedElemInner[1] == 'none'
-						? splittedElemInner[0]
-						: splittedElemInner[1]
-				)
+				preElem.setAttribute('data-language', splittedElemInner[1] == 'none' ? splittedElemInner[0] : splittedElemInner[1])
 				codeElem.innerHTML = splittedElemInner[2]
 			})
 			hljs.highlightAll()
@@ -39,17 +34,8 @@ export default function CreateArticle({ article }) {
 	}, [])
 	return (
 		<>
-			<p className="text-14 md:text-18">
-				{dayjs
-					.utc(article.publishedAt)
-					.tz('Asia/Tokyo')
-					.format('YYYY.MM.DD')}
-			</p>
-			<h1
-				className={`${styles.heading} text-20 sm:text-24 md:text-28 mt-16 md:mt-22`}
-			>
-				{article.title}
-			</h1>
+			<p className="text-14 md:text-18">{dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD')}</p>
+			<h1 className={`${styles.heading} text-20 sm:text-24 md:text-28 mt-16 md:mt-22`}>{article.title}</h1>
 			<div className="flex flex-wrap m-minus-5 mt-15 md:mt-25">
 				{!!article.categories &&
 					article.categories.map((category, index) => {
@@ -59,27 +45,12 @@ export default function CreateArticle({ article }) {
 								unevenness={'dents'}
 								shadowColor={'default'}
 								displayText={category.name}
-								additionalClasses={[
-									'default',
-									'm-5',
-									'rounded-100vh',
-									'py-5',
-									'px-15',
-									'md:py-8',
-									'md:px-12',
-									'text-12',
-									'md:text-14',
-									'bg-gray-100',
-									'pointer-events-none',
-								]}
+								additionalClasses={['default', 'm-5', 'rounded-100vh', 'py-5', 'px-15', 'md:py-8', 'md:px-12', 'text-12', 'md:text-14', 'bg-gray-100', 'pointer-events-none']}
 							/>
 						)
 					})}
 			</div>
-			<div
-				className={`${styles.articles} mt-40 sm:mt-60 md:mt-80 border-t-2 border-gray-200 text-16`}
-				dangerouslySetInnerHTML={{ __html: article.body }}
-			/>
+			<div className={`${styles.articles} mt-40 sm:mt-60 md:mt-80 border-t-2 border-gray-200 text-16`} dangerouslySetInnerHTML={{ __html: article.body }} />
 		</>
 	)
 }
