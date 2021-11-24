@@ -16,3 +16,5 @@ yarn dev
 ```bash
 yarn build
 ```
+
+build this project, needs `.env.local`
