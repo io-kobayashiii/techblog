@@ -12,32 +12,18 @@ export default function CreateCategoryPage({ articles, slug }) {
 	dayjs.extend(timezone)
 	return (
 		<>
-			<h1 className={`${styles.heading} text-24 sm:text-28 md:text-32`}>
-				Category: {slug}
-			</h1>
+			<h1 className={`${styles.heading} text-24 sm:text-28 md:text-32`}>Category: {slug}</h1>
 			<ul className="mt-30 md:mt-50 md:flex md:flex-wrap md:justify-between">
 				{articles.map((article, index) => (
-					<li
-						key={article.id}
-						className={
-							index == 0
-								? 'md:w-100p'
-								: 'md:w-[calc(50%-15px)] mt-15 md:mt-30'
-						}
-					>
+					<li key={article.id} className={index == 0 ? 'md:w-100p' : 'md:w-[calc(50%-15px)] mt-15 md:mt-30'}>
 						<ArticleCard
 							unevenness="bumps"
 							shadowColor="default"
 							data={{
 								title: article.title,
-								date: dayjs
-									.utc(article.publishedAt)
-									.tz('Asia/Tokyo')
-									.format('YYYY.MM.DD'),
+								date: dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD'),
 								href: `/articles/${article.id}`,
-								categories: article.categories.map(
-									(category) => category.name
-								),
+								categories: article.categories.map((category) => category.name),
 							}}
 							additionalClasses={['default', 'bg-white']}
 						/>
@@ -71,10 +57,7 @@ export const getStaticProps = async (context) => {
 			layout: 'default',
 			articles: matchedArticles,
 			categories: categoryList.contents,
-			slug: categoryList.contents.map(
-				(category) =>
-					category.slug === context.params.slug && category.name
-			),
+			slug: categoryList.contents.map((category) => category.slug === context.params.slug && category.name),
 		},
 	}
 }

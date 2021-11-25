@@ -17,55 +17,32 @@ type Props = {
 	additionalClasses?: string[]
 }
 
-const ArticleCard = ({
-	unevenness,
-	shadowColor,
-	data,
-	additionalClasses = [''],
-}: Props): JSX.Element => {
+const ArticleCard = ({ unevenness, shadowColor, data, additionalClasses = [''] }: Props): JSX.Element => {
 	const styleClass = styles[`${unevenness}_${shadowColor}`]
 	const commonClasses = ['p-15', 'md:p-30', 'rounded-12']
-	const classes = [
-		styleClass,
-		...commonClasses,
-		...CheckIfItExistsInStyles(additionalClasses, styles),
-	]
+	const classes = [styleClass, ...commonClasses, ...CheckIfItExistsInStyles(additionalClasses, styles)]
 	return (
 		<Link href={data.href}>
-			<a className="block">
+			<a className="block md:h-100p">
 				<div className={classes.join(' ')}>
-					<ArticleCardTitle
-						displayText={data.title}
-						additionalClasses={['mb-15']}
-					/>
-					<div className="flex flex-wrap m-minus-5">
-						{!!data.categories &&
-							data.categories.map((category, index) => {
-								return (
-									<NeumorphismButton
-										key={index}
-										unevenness="dents"
-										shadowColor="default"
-										displayText={category}
-										additionalClasses={[
-											'default',
-											'm-5',
-											'rounded-100vh',
-											'py-5',
-											'px-15',
-											'md:py-8',
-											'md:px-12',
-											'text-12',
-											'md:text-14',
-											'bg-gray-100',
-										]}
-									/>
-								)
-							})}
+					<div>
+						<ArticleCardTitle displayText={data.title} additionalClasses={['mb-15']} />
+						<div className="flex flex-wrap m-minus-5">
+							{!!data.categories &&
+								data.categories.map((category, index) => {
+									return (
+										<NeumorphismButton
+											key={index}
+											unevenness="dents"
+											shadowColor="default"
+											displayText={category}
+											additionalClasses={['default', 'm-5', 'rounded-100vh', 'py-5', 'px-15', 'md:py-8', 'md:px-12', 'text-12', 'md:text-14', 'bg-gray-100']}
+										/>
+									)
+								})}
+						</div>
 					</div>
-					<p className="text-12 md:text-14 text-right mt-15">
-						{data.date}
-					</p>
+					<p className="text-12 md:text-14 text-right mt-15">{data.date}</p>
 				</div>
 			</a>
 		</Link>
