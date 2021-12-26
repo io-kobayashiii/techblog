@@ -12,29 +12,17 @@ export default function Home({ articles }) {
 		<>
 			<ul className="md:flex md:flex-wrap md:justify-between">
 				{articles.map((article, index) => (
-					<li
-						key={article.id}
-						className={
-							index == 0
-								? 'md:w-100p'
-								: 'md:w-[calc(50%-15px)] mt-15 md:mt-30'
-						}
-					>
+					<li key={article.id} className={index == 0 ? 'md:w-100p' : 'md:w-[calc(50%-15px)] mt-15 md:mt-30'}>
 						<ArticleCard
 							unevenness="bumps"
 							shadowColor="default"
 							data={{
 								title: article.title,
-								date: dayjs
-									.utc(article.publishedAt)
-									.tz('Asia/Tokyo')
-									.format('YYYY.MM.DD'),
+								date: dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD'),
 								href: `/articles/${article.id}`,
-								categories: article.categories.map(
-									(category) => category.name
-								),
+								categories: article.categories.map((category) => category.name),
 							}}
-							additionalClasses={['default', 'bg-white']}
+							additionalClasses={['default', 'bg-white', 'md:h-100p', 'md:flex', 'md:flex-col', 'md:justify-between']}
 						/>
 					</li>
 				))}
