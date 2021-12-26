@@ -104,7 +104,7 @@ const Header = ({ categories }): JSX.Element => {
 						<p className="text-16 text-bold pb-5 border-b-2 border-gray-200">Profile</p>
 
 						<div className="mt-15">
-							<Link href="https://twitter.com/?lang=ja">
+							{/* <Link href="https://twitter.com/?lang=ja">
 								<a target="_blank">
 									<NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={`<i class='cib-twitter'></i>`} additionalClasses={['default', 'rounded-100vh', 'leading-0', 'p-10', 'text-24', 'bg-white']} />
 								</a>
@@ -118,7 +118,7 @@ const Header = ({ categories }): JSX.Element => {
 										additionalClasses={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-10', 'text-24', 'bg-white']}
 									/>
 								</a>
-							</Link>
+							</Link> */}
 							<Link href="https://github.com/io-kobayashiii/techblog">
 								<a target="_blank">
 									<NeumorphismButton
