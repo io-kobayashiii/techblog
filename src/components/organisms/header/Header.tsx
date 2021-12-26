@@ -121,12 +121,7 @@ const Header = ({ categories }): JSX.Element => {
 							</Link> */}
 							<Link href="https://github.com/io-kobayashiii/techblog">
 								<a target="_blank">
-									<NeumorphismButton
-										unevenness={'bumps'}
-										shadowColor={'default'}
-										displayText={`<i class="cib-github"></i>`}
-										additionalClasses={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-10', 'text-24', 'bg-white']}
-									/>
+									<NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={`<i class="cib-github"></i>`} additionalClasses={['default', 'rounded-100vh', 'leading-0', 'p-10', 'text-24', 'bg-white']} />
 								</a>
 							</Link>
 						</div>
