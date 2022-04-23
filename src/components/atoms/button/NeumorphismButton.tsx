@@ -6,13 +6,13 @@ type Props = {
 	unevenness: 'dents' | 'bumps'
 	shadowColor: 'default' | 'primary'
 	displayText: string
-	additionalClasses?: string[]
+	className?: string[]
 }
 
-const NeumorphismButton = ({ unevenness, shadowColor, displayText, additionalClasses = [''] }: Props): JSX.Element => {
+const NeumorphismButton = ({ unevenness, shadowColor, displayText, className = [''] }: Props): JSX.Element => {
 	const styleClass = styles[`${unevenness}_${shadowColor}`]
 	const commonClasses = ['']
-	const classes = [styleClass, ...commonClasses, ...CheckIfItExistsInStyles(additionalClasses, styles)]
+	const classes = [styleClass, ...commonClasses, ...CheckIfItExistsInStyles(className, styles)]
 	return <button className={classes.join(' ')} dangerouslySetInnerHTML={{ __html: displayText }}></button>
 }
 

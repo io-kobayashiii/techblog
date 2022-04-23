@@ -19,5 +19,5 @@ Default.args = {
 		href: 'https://nextjs.org/',
 		categories: ['JavaScript', 'HTML', 'CSS', 'SCSS'],
 	},
-	additionalClasses: ['p-15', 'md:p-30', 'rounded-12', 'default', 'bg-white'],
+	className: ['p-15', 'md:p-30', 'rounded-12', 'default', 'bg-white'],
 }

@@ -19,11 +19,6 @@ function App({ Component, pageProps }) {
 				</ArticleLayout>
 			)
 		case '404':
-			return (
-				<DefaultLayout categories={pageProps.categories}>
-					<Component {...pageProps} />
-				</DefaultLayout>
-			)
 		case '500':
 			return (
 				<DefaultLayout categories={pageProps.categories}>

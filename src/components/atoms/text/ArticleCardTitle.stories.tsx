@@ -12,5 +12,5 @@ const Template = (args) => <ArticleCardTitle {...args} />
 export const Default = Template.bind({})
 Default.args = {
 	displayText: 'title',
-	additionalClasses: ['mb-15'],
+	className: ['mb-15'],
 }

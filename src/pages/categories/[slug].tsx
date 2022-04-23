@@ -25,7 +25,7 @@ export default function CreateCategoryPage({ articles, slug }) {
 								href: `/articles/${article.id}`,
 								categories: article.categories.map((category) => category.name),
 							}}
-							additionalClasses={['default', 'bg-white']}
+							className={['default', 'bg-white']}
 						/>
 					</li>
 				))}

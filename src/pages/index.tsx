@@ -22,7 +22,7 @@ export default function Home({ articles }) {
 								href: `/articles/${article.id}`,
 								categories: article.categories.map((category) => category.name),
 							}}
-							additionalClasses={['default', 'bg-white', 'md:h-100p', 'md:flex', 'md:flex-col', 'md:justify-between']}
+							className={['default', 'bg-white', 'md:h-100p', 'md:flex', 'md:flex-col', 'md:justify-between']}
 						/>
 					</li>
 				))}
