@@ -1,4 +1,3 @@
-import { FetchMicroCMS } from '@/libs/fetch'
 import { Category, Article, Articles } from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
 import styles from '@/styles/pages/categories/categories.module.scss'
@@ -6,6 +5,7 @@ import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import 'highlight.js/styles/stackoverflow-dark.css'
+import ApiRequests from '@/libs/ApiRequests'
 
 export default function CreateCategoryPage({ articles, slug }) {
 	dayjs.extend(utc)
@@ -35,23 +35,20 @@ export default function CreateCategoryPage({ articles, slug }) {
 }
 
 export const getStaticPaths = async () => {
-	const fetchCategories = await FetchMicroCMS(['categories'])
-	const data = await fetchCategories.json()
-	const paths = data.contents.map((content) => `/categories/${content.slug}`)
+	const categoryList = await ApiRequests.categories()
+	const paths = categoryList.contents.map((content) => `/categories/${content.slug}`)
 	return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
-	const fetchArticles = await FetchMicroCMS(['articles'])
-	const articles = await fetchArticles.json()
+	const articleList = await ApiRequests.articles()
 	// prettier-ignore
-	const matchedArticles: Articles = articles.contents.reduce((array: Articles, article: Article): Articles =>
+	const matchedArticles: Articles = articleList.contents.reduce((array: Articles, article: Article): Articles =>
 			article.categories.reduce((bool: boolean, category: Category): boolean =>
 				category.slug === context.params.slug ? true : bool
 			, false) ? array.concat([article]) : array
 		, [])
-	const fetchCategories = await FetchMicroCMS(['categories'])
-	const categoryList = await fetchCategories.json()
+	const categoryList = await ApiRequests.categories()
 	return {
 		props: {
 			layout: 'default',

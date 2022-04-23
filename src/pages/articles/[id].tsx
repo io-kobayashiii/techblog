@@ -1,4 +1,3 @@
-import { FetchMicroCMS } from '@/libs/fetch'
 import { useEffect } from 'react'
 import NeumorphismButton from '@/components/atoms/button/NeumorphismButton'
 import dayjs from 'dayjs'
@@ -7,6 +6,7 @@ import timezone from 'dayjs/plugin/timezone'
 import styles from '@/styles/pages/articles/articles.module.scss'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/stackoverflow-dark.css'
+import ApiRequests from '@/libs/ApiRequests'
 
 export default function CreateArticle({ article }) {
 	dayjs.extend(utc)
@@ -56,17 +56,15 @@ export default function CreateArticle({ article }) {
 }
 
 export const getStaticPaths = async () => {
-	const fetchArticles = await FetchMicroCMS(['articles'])
-	const data = await fetchArticles.json()
-	const paths = data.contents.map((content) => `/articles/${content.id}`)
+	const articleList = await ApiRequests.articles()
+	const paths = articleList.contents.map((content) => `/articles/${content.id}`)
 	return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
-	const fetchArticle = await FetchMicroCMS(['articles', context.params.id])
-	const article = await fetchArticle.json()
-	const fetchCategories = await FetchMicroCMS(['categories'])
-	const categoryList = await fetchCategories.json()
+	const article = await ApiRequests.article(context.params.id)
+	const categoryList = await ApiRequests.categories()
+	console.log(categoryList)
 	return {
 		props: {
 			layout: 'article',
