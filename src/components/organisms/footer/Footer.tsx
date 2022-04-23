@@ -17,7 +17,7 @@ const Footer = ({ categories }): JSX.Element => {
 										<Link key={index} href={`/categories/${category.slug}`}>
 											<a>
 												<li>
-													<NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={category.name} className={['default', 'rounded-100vh', 'leading-0', 'm-5', 'p-16', 'text-14', 'bg-white']} />
+													<NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={category.name} className={'default rounded-100vh leading-0 m-5 p-16 text-14 bg-white'} />
 												</li>
 											</a>
 										</Link>
@@ -53,7 +53,7 @@ const Footer = ({ categories }): JSX.Element => {
 								</Link> */}
 								<Link href="https://github.com/io-kobayashiii/techblog">
 									<a target="_blank">
-										<NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={`<i class="cib-github"></i>`} className={['default', 'rounded-100vh', 'leading-0', 'p-10', 'text-24', 'bg-white']} />
+										<NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={`<i class="cib-github"></i>`} className={'default rounded-100vh leading-0 p-10 text-24 bg-white'} />
 									</a>
 								</Link>
 							</div>

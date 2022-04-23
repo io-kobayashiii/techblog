@@ -45,7 +45,7 @@ export default function CreateArticle({ article }) {
 								unevenness={'dents'}
 								shadowColor={'default'}
 								displayText={category.name}
-								className={['default', 'm-5', 'rounded-100vh', 'py-5', 'px-15', 'md:py-8', 'md:px-12', 'text-12', 'md:text-14', 'bg-gray-100', 'pointer-events-none']}
+								className={'default m-5 rounded-100vh py-5 px-15 md:py-8 md:px-12 text-12 md:text-14 bg-gray-100 pointer-events-none'}
 							/>
 						)
 					})}

@@ -30,15 +30,7 @@ const ArticleCard = ({ unevenness, shadowColor, data, className = [''] }: Props)
 						<div className="flex flex-wrap m-minus-5">
 							{!!data.categories &&
 								data.categories.map((category, index) => {
-									return (
-										<NeumorphismButton
-											key={index}
-											unevenness="dents"
-											shadowColor="default"
-											displayText={category}
-											className={['default', 'm-5', 'rounded-100vh', 'py-5', 'px-15', 'md:py-8', 'md:px-12', 'text-12', 'md:text-14', 'bg-gray-100']}
-										/>
-									)
+									return <NeumorphismButton key={index} unevenness="dents" shadowColor="default" displayText={category} className={'default m-5 rounded-100vh py-5 px-15 md:py-8 md:px-12 text-12 md:text-14 bg-gray-100'} />
 								})}
 						</div>
 					</div>
