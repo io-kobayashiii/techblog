@@ -1,4 +1,4 @@
-import { FetchMicroCMS } from '@/libs/fetch'
+import ApiRequests from '@/libs/ApiRequests'
 import { Layout, Articles } from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
 import dayjs from 'dayjs'
@@ -31,7 +31,7 @@ export default function Home({ articles }) {
 	)
 }
 
-type _GetStaticProps = () => Promise<{
+type GetStaticPropsType = () => Promise<{
 	props: {
 		layout: Layout
 		articles: Articles
@@ -39,12 +39,9 @@ type _GetStaticProps = () => Promise<{
 	}
 }>
 
-export const getStaticProps: _GetStaticProps = async () => {
-	const fetchArticles = await FetchMicroCMS(['articles'])
-	const articleList = await fetchArticles.json()
-	const fetchCategories = await FetchMicroCMS(['categories'])
-	const categoryList = await fetchCategories.json()
-
+export const getStaticProps: GetStaticPropsType = async () => {
+	const articleList = await ApiRequests.articles()
+	const categoryList = await ApiRequests.categories()
 	return {
 		props: {
 			layout: 'default',
