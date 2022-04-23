@@ -6,7 +6,6 @@ export default function Custom500() {
 
 export const getStaticProps = async () => {
 	const categoryList = await ApiRequests.categories()
-
 	return {
 		props: {
 			layout: '500',
