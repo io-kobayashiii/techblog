@@ -25,7 +25,3 @@ export type ArticleType = {
 }
 
 export type ArticlesType = ArticleType[]
-
-export type getStaticPropsArticles = () => Promise<{
-	props: { articles: ArticlesType }
-}>
