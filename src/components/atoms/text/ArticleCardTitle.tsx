@@ -3,12 +3,12 @@ import styles from './ArticleCardTitle.module.css'
 
 type Props = {
 	displayText: string
-	additionalClasses?: string[]
+	className?: string[]
 }
 
-const ArticleCardTitle = ({ displayText, additionalClasses = [''] }: Props): JSX.Element => {
+const ArticleCardTitle = ({ displayText, className = [''] }: Props): JSX.Element => {
 	const commonClasses = [styles.heading, 'text-16', 'sm:text-18', 'lg:text-20']
-	const classes = [...commonClasses, ...additionalClasses]
+	const classes = [...commonClasses, ...className]
 	return <h3 className={classes.join(' ')}>{displayText}</h3>
 }
 

@@ -1,13 +1,8 @@
-import { FetchMicroCMS } from '@/libs/fetch'
-import { Layout, Articles } from '@/types/GlobalTypes'
+import ApiRequests from '@/libs/ApiRequests'
+import * as GlobalTypes from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
 
-export default function Home({ articles }) {
-	dayjs.extend(utc)
-	dayjs.extend(timezone)
+export default function Index({ articles }) {
 	return (
 		<>
 			<ul className="md:flex md:flex-wrap md:justify-between">
@@ -18,11 +13,11 @@ export default function Home({ articles }) {
 							shadowColor="default"
 							data={{
 								title: article.title,
-								date: dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD'),
+								date: article.publishedAt,
 								href: `/articles/${article.id}`,
 								categories: article.categories.map((category) => category.name),
 							}}
-							additionalClasses={['default', 'bg-white', 'md:h-100p', 'md:flex', 'md:flex-col', 'md:justify-between']}
+							className={['default', 'bg-white', 'md:h-100p', 'md:flex', 'md:flex-col', 'md:justify-between']}
 						/>
 					</li>
 				))}
@@ -31,25 +26,22 @@ export default function Home({ articles }) {
 	)
 }
 
-type _GetStaticProps = () => Promise<{
+type GetStaticPropsType = () => Promise<{
 	props: {
-		layout: Layout
-		articles: Articles
-		categories: string[]
+		layout: GlobalTypes.LayoutType
+		articles: GlobalTypes.ArticlesType
+		categories: GlobalTypes.CategoriesType
 	}
 }>
 
-export const getStaticProps: _GetStaticProps = async () => {
-	const fetchArticles = await FetchMicroCMS(['articles'])
-	const articleList = await fetchArticles.json()
-	const fetchCategories = await FetchMicroCMS(['categories'])
-	const categoryList = await fetchCategories.json()
-
+export const getStaticProps: GetStaticPropsType = async () => {
+	const articles = await ApiRequests.articles()
+	const categories = await ApiRequests.categories()
 	return {
 		props: {
 			layout: 'default',
-			articles: articleList.contents,
-			categories: categoryList.contents,
+			articles: articles.contents,
+			categories: categories.contents,
 		},
 	}
 }

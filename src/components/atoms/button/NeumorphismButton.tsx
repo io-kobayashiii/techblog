@@ -1,19 +1,26 @@
 import * as React from 'react'
-import styles from './NeumorphismButton.module.css'
-import { CheckIfItExistsInStyles } from '@/libs/CheckIfItExistsInStyles'
 
 type Props = {
 	unevenness: 'dents' | 'bumps'
 	shadowColor: 'default' | 'primary'
 	displayText: string
-	additionalClasses?: string[]
+	className?: string
 }
 
-const NeumorphismButton = ({ unevenness, shadowColor, displayText, additionalClasses = [''] }: Props): JSX.Element => {
-	const styleClass = styles[`${unevenness}_${shadowColor}`]
-	const commonClasses = ['']
-	const classes = [styleClass, ...commonClasses, ...CheckIfItExistsInStyles(additionalClasses, styles)]
-	return <button className={classes.join(' ')} dangerouslySetInnerHTML={{ __html: displayText }}></button>
+const NeumorphismButton = ({ unevenness, shadowColor, displayText, className }: Props): JSX.Element => {
+	const getStyle = () => {
+		switch (true) {
+			case unevenness == 'dents' && shadowColor == 'default':
+				return { 'box-shadow': '2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset, -2px -2px 2px 0 rgba(255, 255, 255, 0.5) inset' } as React.CSSProperties
+			case unevenness == 'dents' && shadowColor == 'primary':
+				return { 'box-shadow': '2px 2px 2px 0 rgba(6, 13, 19, 0.5) inset, -2px -2px 2px 0 rgba(231, 231, 231, 0.5) inset' } as React.CSSProperties
+			case unevenness == 'bumps' && shadowColor == 'default':
+				return { 'box-shadow': '2px 2px 2px 0 rgba(0, 0, 0, 0.5)' } as React.CSSProperties
+			case unevenness == 'bumps' && shadowColor == 'primary':
+				return { 'box-shadow': '2px 2px 2px 0 rgba(4, 9, 14, 0.5), -2px -2px 2px 0 rgba(36, 81, 129, 0.5)' } as React.CSSProperties
+		}
+	}
+	return <button className={`${className ? className : ''} ${unevenness == 'dents' ? 'cursor-auto pointer-events-none' : ''}`} style={getStyle()} dangerouslySetInnerHTML={{ __html: displayText }}></button>
 }
 
 export default NeumorphismButton

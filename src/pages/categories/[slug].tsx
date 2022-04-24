@@ -1,15 +1,10 @@
-import { FetchMicroCMS } from '@/libs/fetch'
-import { Category, Article, Articles } from '@/types/GlobalTypes'
+import { ArticleType, ArticlesType, CategoryType } from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
 import styles from '@/styles/pages/categories/categories.module.scss'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
 import 'highlight.js/styles/stackoverflow-dark.css'
+import ApiRequests from '@/libs/ApiRequests'
 
-export default function CreateCategoryPage({ articles, slug }) {
-	dayjs.extend(utc)
-	dayjs.extend(timezone)
+export default function CategoriesIndex({ articles, slug }) {
 	return (
 		<>
 			<h1 className={`${styles.heading} text-24 sm:text-28 md:text-32`}>Category: {slug}</h1>
@@ -21,11 +16,11 @@ export default function CreateCategoryPage({ articles, slug }) {
 							shadowColor="default"
 							data={{
 								title: article.title,
-								date: dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD'),
+								date: article.publishedAt,
 								href: `/articles/${article.id}`,
 								categories: article.categories.map((category) => category.name),
 							}}
-							additionalClasses={['default', 'bg-white']}
+							className={['default', 'bg-white']}
 						/>
 					</li>
 				))}
@@ -35,29 +30,26 @@ export default function CreateCategoryPage({ articles, slug }) {
 }
 
 export const getStaticPaths = async () => {
-	const fetchCategories = await FetchMicroCMS(['categories'])
-	const data = await fetchCategories.json()
-	const paths = data.contents.map((content) => `/categories/${content.slug}`)
+	const categories = await ApiRequests.categories()
+	const paths = categories.contents.map((content) => `/categories/${content.slug}`)
 	return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
-	const fetchArticles = await FetchMicroCMS(['articles'])
-	const articles = await fetchArticles.json()
+	const articles = await ApiRequests.articles()
 	// prettier-ignore
-	const matchedArticles: Articles = articles.contents.reduce((array: Articles, article: Article): Articles =>
-			article.categories.reduce((bool: boolean, category: Category): boolean =>
+	const matchedArticles: ArticlesType = articles.contents.reduce((array: ArticlesType, article: ArticleType): ArticlesType =>
+			article.categories.reduce((bool: boolean, category: CategoryType): boolean =>
 				category.slug === context.params.slug ? true : bool
 			, false) ? array.concat([article]) : array
 		, [])
-	const fetchCategories = await FetchMicroCMS(['categories'])
-	const categoryList = await fetchCategories.json()
+	const categories = await ApiRequests.categories()
 	return {
 		props: {
 			layout: 'default',
 			articles: matchedArticles,
-			categories: categoryList.contents,
-			slug: categoryList.contents.map((category) => category.slug === context.params.slug && category.name),
+			categories: categories.contents,
+			slug: categories.contents.map((category) => category.slug === context.params.slug && category.name),
 		},
 	}
 }

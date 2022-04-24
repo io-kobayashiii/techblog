@@ -1,6 +1,6 @@
-export type Layout = 'default' | 'article' | '404' | '500'
+export type LayoutType = 'default' | 'article' | '404' | '500'
 
-export type Category = {
+export type CategoryType = {
 	id: string
 	createdAt: string
 	updatedAt: string
@@ -10,7 +10,9 @@ export type Category = {
 	slug: string
 }
 
-export type Article = {
+export type CategoriesType = CategoryType[]
+
+export type ArticleType = {
 	id: string
 	createdAt: string
 	updatedAt: string
@@ -19,18 +21,7 @@ export type Article = {
 	title: string
 	description: string
 	body: string | null
-	categories: Category[]
+	categories: CategoryType[]
 }
 
-export type Articles = Article[]
-
-export type ArticleList = {
-	contents: Article[] | null
-	totalCount: number
-	offset: number
-	limit: number
-}
-
-export type getStaticPropsArticles = () => Promise<{
-	props: { articles: Articles }
-}>
+export type ArticlesType = ArticleType[]
