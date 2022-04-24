@@ -5,11 +5,11 @@ export default function Custom404() {
 }
 
 export const getStaticProps = async () => {
-	const categoryList = await ApiRequests.categories()
+	const categories = await ApiRequests.categories()
 	return {
 		props: {
 			layout: '404',
-			categories: categoryList.contents,
+			categories: categories.contents,
 		},
 	}
 }

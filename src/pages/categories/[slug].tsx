@@ -1,4 +1,4 @@
-import { Category, Article, Articles } from '@/types/GlobalTypes'
+import { ArticleType, ArticlesType, CategoryType } from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
 import styles from '@/styles/pages/categories/categories.module.scss'
 import dayjs from 'dayjs'
@@ -35,26 +35,26 @@ export default function CreateCategoryPage({ articles, slug }) {
 }
 
 export const getStaticPaths = async () => {
-	const categoryList = await ApiRequests.categories()
-	const paths = categoryList.contents.map((content) => `/categories/${content.slug}`)
+	const categories = await ApiRequests.categories()
+	const paths = categories.contents.map((content) => `/categories/${content.slug}`)
 	return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
-	const articleList = await ApiRequests.articles()
+	const articles = await ApiRequests.articles()
 	// prettier-ignore
-	const matchedArticles: Articles = articleList.contents.reduce((array: Articles, article: Article): Articles =>
-			article.categories.reduce((bool: boolean, category: Category): boolean =>
+	const matchedArticles: ArticlesType = articles.contents.reduce((array: ArticlesType, article: ArticleType): ArticlesType =>
+			article.categories.reduce((bool: boolean, category: CategoryType): boolean =>
 				category.slug === context.params.slug ? true : bool
 			, false) ? array.concat([article]) : array
 		, [])
-	const categoryList = await ApiRequests.categories()
+	const categories = await ApiRequests.categories()
 	return {
 		props: {
 			layout: 'default',
 			articles: matchedArticles,
-			categories: categoryList.contents,
-			slug: categoryList.contents.map((category) => category.slug === context.params.slug && category.name),
+			categories: categories.contents,
+			slug: categories.contents.map((category) => category.slug === context.params.slug && category.name),
 		},
 	}
 }
