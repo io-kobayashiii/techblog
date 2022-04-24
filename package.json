@@ -5,6 +5,8 @@
 	"scripts": {
 		"dev": "next dev --port 3100",
 		"build": "next build",
+		"analyze": "ANALYZE=true next build",
+		"analyze:windows": "cross-env ANALYZE=true next build",
 		"start": "next start",
 		"tailwind": "tailwind build src/styles/globals.css -o src/styles/tailwind.css",
 		"lint": "next lint",
@@ -35,6 +37,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.5",
+		"@next/bundle-analyzer": "^12.1.5",
 		"@storybook/addon-a11y": "^6.3.12",
 		"@storybook/addon-actions": "^6.3.12",
 		"@storybook/addon-docs": "^6.3.12",
