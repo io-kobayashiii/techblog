@@ -27,7 +27,6 @@
 	"dependencies": {
 		"@coreui/icons": "^2.0.1",
 		"@coreui/icons-react": "^1.1.0",
-		"dayjs": "^1.10.7",
 		"highlight.js": "^11.2.0",
 		"next": "11.0.1",
 		"react": "17.0.2",
@@ -56,8 +55,10 @@
 		"eslint-config-prettier": "^8.3.0",
 		"husky": "^7.0.2",
 		"lint-staged": "^11.1.2",
+		"moment": "^2.29.3",
 		"postcss": "^8.3.6",
 		"prettier": "^2.4.0",
+		"react-moment": "^1.1.2",
 		"storybook-css-modules-preset": "^1.1.1",
 		"tailwindcss": "^2.2.15",
 		"typescript": "^4.5.2"

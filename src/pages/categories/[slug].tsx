@@ -1,15 +1,10 @@
 import { ArticleType, ArticlesType, CategoryType } from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
 import styles from '@/styles/pages/categories/categories.module.scss'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
 import 'highlight.js/styles/stackoverflow-dark.css'
 import ApiRequests from '@/libs/ApiRequests'
 
 export default function CategoriesIndex({ articles, slug }) {
-	dayjs.extend(utc)
-	dayjs.extend(timezone)
 	return (
 		<>
 			<h1 className={`${styles.heading} text-24 sm:text-28 md:text-32`}>Category: {slug}</h1>
@@ -21,7 +16,7 @@ export default function CategoriesIndex({ articles, slug }) {
 							shadowColor="default"
 							data={{
 								title: article.title,
-								date: dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD'),
+								date: article.publishedAt,
 								href: `/articles/${article.id}`,
 								categories: article.categories.map((category) => category.name),
 							}}

@@ -1,16 +1,12 @@
 import { useEffect } from 'react'
 import NeumorphismButton from '@/components/atoms/button/NeumorphismButton'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
 import styles from '@/styles/pages/articles/articles.module.scss'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/stackoverflow-dark.css'
 import ApiRequests from '@/libs/ApiRequests'
+import Moment from 'react-moment'
 
 export default function Article({ article }) {
-	dayjs.extend(utc)
-	dayjs.extend(timezone)
 	useEffect(() => {
 		const preElems = document.querySelectorAll('pre')
 		if (preElems.length > 0) {
@@ -34,7 +30,9 @@ export default function Article({ article }) {
 	}, [])
 	return (
 		<>
-			<p className="text-14 md:text-18">{dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD')}</p>
+			<Moment format="YYYY.MM.DD" className="text-14 md:text-18">
+				{article.publishedAt}
+			</Moment>
 			<h1 className={`${styles.heading} text-20 sm:text-24 md:text-28 mt-16 md:mt-22`}>{article.title}</h1>
 			<div className="flex flex-wrap m-minus-5 mt-15 md:mt-25">
 				{!!article.categories &&
@@ -64,7 +62,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
 	const article = await ApiRequests.article(context.params.id)
 	const categories = await ApiRequests.categories()
-	console.log(categories)
 	return {
 		props: {
 			layout: 'article',

@@ -4,6 +4,7 @@ import { CheckIfItExistsInStyles } from '@/libs/CheckIfItExistsInStyles'
 import Link from 'next/link'
 import ArticleCardTitle from '@/components/atoms/text/ArticleCardTitle'
 import NeumorphismButton from '@/components/atoms/button/NeumorphismButton'
+import Moment from 'react-moment'
 
 type Props = {
 	unevenness: 'dents' | 'bumps'
@@ -34,7 +35,10 @@ const ArticleCard = ({ unevenness, shadowColor, data, className = [''] }: Props)
 								})}
 						</div>
 					</div>
-					<p className="text-12 md:text-14 text-right mt-15">{data.date}</p>
+					<p></p>
+					<Moment format={'YYYY.MM.DD'} className="text-12 md:text-14 text-right mt-15">
+						{data.date}
+					</Moment>
 				</div>
 			</a>
 		</Link>

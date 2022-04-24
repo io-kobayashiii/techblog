@@ -1,13 +1,8 @@
 import ApiRequests from '@/libs/ApiRequests'
 import * as GlobalTypes from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
 
 export default function Index({ articles }) {
-	dayjs.extend(utc)
-	dayjs.extend(timezone)
 	return (
 		<>
 			<ul className="md:flex md:flex-wrap md:justify-between">
@@ -18,7 +13,7 @@ export default function Index({ articles }) {
 							shadowColor="default"
 							data={{
 								title: article.title,
-								date: dayjs.utc(article.publishedAt).tz('Asia/Tokyo').format('YYYY.MM.DD'),
+								date: article.publishedAt,
 								href: `/articles/${article.id}`,
 								categories: article.categories.map((category) => category.name),
 							}}

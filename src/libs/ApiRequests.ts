@@ -14,16 +14,16 @@ class ApiRequests {
 		this.fetch = (path: string) => fetch(this.baseUrl + path, this.headers)
 	}
 	async article(id: string): Promise<ResponseTypes.ArticleResponseType> {
-		console.log(`log ::: ApiRequests.article`)
+		console.log(`ApiRequests.article`)
 		return await this.fetch(`articles/${id}`).then((response) => response.json())
 	}
 	async articles(): Promise<ResponseTypes.ArticlesResponseType> {
-		console.log(`log ::: ApiRequests.articles`)
+		console.log(`ApiRequests.articles`)
 		const response = await this.fetch('articles')
 		return response.json()
 	}
 	async categories(): Promise<ResponseTypes.CategoriesResponseType> {
-		console.log(`log ::: ApiRequests.categories`)
+		console.log(`ApiRequests.categories`)
 		const response = await this.fetch('categories')
 		return response.json()
 	}
