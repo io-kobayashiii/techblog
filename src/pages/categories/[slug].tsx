@@ -7,7 +7,7 @@ import timezone from 'dayjs/plugin/timezone'
 import 'highlight.js/styles/stackoverflow-dark.css'
 import ApiRequests from '@/libs/ApiRequests'
 
-export default function CreateCategoryPage({ articles, slug }) {
+export default function CategoriesIndex({ articles, slug }) {
 	dayjs.extend(utc)
 	dayjs.extend(timezone)
 	return (

@@ -8,7 +8,7 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/stackoverflow-dark.css'
 import ApiRequests from '@/libs/ApiRequests'
 
-export default function CreateArticle({ article }) {
+export default function Article({ article }) {
 	dayjs.extend(utc)
 	dayjs.extend(timezone)
 	useEffect(() => {
