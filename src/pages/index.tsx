@@ -1,5 +1,5 @@
 import ApiRequests from '@/libs/ApiRequests'
-import { Layout, Articles } from '@/types/GlobalTypes'
+import * as GlobalTypes from '@/types/GlobalTypes'
 import ArticleCard from '@/components/molecules/card/ArticleCard'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -33,20 +33,20 @@ export default function Home({ articles }) {
 
 type GetStaticPropsType = () => Promise<{
 	props: {
-		layout: Layout
-		articles: Articles
-		categories: string[]
+		layout: GlobalTypes.LayoutType
+		articles: GlobalTypes.ArticlesType
+		categories: GlobalTypes.CategoriesType
 	}
 }>
 
 export const getStaticProps: GetStaticPropsType = async () => {
-	const articleList = await ApiRequests.articles()
-	const categoryList = await ApiRequests.categories()
+	const articles = await ApiRequests.articles()
+	const categories = await ApiRequests.categories()
 	return {
 		props: {
 			layout: 'default',
-			articles: articleList.contents,
-			categories: categoryList.contents,
+			articles: articles.contents,
+			categories: categories.contents,
 		},
 	}
 }

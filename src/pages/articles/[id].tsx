@@ -56,20 +56,20 @@ export default function CreateArticle({ article }) {
 }
 
 export const getStaticPaths = async () => {
-	const articleList = await ApiRequests.articles()
-	const paths = articleList.contents.map((content) => `/articles/${content.id}`)
+	const articles = await ApiRequests.articles()
+	const paths = articles.contents.map((content) => `/articles/${content.id}`)
 	return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
 	const article = await ApiRequests.article(context.params.id)
-	const categoryList = await ApiRequests.categories()
-	console.log(categoryList)
+	const categories = await ApiRequests.categories()
+	console.log(categories)
 	return {
 		props: {
 			layout: 'article',
 			article: article,
-			categories: categoryList.contents,
+			categories: categories.contents,
 		},
 	}
 }
