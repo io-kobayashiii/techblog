@@ -3,39 +3,34 @@ import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from './Header.module.scss'
 import NeumorphismButton from '@/components/atoms/button/NeumorphismButton'
+import { GlobalNavigationStateContext } from '@/contexts/GlobalNavigationStateContext'
 
 const Header = ({ categories }): JSX.Element => {
-	const ref = useRef(true)
-	const [isOpen, setIsOpen] = useState(false)
+	const [isInitialRendering, setIsInitialRendering] = useState(true)
+	const headerRef = useRef<HTMLHeadingElement>()
+	const { isGlobalNavigationOpen, setIsGlobalNavigationOpen } = React.useContext(GlobalNavigationStateContext)
 	useEffect(() => {
-		if (ref.current) {
-			ref.current = false
+		if (isInitialRendering) {
+			setIsInitialRendering(false)
 			return
 		}
-		document.getElementsByTagName('header')[0].classList.toggle(styles.isGnavSpOpen)
-		document.getElementsByTagName('body')[0].classList.toggle('overflow-hidden')
-	}, [isOpen])
-	if (process.browser) {
-		document
-			.getElementById('list--category')
-			.querySelectorAll('a')
-			.forEach((elem) => elem.addEventListener('click', () => setIsOpen(false)))
+		headerRef.current.classList.toggle(styles.isGnavSpOpen)
+	}, [isGlobalNavigationOpen])
+	useEffect(() => {
 		window.addEventListener('resize', () => {
-			if (window.innerWidth >= 768) document.getElementsByTagName('header')[0].classList.remove(styles.isGnavSpOpen)
+			if (window.innerWidth >= 768) headerRef.current.classList.remove(styles.isGnavSpOpen)
 		})
-	}
+	}, [])
 	return (
 		<>
-			<header className={`${styles.default} ${styles.header} w-100p overflow-hidden bg-white`}>
+			<header ref={headerRef} className={`${styles.default} ${styles.header} w-100p overflow-hidden bg-white`}>
 				<div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p">
 					<Link href="/">
-						<a>
-							<p className={`text-32 md:text-40 ${styles.logo}`} onClick={() => setIsOpen(false)}>
-								For
-							</p>
+						<a onClick={() => setIsGlobalNavigationOpen(false)}>
+							<p className={`text-32 md:text-40 ${styles.logo}`}>For</p>
 						</a>
 					</Link>
-					<div onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+					<div onClick={() => setIsGlobalNavigationOpen(!isGlobalNavigationOpen)} className="md:hidden">
 						<NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={`<i class='cil-hamburger-menu'></i>`} className={'default rounded-6 leading-0 p-8 md:p-16 text-16 md:text-24'} />
 					</div>
 					<div className="hidden md:block">
@@ -73,7 +68,7 @@ const Header = ({ categories }): JSX.Element => {
 							{categories.map((category, index) => {
 								return (
 									<Link key={index} href={`/categories/${category.slug}`}>
-										<a>
+										<a onClick={() => setIsGlobalNavigationOpen(false)}>
 											<li>
 												<NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={category.name} className={'default rounded-100vh leading-0 m-5 p-16 text-14 bg-white'} />
 											</li>
