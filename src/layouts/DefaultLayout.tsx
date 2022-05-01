@@ -1,10 +1,25 @@
-import React from 'react'
+import * as React from 'react'
 import Head from 'next/head'
 import Header from '@/components/organisms/header/Header'
 import Footer from '@/components/organisms/footer/Footer'
 import { SiteConfig } from '@/config/SiteConfig'
+import { GlobalNavigationStateContext } from '@/contexts/GlobalNavigationStateContext'
 
 const DefaultLayout = ({ children, categories }) => {
+	const [isInitialRendering, setIsInitialRendering] = React.useState(true)
+	const { isGlobalNavigationOpen } = React.useContext(GlobalNavigationStateContext)
+	const [bodyElement, setBodyElement] = React.useState<HTMLBodyElement>()
+	React.useEffect(() => {
+		setBodyElement(document.getElementsByTagName('body')[0])
+	}, [])
+	React.useEffect(() => {
+		console.log(`App.useEffect() / isGlobalNavigationOpen: ${isGlobalNavigationOpen}`)
+		if (isInitialRendering) {
+			setIsInitialRendering(false)
+			return
+		}
+		bodyElement.classList.toggle('overflow-hidden')
+	}, [isGlobalNavigationOpen])
 	return (
 		<>
 			<Head>
