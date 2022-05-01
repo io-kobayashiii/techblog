@@ -35,10 +35,9 @@ const ArticleCard = ({ unevenness, shadowColor, data, className = [''] }: Props)
 								})}
 						</div>
 					</div>
-					<p></p>
-					<Moment format={'YYYY.MM.DD'} className="text-12 md:text-14 text-right mt-15">
-						{data.date}
-					</Moment>
+					<p className="text-12 md:text-14 text-right mt-15">
+						<Moment format={'YYYY.MM.DD'}>{data.date}</Moment>
+					</p>
 				</div>
 			</a>
 		</Link>
