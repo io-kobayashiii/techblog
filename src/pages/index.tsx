@@ -1,8 +1,12 @@
-import ApiRequests from '@/utils/ApiClient';
+import ApiClient from '@/utils/ApiClient';
 import * as GlobalTypes from '@/types/GlobalTypes';
 import ArticleCard from '@/components/card/ArticleCard';
 
-export default function Index({ articles }) {
+type Props = {
+  articles: GlobalTypes.ArticleType[];
+};
+
+const Index = ({ articles }: Props) => {
   return (
     <>
       <ul className="md:flex md:flex-wrap md:justify-between">
@@ -36,7 +40,9 @@ export default function Index({ articles }) {
       </ul>
     </>
   );
-}
+};
+
+export default Index;
 
 type GetStaticPropsType = () => Promise<{
   props: {
@@ -47,8 +53,8 @@ type GetStaticPropsType = () => Promise<{
 }>;
 
 export const getStaticProps: GetStaticPropsType = async () => {
-  const articles = await ApiRequests.articles();
-  const categories = await ApiRequests.categories();
+  const articles = await ApiClient.articles();
+  const categories = await ApiClient.categories();
   return {
     props: {
       layout: 'default',
