@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
-import Header from '@/components/organisms/header/Header';
-import Footer from '@/components/organisms/footer/Footer';
+import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
 import { SiteConfig } from '@/config/SiteConfig';
 import { GlobalNavigationStateContext } from '@/contexts/GlobalNavigationStateContext';
 

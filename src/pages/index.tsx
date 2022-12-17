@@ -1,6 +1,6 @@
 import ApiRequests from '@/libs/ApiRequests';
 import * as GlobalTypes from '@/types/GlobalTypes';
-import ArticleCard from '@/components/molecules/card/ArticleCard';
+import ArticleCard from '@/components/card/ArticleCard';
 
 export default function Index({ articles }) {
   return (
