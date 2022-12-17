@@ -2,28 +2,18 @@ import * as React from 'react';
 import Head from 'next/head';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
-import { SiteConfig } from '@/config/SiteConfig';
-import { GlobalNavigationStateContext } from '@/contexts/GlobalNavigationStateContext';
+import { SiteConfig } from '@/configs/SiteConfig';
+import { useGlobalNavigation } from '@/hooks/useGlobalNavigation';
+import * as ArticleTypes from '@/types/ArticleTypes';
 
-const ArticleLayout = ({ children, article, categories }) => {
-  const [isInitialRendering, setIsInitialRendering] = React.useState(true);
-  const { isGlobalNavigationOpen } = React.useContext(
-    GlobalNavigationStateContext
-  );
-  const [bodyElement, setBodyElement] = React.useState<HTMLBodyElement>();
-  React.useEffect(() => {
-    setBodyElement(document.getElementsByTagName('body')[0]);
-  }, []);
-  React.useEffect(() => {
-    console.log(
-      `App.useEffect() / isGlobalNavigationOpen: ${isGlobalNavigationOpen}`
-    );
-    if (isInitialRendering) {
-      setIsInitialRendering(false);
-      return;
-    }
-    bodyElement.classList.toggle('overflow-hidden');
-  }, [isGlobalNavigationOpen]);
+type Props = {
+  article: ArticleTypes.ArticleType;
+  categories: ArticleTypes.CategoryType[];
+  children: React.ReactNode;
+};
+
+const ArticleLayout = ({ article, categories, children }: Props) => {
+  useGlobalNavigation();
   return (
     <>
       <Head>
@@ -31,6 +21,21 @@ const ArticleLayout = ({ children, article, categories }) => {
           {article.title} | {SiteConfig.title}
         </title>
         <meta property="description" content={article.description} />
+        <script
+          defer
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+        />
+        <script
+          id={'ga'}
+          defer
+          dangerouslySetInnerHTML={{
+            __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`,
+          }}
+        />
       </Head>
       <Header categories={categories} />
       <main className="pt-70 md:pt-180 pb-50 md:pb-80 bg-gray-100">

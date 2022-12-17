@@ -1,9 +1,10 @@
 import ApiClient from '@/utils/ApiClient';
-import * as GlobalTypes from '@/types/GlobalTypes';
+import * as ArticleTypes from '@/types/ArticleTypes';
 import ArticleCard from '@/components/card/ArticleCard';
+import { LayoutType } from '@/types/LayoutTypes';
 
 type Props = {
-  articles: GlobalTypes.ArticleType[];
+  articles: ArticleTypes.ArticleType[];
 };
 
 const Index = ({ articles }: Props) => {
@@ -46,9 +47,9 @@ export default Index;
 
 type PageProps = () => Promise<{
   props: {
-    layout: GlobalTypes.LayoutType;
-    articles: GlobalTypes.ArticlesType;
-    categories: GlobalTypes.CategoriesType;
+    layout: LayoutType;
+    articles: ArticleTypes.ArticleType[];
+    categories: ArticleTypes.CategoryType[];
   };
 }>;
 

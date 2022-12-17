@@ -1,5 +1,3 @@
-export type LayoutType = 'default' | 'article' | '404' | '500';
-
 export type CategoryType = {
   id: string;
   createdAt: string;
@@ -9,8 +7,6 @@ export type CategoryType = {
   name: string;
   slug: string;
 };
-
-export type CategoriesType = CategoryType[];
 
 export type ArticleType = {
   id: string;
@@ -23,5 +19,3 @@ export type ArticleType = {
   body: string | null;
   categories: CategoryType[];
 };
-
-export type ArticlesType = ArticleType[];
