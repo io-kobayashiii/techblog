@@ -1,12 +1,13 @@
-import * as GlobalTypes from '@/types/GlobalTypes';
+import * as ArticleTypes from '@/types/ArticleTypes';
 import ArticleCard from '@/components/card/ArticleCard';
 import styles from '@/styles/pages/categories/categories.module.scss';
 import 'highlight.js/styles/stackoverflow-dark.css';
 import ApiRequests from '@/utils/ApiClient';
 import { GetStaticProps } from 'next';
+import { LayoutType } from '@/types/LayoutTypes';
 
 type Props = {
-  articles: GlobalTypes.ArticleType[];
+  articles: ArticleTypes.ArticleType[];
   slugs: string[];
 };
 
@@ -53,9 +54,9 @@ export const getStaticPaths = async () => {
 };
 
 type PageProps = {
-  layout: GlobalTypes.LayoutType;
-  articles: GlobalTypes.ArticleType[];
-  categories: GlobalTypes.CategoryType[];
+  layout: LayoutType;
+  articles: ArticleTypes.ArticleType[];
+  categories: ArticleTypes.CategoryType[];
   slugs: string[];
 };
 
@@ -66,20 +67,21 @@ type GetStaticPropsParams = {
 export const getStaticProps: GetStaticProps<PageProps, GetStaticPropsParams> =
   async ({ params }) => {
     const articles = await ApiRequests.articles();
-    const matchedArticles: GlobalTypes.ArticleType[] = articles.contents.reduce(
-      (
-        array: GlobalTypes.ArticleType[],
-        article: GlobalTypes.ArticleType
-      ): GlobalTypes.ArticleType[] =>
-        article.categories.reduce(
-          (bool: boolean, category: GlobalTypes.CategoryType): boolean =>
-            category.slug === params.slug ? true : bool,
-          false
-        )
-          ? array.concat([article])
-          : array,
-      []
-    );
+    const matchedArticles: ArticleTypes.ArticleType[] =
+      articles.contents.reduce(
+        (
+          array: ArticleTypes.ArticleType[],
+          article: ArticleTypes.ArticleType
+        ): ArticleTypes.ArticleType[] =>
+          article.categories.reduce(
+            (bool: boolean, category: ArticleTypes.CategoryType): boolean =>
+              category.slug === params.slug ? true : bool,
+            false
+          )
+            ? array.concat([article])
+            : array,
+        []
+      );
     const categories = await ApiRequests.categories();
     return {
       props: {

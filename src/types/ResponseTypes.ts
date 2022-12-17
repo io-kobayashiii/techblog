@@ -1,7 +1,7 @@
-import * as GlobalTypes from './GlobalTypes';
+import * as ArticleTypes from './ArticleTypes';
 
 export type CategoriesResponseType = {
-  contents: GlobalTypes.CategoryType[];
+  contents: ArticleTypes.CategoryType[];
   totalCount: number;
   offset: number;
   limit: number;
@@ -16,11 +16,11 @@ export type ArticleResponseType = {
   title: string;
   description: string;
   body: string | null;
-  categories: GlobalTypes.CategoryType[];
+  categories: ArticleTypes.CategoryType[];
 };
 
 export type ArticlesResponseType = {
-  contents: GlobalTypes.ArticleType[] | null;
+  contents: ArticleTypes.ArticleType[] | null;
   totalCount: number;
   offset: number;
   limit: number;

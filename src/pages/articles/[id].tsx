@@ -3,12 +3,13 @@ import styles from '@/styles/pages/articles/articles.module.scss';
 import 'highlight.js/styles/stackoverflow-dark.css';
 import ApiRequests from '@/utils/ApiClient';
 import Moment from 'react-moment';
-import * as GlobalTypes from '@/types/GlobalTypes';
+import * as ArticleTypes from '@/types/ArticleTypes';
 import { GetStaticProps } from 'next';
 import { useApplyHighlightJs } from '@/hooks/useApplyHighlightJs';
+import { LayoutType } from '@/types/LayoutTypes';
 
 type Props = {
-  article: GlobalTypes.ArticleType;
+  article: ArticleTypes.ArticleType;
 };
 
 const Article = ({ article }: Props) => {
@@ -56,9 +57,9 @@ export const getStaticPaths = async () => {
 };
 
 type PageProps = {
-  layout: GlobalTypes.LayoutType;
-  article: GlobalTypes.ArticleType;
-  categories: GlobalTypes.CategoryType[];
+  layout: LayoutType;
+  article: ArticleTypes.ArticleType;
+  categories: ArticleTypes.CategoryType[];
 };
 
 type GetStaticPropsParams = {

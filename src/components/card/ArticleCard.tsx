@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './ArticleCard.module.css';
-import { CheckIfItExistsInStyles } from '@/utils/CheckIfItExistsInStyles';
+import { CheckIfExistsInStyles } from '@/utils/CheckIfExistsInStyles';
 import Link from 'next/link';
 import ArticleCardTitle from '@/components/card/ArticleCardTitle';
 import NeumorphismButton from '@/components/button/NeumorphismButton';
@@ -29,7 +29,7 @@ const ArticleCard = ({
   const classes = [
     styleClass,
     ...commonClasses,
-    ...CheckIfItExistsInStyles(className, styles),
+    ...CheckIfExistsInStyles(className, styles),
   ];
   return (
     <Link href={data.href}>

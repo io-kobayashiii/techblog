@@ -2,28 +2,17 @@ import * as React from 'react';
 import Head from 'next/head';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
-import { SiteConfig } from '@/config/SiteConfig';
-import { GlobalNavigationStateContext } from '@/contexts/GlobalNavigationStateContext';
+import { SiteConfig } from '@/configs/SiteConfig';
+import { useGlobalNavigation } from '@/hooks/useGlobalNavigation';
+import * as ArticleTypes from '@/types/ArticleTypes';
 
-const DefaultLayout = ({ children, categories }) => {
-  const [isInitialRendering, setIsInitialRendering] = React.useState(true);
-  const { isGlobalNavigationOpen } = React.useContext(
-    GlobalNavigationStateContext
-  );
-  const [bodyElement, setBodyElement] = React.useState<HTMLBodyElement>();
-  React.useEffect(() => {
-    setBodyElement(document.getElementsByTagName('body')[0]);
-  }, []);
-  React.useEffect(() => {
-    console.log(
-      `App.useEffect() / isGlobalNavigationOpen: ${isGlobalNavigationOpen}`
-    );
-    if (isInitialRendering) {
-      setIsInitialRendering(false);
-      return;
-    }
-    bodyElement.classList.toggle('overflow-hidden');
-  }, [isGlobalNavigationOpen]);
+type Props = {
+  categories: ArticleTypes.CategoryType[];
+  children: React.ReactNode;
+};
+
+const DefaultLayout = ({ categories, children }: Props) => {
+  useGlobalNavigation();
   return (
     <>
       <Head>

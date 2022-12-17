@@ -2,8 +2,13 @@ import * as React from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.scss';
 import NeumorphismButton from '@/components/button/NeumorphismButton';
+import * as ArticleTypes from '@/types/ArticleTypes';
 
-const Footer = ({ categories }): JSX.Element => {
+type Props = {
+  categories: ArticleTypes.CategoryType[];
+};
+
+const Footer = ({ categories }: Props) => {
   return (
     <>
       <footer className={`${styles.default} py-30 md:py-50 bg-white`}>

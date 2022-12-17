@@ -16,7 +16,7 @@ class CustomDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body id={'body'}>
           <Main />
           <NextScript />
         </body>

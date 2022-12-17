@@ -1,33 +1,31 @@
 import * as React from 'react';
-import { useRef, useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import NeumorphismButton from '@/components/button/NeumorphismButton';
-import { GlobalNavigationStateContext } from '@/contexts/GlobalNavigationStateContext';
+import * as ArticleTypes from '@/types/ArticleTypes';
+import { useGlobalNavigationStateContext } from '@/hooks/useGlobalNavigationStateContext';
+import { useWindowDimensions } from '@/hooks/useWindowDimensions';
 
-const Header = ({ categories }): JSX.Element => {
-  const [isInitialRendering, setIsInitialRendering] = useState(true);
-  const headerRef = useRef<HTMLHeadingElement>();
+type Props = {
+  categories: ArticleTypes.CategoryType[];
+};
+
+const Header = ({ categories }: Props) => {
+  const { width } = useWindowDimensions();
   const { isGlobalNavigationOpen, setIsGlobalNavigationOpen } =
-    React.useContext(GlobalNavigationStateContext);
+    useGlobalNavigationStateContext();
+
   useEffect(() => {
-    if (isInitialRendering) {
-      setIsInitialRendering(false);
-      return;
-    }
-    headerRef.current.classList.toggle(styles.isGnavSpOpen);
-  }, [isGlobalNavigationOpen]);
-  useEffect(() => {
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768)
-        headerRef.current.classList.remove(styles.isGnavSpOpen);
-    });
-  }, []);
+    if (width >= 768) setIsGlobalNavigationOpen(false);
+  }, [width]);
+
   return (
     <>
       <header
-        ref={headerRef}
-        className={`${styles.default} ${styles.header} w-100p overflow-hidden bg-white`}
+        className={`${styles.default} ${styles.header} ${
+          isGlobalNavigationOpen ? styles.isGnavSpOpen : ''
+        } w-100p overflow-hidden bg-white`}
       >
         <div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p">
           <Link href="/">

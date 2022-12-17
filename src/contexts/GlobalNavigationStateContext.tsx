@@ -9,11 +9,11 @@ export const GlobalNavigationStateContext = React.createContext(
   {} as GlobalNavigationStateContextProps
 );
 
-export const GlobalNavigationStateContextProvider = ({
-  children,
-}: {
-  children: any;
-}) => {
+type Props = {
+  children: React.ReactNode;
+};
+
+export const GlobalNavigationStateContextProvider = ({ children }: Props) => {
   const [isGlobalNavigationOpen, setIsGlobalNavigationOpen] =
     React.useState(false);
   return (
