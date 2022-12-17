@@ -1,6 +1,6 @@
 import * as ResponseTypes from '../types/ResponseTypes';
 
-class ApiRequests {
+class ApiClient {
   baseUrl: string;
   headers: {
     headers: {
@@ -14,22 +14,22 @@ class ApiRequests {
     this.fetch = (path: string) => fetch(this.baseUrl + path, this.headers);
   }
   async article(id: string): Promise<ResponseTypes.ArticleResponseType> {
-    console.log(`ApiRequests.article`);
+    console.log(`ApiClient.article`);
     return await this.fetch(`articles/${id}`).then((response) =>
       response.json()
     );
   }
   async articles(): Promise<ResponseTypes.ArticlesResponseType> {
-    console.log(`ApiRequests.articles`);
+    console.log(`ApiClient.articles`);
     const response = await this.fetch('articles');
     return response.json();
   }
   async categories(): Promise<ResponseTypes.CategoriesResponseType> {
-    console.log(`ApiRequests.categories`);
+    console.log(`ApiClient.categories`);
     const response = await this.fetch('categories');
     return response.json();
   }
 }
 
-const ApiRequestsInstance = new ApiRequests();
-export default ApiRequestsInstance;
+const ApiClientInstance = new ApiClient();
+export default ApiClientInstance;
