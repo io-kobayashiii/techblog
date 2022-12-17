@@ -2,7 +2,7 @@ import { ArticleType, ArticlesType, CategoryType } from '@/types/GlobalTypes';
 import ArticleCard from '@/components/card/ArticleCard';
 import styles from '@/styles/pages/categories/categories.module.scss';
 import 'highlight.js/styles/stackoverflow-dark.css';
-import ApiRequests from '@/libs/ApiRequests';
+import ApiRequests from '@/utils/ApiClient';
 
 export default function CategoriesIndex({ articles, slug }) {
   return (

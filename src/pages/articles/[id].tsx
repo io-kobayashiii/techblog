@@ -3,7 +3,7 @@ import NeumorphismButton from '@/components/button/NeumorphismButton';
 import styles from '@/styles/pages/articles/articles.module.scss';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/stackoverflow-dark.css';
-import ApiRequests from '@/libs/ApiRequests';
+import ApiRequests from '@/utils/ApiClient';
 import Moment from 'react-moment';
 
 export default function Article({ article }) {

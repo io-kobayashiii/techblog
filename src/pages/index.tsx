@@ -1,4 +1,4 @@
-import ApiRequests from '@/libs/ApiRequests';
+import ApiRequests from '@/utils/ApiClient';
 import * as GlobalTypes from '@/types/GlobalTypes';
 import ArticleCard from '@/components/card/ArticleCard';
 

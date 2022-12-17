@@ -1,4 +1,4 @@
-import ApiRequests from '@/libs/ApiRequests';
+import ApiRequests from '@/utils/ApiClient';
 
 export default function Custom500() {
   return <h1 className="text-24">Server Error.</h1>;

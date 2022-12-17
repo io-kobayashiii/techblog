@@ -1,69 +1,69 @@
 {
-	"name": "techblog",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev --port 3100",
-		"build": "next build",
-		"analyze": "ANALYZE=true next build",
-		"analyze:windows": "cross-env ANALYZE=true next build",
-		"start": "next start",
-		"tailwind": "tailwind build src/styles/globals.css -o src/styles/tailwind.css",
-		"lint": "next lint",
-		"format": "prettier --write src/**/*.{js,json,ts,tsx}",
-		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook",
-		"css:dev": "TAILWIND_MODE=watch tailwind src/styles/globals.css -o src/styles/tailwind.css --watch",
-		"css:build": "postcss src/styles/globals.css -o src/styles/tailwind.css"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"*.{js,ts,tsx}": [
-			"eslint --fix"
-		]
-	},
-	"dependencies": {
-		"@coreui/icons": "^2.0.1",
-		"@coreui/icons-react": "^1.1.0",
-		"highlight.js": "^11.2.0",
-		"next": "11.0.1",
-		"react": "17.0.2",
-		"react-dom": "17.0.2",
-		"sass": "^1.35.2"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.15.5",
-		"@next/bundle-analyzer": "^12.1.5",
-		"@storybook/addon-a11y": "^6.3.12",
-		"@storybook/addon-actions": "^6.3.12",
-		"@storybook/addon-docs": "^6.3.12",
-		"@storybook/addon-essentials": "^6.3.9",
-		"@storybook/addon-knobs": "^6.3.1",
-		"@storybook/addon-links": "^6.3.12",
-		"@storybook/addon-storyshots": "^6.3.12",
-		"@storybook/addons": "^6.3.12",
-		"@storybook/react": "^6.3.12",
-		"@types/react": "^17.0.36",
-		"@typescript-eslint/eslint-plugin": "^4.31.1",
-		"@typescript-eslint/parser": "^4.31.1",
-		"autoprefixer": "^10.3.4",
-		"babel-loader": "^8.2.2",
-		"cross-env": "^7.0.3",
-		"eslint": "7.31.0",
-		"eslint-config-next": "11.0.1",
-		"eslint-config-prettier": "^8.3.0",
-		"husky": "^7.0.2",
-		"lint-staged": "^11.1.2",
-		"moment": "^2.29.3",
-		"postcss": "^8.3.6",
-		"prettier": "^2.4.0",
-		"react-moment": "^1.1.2",
-		"storybook-css-modules-preset": "^1.1.1",
-		"tailwindcss": "^2.2.15",
-		"typescript": "^4.5.2"
-	}
+  "name": "techblog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3100",
+    "build": "next build",
+    "analyze": "ANALYZE=true next build",
+    "analyze:windows": "cross-env ANALYZE=true next build",
+    "start": "next start",
+    "tailwind": "tailwind build src/styles/globals.css -o src/styles/tailwind.css",
+    "lint": "next lint",
+    "format": "prettier --write src/**/*.{js,json,ts,tsx}",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "css:dev": "TAILWIND_MODE=watch tailwind src/styles/globals.css -o src/styles/tailwind.css --watch",
+    "css:build": "postcss src/styles/globals.css -o src/styles/tailwind.css"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@coreui/icons": "^2.0.1",
+    "@coreui/icons-react": "^1.1.0",
+    "highlight.js": "^11.2.0",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.35.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@next/bundle-analyzer": "^12.1.5",
+    "@storybook/addon-a11y": "^6.3.12",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-docs": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.9",
+    "@storybook/addon-knobs": "^6.3.1",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/addon-storyshots": "^6.3.12",
+    "@storybook/addons": "^6.3.12",
+    "@storybook/react": "^6.3.12",
+    "@types/react": "^17.0.36",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "autoprefixer": "^10.3.4",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "eslint": "7.31.0",
+    "eslint-config-next": "11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "moment": "^2.29.3",
+    "postcss": "^8.3.6",
+    "prettier": "^2.4.0",
+    "react-moment": "^1.1.2",
+    "storybook-css-modules-preset": "^1.1.1",
+    "tailwindcss": "^2.2.15",
+    "typescript": "^4.5.2"
+  }
 }

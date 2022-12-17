@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './ArticleCard.module.css';
-import { CheckIfItExistsInStyles } from '@/libs/CheckIfItExistsInStyles';
+import { CheckIfItExistsInStyles } from '@/utils/CheckIfItExistsInStyles';
 import Link from 'next/link';
 import ArticleCardTitle from '@/components/card/ArticleCardTitle';
 import NeumorphismButton from '@/components/button/NeumorphismButton';
