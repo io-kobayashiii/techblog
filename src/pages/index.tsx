@@ -1,47 +1,66 @@
-import ApiRequests from '@/libs/ApiRequests'
-import * as GlobalTypes from '@/types/GlobalTypes'
-import ArticleCard from '@/components/molecules/card/ArticleCard'
+import ApiClient from '@/utils/ApiClient';
+import * as ArticleTypes from '@/types/ArticleTypes';
+import ArticleCard from '@/components/card/ArticleCard';
+import { LayoutType } from '@/types/LayoutTypes';
 
-export default function Index({ articles }) {
-	return (
-		<>
-			<ul className="md:flex md:flex-wrap md:justify-between">
-				{articles.map((article, index) => (
-					<li key={article.id} className={index == 0 ? 'md:w-100p' : 'md:w-[calc(50%-15px)] mt-15 md:mt-30'}>
-						<ArticleCard
-							unevenness="bumps"
-							shadowColor="default"
-							data={{
-								title: article.title,
-								date: article.publishedAt,
-								href: `/articles/${article.id}`,
-								categories: article.categories.map((category) => category.name),
-							}}
-							className={['default', 'bg-white', 'md:h-100p', 'md:flex', 'md:flex-col', 'md:justify-between']}
-						/>
-					</li>
-				))}
-			</ul>
-		</>
-	)
-}
+type Props = {
+  articles: ArticleTypes.ArticleType[];
+};
 
-type GetStaticPropsType = () => Promise<{
-	props: {
-		layout: GlobalTypes.LayoutType
-		articles: GlobalTypes.ArticlesType
-		categories: GlobalTypes.CategoriesType
-	}
-}>
+const Index = ({ articles }: Props) => {
+  return (
+    <>
+      <ul className="md:flex md:flex-wrap md:justify-between">
+        {articles.map((article, index) => (
+          <li
+            key={article.id}
+            className={
+              index == 0 ? 'md:w-100p' : 'md:w-[calc(50%-15px)] mt-15 md:mt-30'
+            }
+          >
+            <ArticleCard
+              unevenness="bumps"
+              shadowColor="default"
+              data={{
+                title: article.title,
+                date: article.publishedAt,
+                href: `/articles/${article.id}`,
+                categories: article.categories.map((category) => category.name),
+              }}
+              className={[
+                'default',
+                'bg-white',
+                'md:h-100p',
+                'md:flex',
+                'md:flex-col',
+                'md:justify-between',
+              ]}
+            />
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
 
-export const getStaticProps: GetStaticPropsType = async () => {
-	const articles = await ApiRequests.articles()
-	const categories = await ApiRequests.categories()
-	return {
-		props: {
-			layout: 'default',
-			articles: articles.contents,
-			categories: categories.contents,
-		},
-	}
-}
+export default Index;
+
+type PageProps = () => Promise<{
+  props: {
+    layout: LayoutType;
+    articles: ArticleTypes.ArticleType[];
+    categories: ArticleTypes.CategoryType[];
+  };
+}>;
+
+export const getStaticProps: PageProps = async () => {
+  const articles = await ApiClient.articles();
+  const categories = await ApiClient.categories();
+  return {
+    props: {
+      layout: 'default',
+      articles: articles.contents,
+      categories: categories.contents,
+    },
+  };
+};
