@@ -1,38 +1,18 @@
-import { useEffect } from 'react';
 import NeumorphismButton from '@/components/button/NeumorphismButton';
 import styles from '@/styles/pages/articles/articles.module.scss';
-import hljs from 'highlight.js';
 import 'highlight.js/styles/stackoverflow-dark.css';
 import ApiRequests from '@/utils/ApiClient';
 import Moment from 'react-moment';
+import * as GlobalTypes from '@/types/GlobalTypes';
+import { GetStaticProps } from 'next';
+import { useApplyHighlightJs } from '@/hooks/useApplyHighlightJs';
 
-export default function Article({ article }) {
-  useEffect(() => {
-    const preElems = document.querySelectorAll('pre');
-    if (preElems.length > 0) {
-      Array.prototype.forEach.call(preElems, (preElem) => {
-        preElem.classList.add(styles.preCodeLanguage);
-        const codeElem = preElem.querySelector('code');
-        const splittedElemInner = codeElem.innerHTML.split('_____');
-        switch (splittedElemInner[0]) {
-          case 'terminal':
-            codeElem.className = `hljs bash`;
-            break;
-          default:
-            codeElem.className = `hljs ${splittedElemInner[0]}`;
-            break;
-        }
-        preElem.setAttribute(
-          'data-language',
-          splittedElemInner[1] == 'none'
-            ? splittedElemInner[0]
-            : splittedElemInner[1]
-        );
-        codeElem.innerHTML = splittedElemInner[2];
-      });
-      hljs.highlightAll();
-    }
-  }, []);
+type Props = {
+  article: GlobalTypes.ArticleType;
+};
+
+const Article = ({ article }: Props) => {
+  useApplyHighlightJs();
   return (
     <>
       <Moment format="YYYY.MM.DD" className="text-14 md:text-18">
@@ -65,7 +45,9 @@ export default function Article({ article }) {
       />
     </>
   );
-}
+};
+
+export default Article;
 
 export const getStaticPaths = async () => {
   const articles = await ApiRequests.articles();
@@ -73,14 +55,25 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps = async (context) => {
-  const article = await ApiRequests.article(context.params.id);
-  const categories = await ApiRequests.categories();
-  return {
-    props: {
-      layout: 'article',
-      article: article,
-      categories: categories.contents,
-    },
-  };
+type PageProps = {
+  layout: GlobalTypes.LayoutType;
+  article: GlobalTypes.ArticleType;
+  categories: GlobalTypes.CategoryType[];
 };
+
+type GetStaticPropsParams = {
+  id: string;
+};
+
+export const getStaticProps: GetStaticProps<PageProps, GetStaticPropsParams> =
+  async ({ params }) => {
+    const article = await ApiRequests.article(params.id);
+    const categories = await ApiRequests.categories();
+    return {
+      props: {
+        layout: 'article',
+        article: article,
+        categories: categories.contents,
+      },
+    };
+  };
