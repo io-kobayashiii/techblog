@@ -44,7 +44,7 @@ const Index = ({ articles }: Props) => {
 
 export default Index;
 
-type GetStaticPropsType = () => Promise<{
+type PageProps = () => Promise<{
   props: {
     layout: GlobalTypes.LayoutType;
     articles: GlobalTypes.ArticlesType;
@@ -52,7 +52,7 @@ type GetStaticPropsType = () => Promise<{
   };
 }>;
 
-export const getStaticProps: GetStaticPropsType = async () => {
+export const getStaticProps: PageProps = async () => {
   const articles = await ApiClient.articles();
   const categories = await ApiClient.categories();
   return {
