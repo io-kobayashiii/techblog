@@ -13,3 +13,5 @@ export const getStaticProps = async () => {
     },
   };
 };
+
+const tempVariable = 'test';
