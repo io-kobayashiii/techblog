@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "next dev --port 3100",
     "build": "next build && next export",
     "analyze": "ANALYZE=true next build",
@@ -23,7 +24,8 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write src/**/*.{js,json,ts,tsx}"
     ]
   },
   "dependencies": {
