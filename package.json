@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "husky install",
     "dev": "next dev --port 3100",
-    "build": "next build && next export",
+    "build": "next build && next export && next-sitemap --config sitemap.config.cjs",
     "analyze": "ANALYZE=true next build",
     "analyze:windows": "cross-env ANALYZE=true next build",
     "start": "next start",
@@ -61,6 +61,7 @@
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
     "moment": "^2.29.3",
+    "next-sitemap": "^3.1.44",
     "postcss": "^8.3.6",
     "prettier": "^2.4.0",
     "react-moment": "^1.1.2",
