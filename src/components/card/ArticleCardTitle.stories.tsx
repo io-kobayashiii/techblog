@@ -1,16 +1,16 @@
-import React from 'react'
-import ArticleCardTitle from './ArticleCardTitle'
+import React from 'react';
+import ArticleCardTitle from './ArticleCardTitle';
 
 const exportComponent = {
-	component: ArticleCardTitle,
-	title: 'ArticleCardTitle',
-}
-export default exportComponent
+  component: ArticleCardTitle,
+  title: 'ArticleCardTitle',
+};
+export default exportComponent;
 
-const Template = (args) => <ArticleCardTitle {...args} />
+const Template = (args) => <ArticleCardTitle {...args} />;
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
-	displayText: 'title',
-	className: ['mb-15'],
-}
+  displayText: 'title',
+  className: ['mb-15'],
+};
