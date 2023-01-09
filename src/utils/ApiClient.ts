@@ -21,12 +21,12 @@ class ApiClient {
   }
   async articles(): Promise<ResponseTypes.ArticlesResponseType> {
     console.log(`ApiClient.articles`);
-    const response = await this.fetch('articles');
+    const response = await this.fetch('articles?limit=100');
     return response.json();
   }
   async categories(): Promise<ResponseTypes.CategoriesResponseType> {
     console.log(`ApiClient.categories`);
-    const response = await this.fetch('categories');
+    const response = await this.fetch('categories?limit=100');
     return response.json();
   }
 }
