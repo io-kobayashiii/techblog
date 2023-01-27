@@ -28,10 +28,8 @@ const Header = ({ categories }: Props) => {
         } w-100p overflow-hidden bg-white`}
       >
         <div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p">
-          <Link href="/">
-            <a onClick={() => setIsGlobalNavigationOpen(false)}>
-              <p className={`text-32 md:text-40 ${styles.logo}`}>For</p>
-            </a>
+          <Link href="/" onClick={() => setIsGlobalNavigationOpen(false)}>
+            <p className={`text-32 md:text-40 ${styles.logo}`}>For</p>
           </Link>
           <div
             onClick={() => setIsGlobalNavigationOpen(!isGlobalNavigationOpen)}
@@ -48,36 +46,30 @@ const Header = ({ categories }: Props) => {
           </div>
           <div className="hidden md:block">
             {/* <Link href="https://twitter.com/?lang=ja">
-							<a target="_blank">
-								<NeumorphismButton
-									unevenness={'bumps'}
-									shadowColor={'default'}
-									displayText={`<i class='cib-twitter'></i>`}
-									className={['default', 'rounded-100vh', 'leading-0', 'p-16', 'text-24', 'bg-product-twitter', 'text-white']}
-								/>
-							</a>
+              <NeumorphismButton
+                unevenness={'bumps'}
+                shadowColor={'default'}
+                displayText={`<i class='cib-twitter'></i>`}
+                className={['default', 'rounded-100vh', 'leading-0', 'p-16', 'text-24', 'bg-product-twitter', 'text-white']}
+              />
 						</Link>
 						<Link href="https://qiita.com/">
-							<a target="_blank">
-								<NeumorphismButton
-									unevenness={'bumps'}
-									shadowColor={'default'}
-									displayText={`<i class='cib-qiita'></i>`}
-									className={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-16', 'text-24', 'bg-product-qiita', 'text-white']}
-								/>
-							</a>
+              <NeumorphismButton
+                unevenness={'bumps'}
+                shadowColor={'default'}
+                displayText={`<i class='cib-qiita'></i>`}
+                className={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-16', 'text-24', 'bg-product-qiita', 'text-white']}
+              />
 						</Link> */}
             <Link href="https://github.com/io-kobayashiii/techblog">
-              <a target="_blank">
-                <NeumorphismButton
-                  unevenness={'bumps'}
-                  shadowColor={'default'}
-                  displayText={`<i class="cib-github"></i>`}
-                  className={
-                    'default rounded-100vh leading-0 ml-15 p-16 text-24 bg-product-github text-white'
-                  }
-                />
-              </a>
+              <NeumorphismButton
+                unevenness={'bumps'}
+                shadowColor={'default'}
+                displayText={`<i class="cib-github"></i>`}
+                className={
+                  'default rounded-100vh leading-0 ml-15 p-16 text-24 bg-product-github text-white'
+                }
+              />
             </Link>
           </div>
         </div>
@@ -89,19 +81,21 @@ const Header = ({ categories }: Props) => {
             <ul id="list--category" className="flex flex-wrap m-minus-5 pt-15">
               {categories.map((category, index) => {
                 return (
-                  <Link key={index} href={`/categories/${category.slug}`}>
-                    <a onClick={() => setIsGlobalNavigationOpen(false)}>
-                      <li>
-                        <NeumorphismButton
-                          unevenness={'bumps'}
-                          shadowColor={'default'}
-                          displayText={category.name}
-                          className={
-                            'default rounded-100vh leading-0 m-5 p-16 text-14 bg-white'
-                          }
-                        />
-                      </li>
-                    </a>
+                  <Link
+                    key={index}
+                    href={`/categories/${category.slug}`}
+                    onClick={() => setIsGlobalNavigationOpen(false)}
+                  >
+                    <li>
+                      <NeumorphismButton
+                        unevenness={'bumps'}
+                        shadowColor={'default'}
+                        displayText={category.name}
+                        className={
+                          'default rounded-100vh leading-0 m-5 p-16 text-14 bg-white'
+                        }
+                      />
+                    </li>
                   </Link>
                 );
               })}
@@ -116,31 +110,25 @@ const Header = ({ categories }: Props) => {
 
             <div className="mt-15">
               {/* <Link href="https://twitter.com/?lang=ja">
-								<a target="_blank">
-									<NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={`<i class='cib-twitter'></i>`} className={['default', 'rounded-100vh', 'leading-0', 'p-10', 'text-24', 'bg-white']} />
-								</a>
+                <NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={`<i class='cib-twitter'></i>`} className={['default', 'rounded-100vh', 'leading-0', 'p-10', 'text-24', 'bg-white']} />
 							</Link>
 							<Link href="https://qiita.com/">
-								<a target="_blank">
-									<NeumorphismButton
-										unevenness={'bumps'}
-										shadowColor={'default'}
-										displayText={`<i class='cib-qiita'></i>`}
-										className={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-10', 'text-24', 'bg-white']}
-									/>
-								</a>
-							</Link> */}
+                <NeumorphismButton
+                  unevenness={'bumps'}
+                  shadowColor={'default'}
+                  displayText={`<i class='cib-qiita'></i>`}
+                  className={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-10', 'text-24', 'bg-white']}
+                />
+                </Link> */}
               <Link href="https://github.com/io-kobayashiii/techblog">
-                <a target="_blank">
-                  <NeumorphismButton
-                    unevenness={'bumps'}
-                    shadowColor={'default'}
-                    displayText={`<i class="cib-github"></i>`}
-                    className={
-                      'default rounded-100vh leading-0 p-10 text-24 bg-white'
-                    }
-                  />
-                </a>
+                <NeumorphismButton
+                  unevenness={'bumps'}
+                  shadowColor={'default'}
+                  displayText={`<i class="cib-github"></i>`}
+                  className={
+                    'default rounded-100vh leading-0 p-10 text-24 bg-white'
+                  }
+                />
               </Link>
             </div>
           </div>

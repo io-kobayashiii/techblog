@@ -26,18 +26,16 @@ const Footer = ({ categories }: Props) => {
                 {categories.map((category, index) => {
                   return (
                     <Link key={index} href={`/categories/${category.slug}`}>
-                      <a>
-                        <li>
-                          <NeumorphismButton
-                            unevenness={'bumps'}
-                            shadowColor={'default'}
-                            displayText={category.name}
-                            className={
-                              'default rounded-100vh leading-0 m-5 p-16 text-14 bg-white'
-                            }
-                          />
-                        </li>
-                      </a>
+                      <li>
+                        <NeumorphismButton
+                          unevenness={'bumps'}
+                          shadowColor={'default'}
+                          displayText={category.name}
+                          className={
+                            'default rounded-100vh leading-0 m-5 p-16 text-14 bg-white'
+                          }
+                        />
+                      </li>
                     </Link>
                   );
                 })}
@@ -54,36 +52,30 @@ const Footer = ({ categories }: Props) => {
 
               <div className="mt-15">
                 {/* <Link href="https://twitter.com/?lang=ja">
-									<a target="_blank">
-										<NeumorphismButton
-											unevenness={'bumps'}
-											shadowColor={'default'}
-											displayText={`<i class='cib-twitter'></i>`}
-											className={['default', 'rounded-100vh', 'leading-0', 'p-10', 'text-24', 'bg-white']}
-										/>
-									</a>
+                  <NeumorphismButton
+                    unevenness={'bumps'}
+                    shadowColor={'default'}
+                    displayText={`<i class='cib-twitter'></i>`}
+                    className={['default', 'rounded-100vh', 'leading-0', 'p-10', 'text-24', 'bg-white']}
+                  />
 								</Link>
 								<Link href="https://qiita.com/">
-									<a target="_blank">
-										<NeumorphismButton
-											unevenness={'bumps'}
-											shadowColor={'default'}
-											displayText={`<i class='cib-qiita'></i>`}
-											className={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-10', 'text-24', 'bg-white']}
-										/>
-									</a>
+                  <NeumorphismButton
+                    unevenness={'bumps'}
+                    shadowColor={'default'}
+                    displayText={`<i class='cib-qiita'></i>`}
+                    className={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-10', 'text-24', 'bg-white']}
+                  />
 								</Link> */}
                 <Link href="https://github.com/io-kobayashiii/techblog">
-                  <a target="_blank">
-                    <NeumorphismButton
-                      unevenness={'bumps'}
-                      shadowColor={'default'}
-                      displayText={`<i class="cib-github"></i>`}
-                      className={
-                        'default rounded-100vh leading-0 p-10 text-24 bg-white'
-                      }
-                    />
-                  </a>
+                  <NeumorphismButton
+                    unevenness={'bumps'}
+                    shadowColor={'default'}
+                    displayText={`<i class="cib-github"></i>`}
+                    className={
+                      'default rounded-100vh leading-0 p-10 text-24 bg-white'
+                    }
+                  />
                 </Link>
               </div>
             </div>
