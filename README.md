@@ -1,14 +1,14 @@
-# project setup
+# techblog
 
-## version info
+## version information
 | name | version |
 | --- | --- |
-| node | 14.17.1 |
+| node | 16.13.2 |
 | yarn | 1.22.10 |
 
 ## setup
 ```bash
-yarn install
+yarn
 yarn dev
 ```
 
@@ -17,4 +17,4 @@ yarn dev
 yarn build
 ```
 
-build this project, needs `.env.local`
+To build this project needs '.env.local' file that is described microCMS api key.
