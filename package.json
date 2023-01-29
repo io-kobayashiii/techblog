@@ -13,10 +13,11 @@
     "format": "prettier --write src/**/*.{js,json,ts,tsx}",
     "storybook": "concurrently \"yarn:watch:*\"",
     "watch:css": "npx tailwindcss -i ./src/styles/globals.css -o ./public/globals.css --watch",
-    "watch:storybook": "start-storybook -s ./public",
+    "watch:storybook": "start-storybook -s ./public -p 6006",
     "storybook:build": "concurrently \"yarn:build:*\"",
     "build:css": "npx tailwindcss -i ./src/styles/globals.css -o ./public/globals.css",
-    "build:storybook": "build-storybook -s ./public"
+    "build:storybook": "build-storybook -s ./public",
+    "storybook:test": "test-storybook --url http://localhost:6006 --coverage"
   },
   "dependencies": {
     "@coreui/icons": "^3.0.0",
@@ -32,6 +33,7 @@
     "@babel/core": "^7.20.12",
     "@next/bundle-analyzer": "^13.1.5",
     "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-coverage": "^0.0.7",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
@@ -39,6 +41,7 @@
     "@storybook/cli": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/react": "^6.5.16",
+    "@storybook/test-runner": "^0.9.3",
     "@storybook/testing-library": "^0.0.13",
     "@types/node": "18.11.18",
     "@types/react": "^18.0.27",
