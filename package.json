@@ -11,10 +11,10 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write src/**/*.{js,json,ts,tsx}",
-    "storybook": "concurrently \"yarn:watch:*\"",
+    "watch-storybook": "concurrently \"yarn:watch:*\"",
     "watch:css": "npx tailwindcss -i ./src/styles/globals.css -o ./public/globals.css --watch",
     "watch:storybook": "start-storybook -s ./public -p 6006",
-    "storybook:build": "concurrently \"yarn:build:*\"",
+    "build-storybook": "concurrently \"yarn:build:*\"",
     "build:css": "npx tailwindcss -i ./src/styles/globals.css -o ./public/globals.css",
     "build:storybook": "build-storybook -s ./public",
     "storybook:test": "test-storybook --url http://localhost:6006 --coverage"
