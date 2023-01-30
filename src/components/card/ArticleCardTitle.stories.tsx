@@ -1,13 +1,15 @@
 import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ArticleCardTitle from './ArticleCardTitle';
 
-const exportComponent = {
-  component: ArticleCardTitle,
+export default {
   title: 'ArticleCardTitle',
-};
-export default exportComponent;
+  component: ArticleCardTitle,
+} as ComponentMeta<typeof ArticleCardTitle>;
 
-const Template = (args) => <ArticleCardTitle {...args} />;
+const Template: ComponentStory<typeof ArticleCardTitle> = (args) => (
+  <ArticleCardTitle {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {

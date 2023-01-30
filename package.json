@@ -9,24 +9,15 @@
     "analyze": "ANALYZE=true next build",
     "analyze:windows": "cross-env ANALYZE=true next build",
     "start": "next start",
-    "tailwind": "tailwind build src/styles/globals.css -o src/styles/tailwind.css",
     "lint": "next lint",
     "format": "prettier --write src/**/*.{js,json,ts,tsx}",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "css:dev": "TAILWIND_MODE=watch tailwind src/styles/globals.css -o src/styles/tailwind.css --watch",
-    "css:build": "postcss src/styles/globals.css -o src/styles/tailwind.css"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
+    "watch-storybook": "concurrently \"yarn:watch:*\"",
+    "watch:css": "npx tailwindcss -i ./src/styles/globals.css -o ./public/globals.css --watch",
+    "watch:storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "concurrently \"yarn:build:*\"",
+    "build:css": "npx tailwindcss -i ./src/styles/globals.css -o ./public/globals.css",
+    "build:storybook": "build-storybook -s ./public",
+    "storybook:test": "test-storybook --url http://localhost:6006 --coverage"
   },
   "dependencies": {
     "@coreui/icons": "^3.0.0",
@@ -41,20 +32,24 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@next/bundle-analyzer": "^13.1.5",
-    "@storybook/addon-a11y": "^6.5.16",
     "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-docs": "^6.5.16",
+    "@storybook/addon-coverage": "^0.0.7",
     "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-knobs": "^6.4.0",
+    "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
-    "@storybook/addon-storyshots": "^6.5.16",
-    "@storybook/addons": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/cli": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/react": "^6.5.16",
+    "@storybook/test-runner": "^0.9.3",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/node": "18.11.18",
     "@types/react": "^18.0.27",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
+    "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
@@ -65,8 +60,19 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
     "sass": "^1.57.1",
-    "storybook-css-modules-preset": "^1.1.1",
+    "storybook-addon-next": "^1.7.1",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.9.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
