@@ -10,7 +10,7 @@
     "analyze:windows": "cross-env ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write src/**/*.{js,json,ts,tsx}",
+    "format": "prettier --write src/**/*.{js,json,ts,tsx,css,scss}",
     "watch-storybook": "concurrently \"yarn:watch:*\"",
     "watch:css": "npx tailwindcss -i ./src/styles/globals.css -o ./public/globals.css --watch",
     "watch:storybook": "start-storybook -s ./public -p 6006",
