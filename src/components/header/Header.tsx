@@ -45,27 +45,21 @@ const Header = ({ categories }: Props) => {
             />
           </div>
           <div className="hidden md:block">
-            {/* <Link href="https://twitter.com/?lang=ja">
-              <NeumorphismButton
-                unevenness={'bumps'}
-                shadowColor={'default'}
-                displayText={`<i class='cib-twitter'></i>`}
-                className={['default', 'rounded-100vh', 'leading-0', 'p-16', 'text-24', 'bg-product-twitter', 'text-white']}
-              />
-						</Link>
-						<Link href="https://qiita.com/">
-              <NeumorphismButton
-                unevenness={'bumps'}
-                shadowColor={'default'}
-                displayText={`<i class='cib-qiita'></i>`}
-                className={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-16', 'text-24', 'bg-product-qiita', 'text-white']}
-              />
-						</Link> */}
             <Link href="https://github.com/io-kobayashiii/techblog">
               <NeumorphismButton
                 unevenness={'bumps'}
                 shadowColor={'default'}
                 displayText={`<i class="cib-github"></i>`}
+                className={
+                  'default rounded-100vh leading-0 ml-15 p-16 text-24 bg-product-github text-white'
+                }
+              />
+            </Link>
+            <Link href="https://twitter.com/iooo231">
+              <NeumorphismButton
+                unevenness={'bumps'}
+                shadowColor={'default'}
+                displayText={`<i class="cib-twitter"></i>`}
                 className={
                   'default rounded-100vh leading-0 ml-15 p-16 text-24 bg-product-github text-white'
                 }
@@ -109,17 +103,6 @@ const Header = ({ categories }: Props) => {
             </p>
 
             <div className="mt-15">
-              {/* <Link href="https://twitter.com/?lang=ja">
-                <NeumorphismButton unevenness={'bumps'} shadowColor={'default'} displayText={`<i class='cib-twitter'></i>`} className={['default', 'rounded-100vh', 'leading-0', 'p-10', 'text-24', 'bg-white']} />
-							</Link>
-							<Link href="https://qiita.com/">
-                <NeumorphismButton
-                  unevenness={'bumps'}
-                  shadowColor={'default'}
-                  displayText={`<i class='cib-qiita'></i>`}
-                  className={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-10', 'text-24', 'bg-white']}
-                />
-                </Link> */}
               <Link href="https://github.com/io-kobayashiii/techblog">
                 <NeumorphismButton
                   unevenness={'bumps'}
@@ -127,6 +110,16 @@ const Header = ({ categories }: Props) => {
                   displayText={`<i class="cib-github"></i>`}
                   className={
                     'default rounded-100vh leading-0 p-10 text-24 bg-white'
+                  }
+                />
+              </Link>
+              <Link href="https://twitter.com/iooo231">
+                <NeumorphismButton
+                  unevenness={'bumps'}
+                  shadowColor={'default'}
+                  displayText={`<i class="cib-twitter"></i>`}
+                  className={
+                    'default rounded-100vh leading-0 ml-10 p-10 text-24 bg-white'
                   }
                 />
               </Link>
