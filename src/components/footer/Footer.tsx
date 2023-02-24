@@ -51,22 +51,6 @@ const Footer = ({ categories }: Props) => {
               </p>
 
               <div className="mt-15">
-                {/* <Link href="https://twitter.com/?lang=ja">
-                  <NeumorphismButton
-                    unevenness={'bumps'}
-                    shadowColor={'default'}
-                    displayText={`<i class='cib-twitter'></i>`}
-                    className={['default', 'rounded-100vh', 'leading-0', 'p-10', 'text-24', 'bg-white']}
-                  />
-								</Link>
-								<Link href="https://qiita.com/">
-                  <NeumorphismButton
-                    unevenness={'bumps'}
-                    shadowColor={'default'}
-                    displayText={`<i class='cib-qiita'></i>`}
-                    className={['default', 'rounded-100vh', 'leading-0', 'ml-15', 'p-10', 'text-24', 'bg-white']}
-                  />
-								</Link> */}
                 <Link href="https://github.com/io-kobayashiii/techblog">
                   <NeumorphismButton
                     unevenness={'bumps'}
@@ -74,6 +58,16 @@ const Footer = ({ categories }: Props) => {
                     displayText={`<i class="cib-github"></i>`}
                     className={
                       'default rounded-100vh leading-0 p-10 text-24 bg-white'
+                    }
+                  />
+                </Link>
+                <Link href="https://twitter.com/iooo231">
+                  <NeumorphismButton
+                    unevenness={'bumps'}
+                    shadowColor={'default'}
+                    displayText={`<i class='cib-twitter'></i>`}
+                    className={
+                      'default rounded-100vh leading-0 ml-10 p-10 text-24 bg-white'
                     }
                   />
                 </Link>
