@@ -1,32 +1,25 @@
-import { useEffect } from 'react';
-import styles from '@/styles/pages/articles/articles.module.scss';
-import hljs from 'highlight.js';
+import { useEffect, useState } from 'react';
+import styles from '@/components/ArticleBody/ArticleBody.module.scss';
+import Highlight from 'highlight.js';
 
 export const useApplyHighlightJs = () => {
+  const [isInitialized, setIsInitialized] = useState<boolean>(false);
   useEffect(() => {
-    const preElems = document.querySelectorAll('pre');
-    if (preElems.length > 0) {
-      Array.prototype.forEach.call(preElems, (preElem) => {
-        preElem.classList.add(styles.preCodeLanguage);
-        const codeElem = preElem.querySelector('code');
-        const splittedElemInner = codeElem.innerHTML.split('_____');
-        switch (splittedElemInner[0]) {
-          case 'terminal':
-            codeElem.className = `hljs bash`;
-            break;
-          default:
-            codeElem.className = `hljs ${splittedElemInner[0]}`;
-            break;
-        }
-        preElem.setAttribute(
-          'data-language',
-          splittedElemInner[1] == 'none'
-            ? splittedElemInner[0]
-            : splittedElemInner[1]
-        );
-        codeElem.innerHTML = splittedElemInner[2];
-      });
-      hljs.highlightAll();
-    }
-  }, []);
+    if (isInitialized) return;
+    setIsInitialized(true);
+
+    const pres = document.querySelectorAll('pre');
+    if (!pres.length) return;
+
+    Array.prototype.forEach.call(pres, (pre: HTMLPreElement) => {
+      const code = pre.querySelector('code');
+      const [language, heading, content] = code.innerHTML.split('_____');
+      pre.classList.add(styles.preCodeLanguage);
+      pre.setAttribute('data-language', heading == 'none' ? language : heading);
+      code.className = `hljs ${language === 'terminal' ? 'bash' : language}`;
+      code.innerHTML = content;
+    });
+
+    Highlight.highlightAll();
+  }, [isInitialized]);
 };
