@@ -15,12 +15,9 @@ export const Footer = ({ categories }: Props) => {
         <div className="max-w-lg mx-auto px-15 md:px-30">
           <div className="hidden md:block">
             <div className={`${styles.dents} p-15 md:p-30 rounded-12`}>
-              <p
-                className={`text-16 text-bold pb-10 border-b-2 border-gray-200`}
-              >
-                Categories
-              </p>
-              <ul className="flex flex-wrap m-minus-5 pt-15">
+              <p className="text-16 text-bold">Categories</p>
+              <div className={`h-2 mt-20 ${styles.border}`} />
+              <ul className="flex flex-wrap m-minus-5 pt-20">
                 {categories.map((category, index) => {
                   return (
                     <Link key={index} href={`/categories/${category.slug}`}>
@@ -40,11 +37,9 @@ export const Footer = ({ categories }: Props) => {
           </div>
           <div className="mt-30 hidden md:block">
             <div className={`${styles.dents} p-15 md:p-30 rounded-12`}>
-              <p className="text-16 text-bold pb-10 border-b-2 border-gray-200">
-                Profile
-              </p>
-
-              <div className="mt-15">
+              <p className="text-16 text-bold">Profile</p>
+              <div className={`h-2 mt-20 ${styles.border}`} />
+              <div className="mt-20">
                 <Link href="https://github.com/io-kobayashiii/techblog">
                   <NeumorphismButton
                     unevenness={'bumps'}
