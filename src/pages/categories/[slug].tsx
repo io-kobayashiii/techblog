@@ -1,6 +1,5 @@
 import * as ArticleTypes from '@/types/ArticleTypes';
 import { ArticleCard } from '@/components/Card/ArticleCard';
-import styles from '@/styles/pages/categories/categories.module.scss';
 import 'highlight.js/styles/stackoverflow-dark.css';
 import ApiRequests from '@/utils/ApiClient';
 import { GetStaticProps } from 'next';
@@ -14,7 +13,7 @@ type Props = {
 const CategoriesIndex = ({ articles, slugs }: Props) => {
   return (
     <>
-      <h1 className={`${styles.heading} text-24 sm:text-28 md:text-32`}>
+      <h1 className={`font-bold text-24 sm:text-28 md:text-32`}>
         Category: {slugs}
       </h1>
       <ul className="mt-30 md:mt-50 md:flex md:flex-wrap md:justify-between">
