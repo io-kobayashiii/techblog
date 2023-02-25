@@ -26,7 +26,7 @@ export const ArticleCard = ({
   return (
     <Link
       href={data.href}
-      className={`block md:h-100p p-15 md:p-30 md:flex md:flex-col md:justify-between rounded-12 bg-white ${
+      className={`block md:h-100p p-15 md:p-30 md:flex md:flex-col md:justify-between rounded-12 ${
         styles[`${unevenness}-${shadowColor}`]
       } ${className ?? ''}`}
     >
@@ -42,7 +42,7 @@ export const ArticleCard = ({
                   shadowColor="default"
                   displayText={category}
                   className={
-                    'default m-5 rounded-100vh py-5 px-15 md:py-8 md:px-12 text-12 md:text-14 bg-gray-100'
+                    'm-5 rounded-100vh py-5 px-15 md:py-8 md:px-12 text-11 md:text-12'
                   }
                 />
               );

@@ -11,7 +11,7 @@ body {
 
 body {
   font-family: 'M PLUS 1p', sans-serif;
-  color: #3c3c3c;
+  @apply text-white;
 }
 
 a {
