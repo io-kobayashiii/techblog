@@ -1,6 +1,3 @@
-.heading {
-  font-weight: 700;
-}
 .articles {
   h2 {
     position: relative;
@@ -79,8 +76,7 @@
       margin: 0 5px;
       color: rgb(236, 0, 0);
       border-radius: 4px;
-      box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset,
-        -2px -2px 2px 0 rgba(255, 255, 255, 1) inset;
+      box-shadow: inset 5px 5px 10px #12171e, inset -5px -5px 10px #2e3d50;
       font-size: 12px;
       @media screen and (min-width: 560px) {
         font-size: 13px;
@@ -99,8 +95,7 @@
     code {
       padding: 5em 2em 2em !important;
       border-radius: 12px;
-      box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 1) inset,
-        -2px -2px 2px 0 rgba(255, 255, 255, 1) inset;
+      box-shadow: inset 5px 5px 10px #131921, inset -5px -5px 10px #2d3b4d;
       font-size: 12px;
       @media screen and (min-width: 560px) {
         padding: 4.5em 2em 2em !important;
@@ -124,16 +119,20 @@
     }
   }
 }
-.preCodeLanguage::before {
-  content: attr(data-language);
-  padding: 0.5em 2em;
-  font-size: 12px;
-  color: #fff;
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.7) inset,
-    -2px -2px 2px 0 rgba(255, 255, 255, 0.2) inset;
-  background-color: #333;
-  position: absolute;
-  top: 1.5em;
-  left: 2em;
-  border-radius: 8px;
+.preCodeLanguage {
+  code {
+    @apply bg-gray-800;
+  }
+  &::before {
+    content: attr(data-language);
+    padding: 0.5em 2em;
+    font-size: 12px;
+    color: #fff;
+    box-shadow: inset 5px 5px 10px #131921, inset -5px -5px 10px #2d3b4d;
+    @apply bg-gray-800;
+    position: absolute;
+    top: 1.5em;
+    left: 2em;
+    border-radius: 8px;
+  }
 }

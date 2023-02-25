@@ -534,6 +534,18 @@ video {
   margin-top: 15px;
 }
 
+.mt-30 {
+  margin-top: 30px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
 .mt-16 {
   margin-top: 16px;
 }
@@ -542,16 +554,8 @@ video {
   margin-top: 40px;
 }
 
-.mt-30 {
-  margin-top: 30px;
-}
-
 .mb-15 {
   margin-bottom: 15px;
-}
-
-.ml-15 {
-  margin-left: 15px;
 }
 
 .block {
@@ -578,8 +582,8 @@ video {
   max-width: 992px;
 }
 
-.cursor-auto {
-  cursor: auto;
+.resize {
+  resize: both;
 }
 
 .flex-wrap {
@@ -598,24 +602,24 @@ video {
   overflow: hidden;
 }
 
-.rounded-100vh {
-  border-radius: 100vh;
-}
-
 .rounded-12 {
   border-radius: 12px;
+}
+
+.rounded-100vh {
+  border-radius: 100vh;
 }
 
 .rounded-6 {
   border-radius: 6px;
 }
 
-.border-t-2 {
-  border-top-width: 2px;
-}
-
 .border-b-2 {
   border-bottom-width: 2px;
+}
+
+.border-t-2 {
+  border-top-width: 2px;
 }
 
 .border-gray-200 {
@@ -623,24 +627,14 @@ video {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.bg-product-twitter {
+.bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(0 172 238 / var(--tw-bg-opacity));
-}
-
-.bg-product-qiita {
-  --tw-bg-opacity: 1;
-  background-color: rgb(89 187 12 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-product-github {
@@ -669,14 +663,14 @@ video {
   padding-right: 15px;
 }
 
-.py-5 {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 .py-30 {
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.py-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .pt-70 {
@@ -711,24 +705,24 @@ video {
   font-size: 24px;
 }
 
-.text-14 {
-  font-size: 14px;
+.text-16 {
+  font-size: 16px;
 }
 
-.text-20 {
-  font-size: 20px;
+.text-14 {
+  font-size: 14px;
 }
 
 .text-12 {
   font-size: 12px;
 }
 
-.text-16 {
-  font-size: 16px;
-}
-
 .text-32 {
   font-size: 32px;
+}
+
+.text-20 {
+  font-size: 20px;
 }
 
 .font-bold {
@@ -788,6 +782,10 @@ a {
     margin-top: 30px;
   }
 
+  .md\:mt-50 {
+    margin-top: 50px;
+  }
+
   .md\:mt-22 {
     margin-top: 22px;
   }
@@ -798,10 +796,6 @@ a {
 
   .md\:mt-80 {
     margin-top: 80px;
-  }
-
-  .md\:mt-50 {
-    margin-top: 50px;
   }
 
   .md\:block {
@@ -853,6 +847,11 @@ a {
     padding-right: 30px;
   }
 
+  .md\:py-50 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   .md\:py-8 {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -863,17 +862,24 @@ a {
     padding-right: 12px;
   }
 
-  .md\:py-50 {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
   .md\:pt-180 {
     padding-top: 180px;
   }
 
   .md\:pb-80 {
     padding-bottom: 80px;
+  }
+
+  .md\:text-40 {
+    font-size: 40px;
+  }
+
+  .md\:text-24 {
+    font-size: 24px;
+  }
+
+  .md\:text-14 {
+    font-size: 14px;
   }
 
   .md\:text-18 {
@@ -884,20 +890,8 @@ a {
     font-size: 28px;
   }
 
-  .md\:text-14 {
-    font-size: 14px;
-  }
-
   .md\:text-32 {
     font-size: 32px;
-  }
-
-  .md\:text-40 {
-    font-size: 40px;
-  }
-
-  .md\:text-24 {
-    font-size: 24px;
   }
 }
 

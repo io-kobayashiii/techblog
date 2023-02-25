@@ -11,10 +11,6 @@ export const useGlobalNavigation = () => {
   };
 
   useEffect(() => {
-    console.log(
-      'ArticleLayout.useEffect() / isGlobalNavigationOpen:',
-      isGlobalNavigationOpen
-    );
     if (isInitialRendering) {
       setIsInitialRendering(false);
       return;

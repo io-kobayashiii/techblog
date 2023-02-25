@@ -1,0 +1,26 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 50px;
+  transition: height 0.5s ease;
+  box-shadow: 0 5px 10px 0 RGB(0, 0, 0, 0.5);
+  @media screen and (min-width: 768px) {
+    height: 100px;
+    display: flex;
+    align-items: center;
+  }
+  &.isGlobalNavigationOpen {
+    height: 100vh;
+    transition: height 0.5s ease;
+  }
+}
+
+.logo {
+  font-family: 'Gemunu Libre', sans-serif;
+}
+
+.dents {
+  box-shadow: inset 5px 5px 10px #131921, inset -5px -5px 10px #2d3b4d;
+}

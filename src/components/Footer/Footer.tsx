@@ -1,22 +1,20 @@
 import * as React from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.scss';
-import NeumorphismButton from '@/components/button/NeumorphismButton';
+import { NeumorphismButton } from '@/components/NeumorphismButton';
 import * as ArticleTypes from '@/types/ArticleTypes';
 
 type Props = {
   categories: ArticleTypes.CategoryType[];
 };
 
-const Footer = ({ categories }: Props) => {
+export const Footer = ({ categories }: Props) => {
   return (
     <>
-      <footer className={`${styles.default} py-30 md:py-50 bg-white`}>
+      <footer className={`${styles.bumps} py-30 md:py-50 bg-gray-800`}>
         <div className="max-w-lg mx-auto px-15 md:px-30">
           <div className="hidden md:block">
-            <div
-              className={`${styles.footerInner} p-15 md:p-30 rounded-12 bg-gray-100`}
-            >
+            <div className={`${styles.dents} p-15 md:p-30 rounded-12`}>
               <p
                 className={`text-16 text-bold pb-10 border-b-2 border-gray-200`}
               >
@@ -31,9 +29,7 @@ const Footer = ({ categories }: Props) => {
                           unevenness={'bumps'}
                           shadowColor={'default'}
                           displayText={category.name}
-                          className={
-                            'default rounded-100vh leading-0 m-5 p-16 text-14 bg-white'
-                          }
+                          className={'rounded-100vh leading-0 m-5 p-16 text-14'}
                         />
                       </li>
                     </Link>
@@ -43,9 +39,7 @@ const Footer = ({ categories }: Props) => {
             </div>
           </div>
           <div className="mt-30 hidden md:block">
-            <div
-              className={`${styles.footerInner} p-15 md:p-30 rounded-12 bg-gray-100`}
-            >
+            <div className={`${styles.dents} p-15 md:p-30 rounded-12`}>
               <p className="text-16 text-bold pb-10 border-b-2 border-gray-200">
                 Profile
               </p>
@@ -56,9 +50,7 @@ const Footer = ({ categories }: Props) => {
                     unevenness={'bumps'}
                     shadowColor={'default'}
                     displayText={`<i class="cib-github"></i>`}
-                    className={
-                      'default rounded-100vh leading-0 p-10 text-24 bg-white'
-                    }
+                    className={'rounded-100vh leading-0 p-10 text-24'}
                   />
                 </Link>
                 <Link href="https://twitter.com/iooo231">
@@ -66,9 +58,7 @@ const Footer = ({ categories }: Props) => {
                     unevenness={'bumps'}
                     shadowColor={'default'}
                     displayText={`<i class='cib-twitter'></i>`}
-                    className={
-                      'default rounded-100vh leading-0 ml-10 p-10 text-24 bg-white'
-                    }
+                    className={'rounded-100vh leading-0 ml-10 p-10 text-24'}
                   />
                 </Link>
               </div>
@@ -76,11 +66,10 @@ const Footer = ({ categories }: Props) => {
           </div>
         </div>
         <div className="text-12 text-center md:mt-50">
-          &copy; {new Date().getFullYear()} io-kobayashiii All Rights Reserved.
+          &copy; 2021 - {new Date().getFullYear()} io-kobayashiii All Rights
+          Reserved.
         </div>
       </footer>
     </>
   );
 };
-
-export default Footer;

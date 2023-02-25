@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.scss';
-import NeumorphismButton from '@/components/button/NeumorphismButton';
+import { NeumorphismButton } from '@/components/NeumorphismButton';
 import * as ArticleTypes from '@/types/ArticleTypes';
 import { useGlobalNavigationStateContext } from '@/hooks/useGlobalNavigationStateContext';
 import { useWindowDimensions } from '@/hooks/useWindowDimensions';
@@ -11,7 +11,7 @@ type Props = {
   categories: ArticleTypes.CategoryType[];
 };
 
-const Header = ({ categories }: Props) => {
+export const Header = ({ categories }: Props) => {
   const { width } = useWindowDimensions();
   const { isGlobalNavigationOpen, setIsGlobalNavigationOpen } =
     useGlobalNavigationStateContext();
@@ -23,9 +23,9 @@ const Header = ({ categories }: Props) => {
   return (
     <>
       <header
-        className={`${styles.default} ${styles.header} ${
-          isGlobalNavigationOpen ? styles.isGnavSpOpen : ''
-        } w-100p overflow-hidden bg-white`}
+        className={`${styles.header} ${
+          isGlobalNavigationOpen ? styles.isGlobalNavigationOpen : ''
+        } w-100p overflow-hidden bg-gray-800`}
       >
         <div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p">
           <Link href="/" onClick={() => setIsGlobalNavigationOpen(false)}>
@@ -39,9 +39,7 @@ const Header = ({ categories }: Props) => {
               unevenness={'bumps'}
               shadowColor={'default'}
               displayText={`<i class='cil-hamburger-menu'></i>`}
-              className={
-                'default rounded-6 leading-0 p-8 md:p-16 text-16 md:text-24'
-              }
+              className={'rounded-6 leading-0 p-8 md:p-16 text-16 md:text-24'}
             />
           </div>
           <div className="hidden md:block">
@@ -51,7 +49,7 @@ const Header = ({ categories }: Props) => {
                 shadowColor={'default'}
                 displayText={`<i class="cib-github"></i>`}
                 className={
-                  'default rounded-100vh leading-0 ml-15 p-16 text-24 bg-product-github text-white'
+                  'rounded-100vh leading-0 ml-15 p-16 text-24 bg-gray-800 text-white'
                 }
               />
             </Link>
@@ -61,14 +59,14 @@ const Header = ({ categories }: Props) => {
                 shadowColor={'default'}
                 displayText={`<i class="cib-twitter"></i>`}
                 className={
-                  'default rounded-100vh leading-0 ml-15 p-16 text-24 bg-product-github text-white'
+                  'rounded-100vh leading-0 ml-15 p-16 text-24 bg-gray-800 text-white'
                 }
               />
             </Link>
           </div>
         </div>
-        <div className="p-15 md:hidden">
-          <div className={`${styles.headerInner} p-15 rounded-12 bg-gray-100`}>
+        <div className={`p-15 md:hidden`}>
+          <div className={`${styles.dents} p-15 rounded-12`}>
             <p className="text-16 text-bold pb-5 border-b-2 border-gray-200">
               Categories
             </p>
@@ -85,9 +83,7 @@ const Header = ({ categories }: Props) => {
                         unevenness={'bumps'}
                         shadowColor={'default'}
                         displayText={category.name}
-                        className={
-                          'default rounded-100vh leading-0 m-5 p-16 text-14 bg-white'
-                        }
+                        className={'rounded-100vh leading-0 m-5 p-16 text-14'}
                       />
                     </li>
                   </Link>
@@ -97,7 +93,7 @@ const Header = ({ categories }: Props) => {
           </div>
         </div>
         <div className="mt-30 p-15 md:hidden">
-          <div className={`${styles.headerInner} p-15 rounded-12 bg-gray-100`}>
+          <div className={`${styles.dents} p-15 rounded-12`}>
             <p className="text-16 text-bold pb-5 border-b-2 border-gray-200">
               Profile
             </p>
@@ -108,9 +104,7 @@ const Header = ({ categories }: Props) => {
                   unevenness={'bumps'}
                   shadowColor={'default'}
                   displayText={`<i class="cib-github"></i>`}
-                  className={
-                    'default rounded-100vh leading-0 p-10 text-24 bg-white'
-                  }
+                  className={'rounded-100vh leading-0 p-10 text-24'}
                 />
               </Link>
               <Link href="https://twitter.com/iooo231">
@@ -118,9 +112,7 @@ const Header = ({ categories }: Props) => {
                   unevenness={'bumps'}
                   shadowColor={'default'}
                   displayText={`<i class="cib-twitter"></i>`}
-                  className={
-                    'default rounded-100vh leading-0 ml-10 p-10 text-24 bg-white'
-                  }
+                  className={'rounded-100vh leading-0 ml-10 p-10 text-24'}
                 />
               </Link>
             </div>
@@ -130,5 +122,3 @@ const Header = ({ categories }: Props) => {
     </>
   );
 };
-
-export default Header;
