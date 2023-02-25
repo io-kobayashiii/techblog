@@ -1,6 +1,6 @@
 import ApiClient from '@/utils/ApiClient';
 import * as ArticleTypes from '@/types/ArticleTypes';
-import ArticleCard from '@/components/card/ArticleCard';
+import { ArticleCard } from '@/components/card/ArticleCard';
 import { LayoutType } from '@/types/LayoutTypes';
 
 type Props = {
@@ -27,14 +27,6 @@ const Index = ({ articles }: Props) => {
                 href: `/articles/${article.id}`,
                 categories: article.categories.map((category) => category.name),
               }}
-              className={[
-                'default',
-                'bg-white',
-                'md:h-100p',
-                'md:flex',
-                'md:flex-col',
-                'md:justify-between',
-              ]}
             />
           </li>
         ))}

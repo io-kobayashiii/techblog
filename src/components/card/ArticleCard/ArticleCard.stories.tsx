@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ArticleCard from './ArticleCard';
+import { ArticleCard } from './';
 
 export default {
   title: 'ArticleCard',
@@ -21,5 +21,4 @@ Default.args = {
     href: 'https://nextjs.org/',
     categories: ['JavaScript', 'HTML', 'CSS', 'SCSS'],
   },
-  className: ['p-15', 'md:p-30', 'rounded-12', 'default', 'bg-white'],
 };

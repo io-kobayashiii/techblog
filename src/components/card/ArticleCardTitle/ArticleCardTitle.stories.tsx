@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ArticleCardTitle from './ArticleCardTitle';
+import { ArticleCardTitle } from './';
 
 export default {
   title: 'ArticleCardTitle',
@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof ArticleCardTitle> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   displayText: 'title',
-  className: ['mb-15'],
+  className: 'mb-15',
 };
