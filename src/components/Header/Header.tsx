@@ -27,9 +27,9 @@ export const Header = ({ categories }: Props) => {
           isGlobalNavigationOpen ? styles.isGlobalNavigationOpen : ''
         } w-100p overflow-hidden bg-gray-800`}
       >
-        <div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p">
+        <div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p h-56">
           <Link href="/" onClick={() => setIsGlobalNavigationOpen(false)}>
-            <p className={`text-32 md:text-40 ${styles.logo}`}>For</p>
+            <p className={`text-24 md:text-40 ${styles.logo}`}>For</p>
           </Link>
           <div
             onClick={() => setIsGlobalNavigationOpen(!isGlobalNavigationOpen)}
@@ -67,10 +67,9 @@ export const Header = ({ categories }: Props) => {
         </div>
         <div className={`p-15 md:hidden`}>
           <div className={`${styles.dents} p-15 rounded-12`}>
-            <p className="text-16 text-bold pb-5 border-b-2 border-gray-200">
-              Categories
-            </p>
-            <ul id="list--category" className="flex flex-wrap m-minus-5 pt-15">
+            <p className="text-16 text-bold">Categories</p>
+            <div className={`h-2 mt-15 ${styles.border}`} />
+            <ul className="flex flex-wrap m-minus-5 pt-20">
               {categories.map((category, index) => {
                 return (
                   <Link
@@ -94,10 +93,8 @@ export const Header = ({ categories }: Props) => {
         </div>
         <div className="mt-30 p-15 md:hidden">
           <div className={`${styles.dents} p-15 rounded-12`}>
-            <p className="text-16 text-bold pb-5 border-b-2 border-gray-200">
-              Profile
-            </p>
-
+            <p className="text-16 text-bold">Profile</p>
+            <div className={`h-2 mt-15 ${styles.border}`} />
             <div className="mt-15">
               <Link href="https://github.com/io-kobayashiii/techblog">
                 <NeumorphismButton

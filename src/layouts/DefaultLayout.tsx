@@ -20,7 +20,7 @@ const DefaultLayout = ({ categories, children }: Props) => {
         <meta property="description" content={SiteConfig.description} />
       </Head>
       <Header categories={categories} />
-      <main className="pt-70 md:pt-180 pb-50 md:pb-80 bg-gray-800">
+      <main className="pt-76 md:pt-180 pb-20 md:pb-80 bg-gray-800">
         <div className="px-15 md:px-30 max-w-lg mx-auto">{children}</div>
       </main>
       <Footer categories={categories} />
