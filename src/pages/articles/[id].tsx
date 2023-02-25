@@ -31,7 +31,7 @@ const Article = ({ article }: Props) => {
               shadowColor={'default'}
               displayText={category.name}
               className={
-                'm-5 py-5 px-15 md:py-8 md:px-12 rounded-100vh text-12 md:text-14 bg-gray-100 pointer-events-none'
+                'm-5 py-5 px-15 md:py-8 md:px-12 rounded-100vh text-12 md:text-14 pointer-events-none'
               }
             />
           );
