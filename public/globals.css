@@ -517,12 +517,12 @@ video {
   pointer-events: none;
 }
 
-.m-minus-5 {
-  margin: -5px;
-}
-
 .m-5 {
   margin: 5px;
+}
+
+.m-minus-5 {
+  margin: -5px;
 }
 
 .mx-auto {
@@ -534,24 +534,28 @@ video {
   margin-top: 15px;
 }
 
-.mt-16 {
-  margin-top: 16px;
-}
-
-.mt-40 {
-  margin-top: 40px;
+.mb-15 {
+  margin-bottom: 15px;
 }
 
 .mt-30 {
   margin-top: 30px;
 }
 
-.mb-15 {
-  margin-bottom: 15px;
+.ml-10 {
+  margin-left: 10px;
 }
 
 .ml-15 {
   margin-left: 15px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-40 {
+  margin-top: 40px;
 }
 
 .block {
@@ -582,6 +586,10 @@ video {
   cursor: auto;
 }
 
+.resize {
+  resize: both;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -610,12 +618,12 @@ video {
   border-radius: 6px;
 }
 
-.border-t-2 {
-  border-top-width: 2px;
-}
-
 .border-b-2 {
   border-bottom-width: 2px;
+}
+
+.border-t-2 {
+  border-top-width: 2px;
 }
 
 .border-gray-200 {
@@ -623,24 +631,14 @@ video {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.bg-product-twitter {
+.bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(0 172 238 / var(--tw-bg-opacity));
-}
-
-.bg-product-qiita {
-  --tw-bg-opacity: 1;
-  background-color: rgb(89 187 12 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-product-github {
@@ -711,14 +709,6 @@ video {
   font-size: 24px;
 }
 
-.text-14 {
-  font-size: 14px;
-}
-
-.text-20 {
-  font-size: 20px;
-}
-
 .text-12 {
   font-size: 12px;
 }
@@ -727,8 +717,16 @@ video {
   font-size: 16px;
 }
 
+.text-14 {
+  font-size: 14px;
+}
+
 .text-32 {
   font-size: 32px;
+}
+
+.text-20 {
+  font-size: 20px;
 }
 
 .font-bold {
@@ -770,6 +768,10 @@ a {
     margin-top: 60px;
   }
 
+  .sm\:text-18 {
+    font-size: 18px;
+  }
+
   .sm\:text-24 {
     font-size: 24px;
   }
@@ -777,15 +779,15 @@ a {
   .sm\:text-28 {
     font-size: 28px;
   }
-
-  .sm\:text-18 {
-    font-size: 18px;
-  }
 }
 
 @media (min-width: 768px) {
   .md\:mt-30 {
     margin-top: 30px;
+  }
+
+  .md\:mt-50 {
+    margin-top: 50px;
   }
 
   .md\:mt-22 {
@@ -798,10 +800,6 @@ a {
 
   .md\:mt-80 {
     margin-top: 80px;
-  }
-
-  .md\:mt-50 {
-    margin-top: 50px;
   }
 
   .md\:block {
@@ -876,20 +874,8 @@ a {
     padding-bottom: 80px;
   }
 
-  .md\:text-18 {
-    font-size: 18px;
-  }
-
-  .md\:text-28 {
-    font-size: 28px;
-  }
-
   .md\:text-14 {
     font-size: 14px;
-  }
-
-  .md\:text-32 {
-    font-size: 32px;
   }
 
   .md\:text-40 {
@@ -898,6 +884,18 @@ a {
 
   .md\:text-24 {
     font-size: 24px;
+  }
+
+  .md\:text-18 {
+    font-size: 18px;
+  }
+
+  .md\:text-28 {
+    font-size: 28px;
+  }
+
+  .md\:text-32 {
+    font-size: 32px;
   }
 }
 

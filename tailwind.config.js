@@ -1,10 +1,6 @@
 module.exports = {
   mode: 'jit',
-  content: [
-    './src/pages/index.tsx',
-    './src/pages/**/*.{js,ts,tsx}',
-    './src/components/**/*.{js,ts,tsx}',
-  ],
+  content: ['./src/**/*.{js,ts,tsx}'],
   theme: {
     extend: {
       colors: {

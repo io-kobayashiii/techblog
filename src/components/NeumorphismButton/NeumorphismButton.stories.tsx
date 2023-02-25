@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import NeumorphismButton from './NeumorphismButton';
+import { NeumorphismButton } from './NeumorphismButton';
 
 export default {
   title: 'NeumorphismButton',
