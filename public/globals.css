@@ -517,12 +517,12 @@ video {
   pointer-events: none;
 }
 
-.m-5 {
-  margin: 5px;
-}
-
 .m-minus-5 {
   margin: -5px;
+}
+
+.m-5 {
+  margin: 5px;
 }
 
 .mx-auto {
@@ -532,10 +532,6 @@ video {
 
 .mt-15 {
   margin-top: 15px;
-}
-
-.mb-15 {
-  margin-bottom: 15px;
 }
 
 .mt-30 {
@@ -556,6 +552,10 @@ video {
 
 .mt-40 {
   margin-top: 40px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
 }
 
 .block {
@@ -582,10 +582,6 @@ video {
   max-width: 992px;
 }
 
-.cursor-auto {
-  cursor: auto;
-}
-
 .resize {
   resize: both;
 }
@@ -606,12 +602,12 @@ video {
   overflow: hidden;
 }
 
-.rounded-100vh {
-  border-radius: 100vh;
-}
-
 .rounded-12 {
   border-radius: 12px;
+}
+
+.rounded-100vh {
+  border-radius: 100vh;
 }
 
 .rounded-6 {
@@ -667,14 +663,14 @@ video {
   padding-right: 15px;
 }
 
-.py-5 {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 .py-30 {
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.py-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .pt-70 {
@@ -709,16 +705,16 @@ video {
   font-size: 24px;
 }
 
-.text-12 {
-  font-size: 12px;
-}
-
 .text-16 {
   font-size: 16px;
 }
 
 .text-14 {
   font-size: 14px;
+}
+
+.text-12 {
+  font-size: 12px;
 }
 
 .text-32 {
@@ -768,16 +764,16 @@ a {
     margin-top: 60px;
   }
 
-  .sm\:text-18 {
-    font-size: 18px;
-  }
-
   .sm\:text-24 {
     font-size: 24px;
   }
 
   .sm\:text-28 {
     font-size: 28px;
+  }
+
+  .sm\:text-18 {
+    font-size: 18px;
   }
 }
 
@@ -851,6 +847,11 @@ a {
     padding-right: 30px;
   }
 
+  .md\:py-50 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   .md\:py-8 {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -861,11 +862,6 @@ a {
     padding-right: 12px;
   }
 
-  .md\:py-50 {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
   .md\:pt-180 {
     padding-top: 180px;
   }
@@ -874,16 +870,16 @@ a {
     padding-bottom: 80px;
   }
 
-  .md\:text-14 {
-    font-size: 14px;
-  }
-
   .md\:text-40 {
     font-size: 40px;
   }
 
   .md\:text-24 {
     font-size: 24px;
+  }
+
+  .md\:text-14 {
+    font-size: 14px;
   }
 
   .md\:text-18 {
