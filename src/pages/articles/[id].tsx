@@ -1,4 +1,4 @@
-import NeumorphismButton from '@/components/button/NeumorphismButton';
+import { NeumorphismButton } from '@/components/NeumorphismButton';
 import styles from '@/styles/pages/articles/articles.module.scss';
 import 'highlight.js/styles/stackoverflow-dark.css';
 import ApiRequests from '@/utils/ApiClient';
@@ -66,15 +66,17 @@ type GetStaticPropsParams = {
   id: string;
 };
 
-export const getStaticProps: GetStaticProps<PageProps, GetStaticPropsParams> =
-  async ({ params }) => {
-    const article = await ApiRequests.article(params.id);
-    const categories = await ApiRequests.categories();
-    return {
-      props: {
-        layout: 'article',
-        article: article,
-        categories: categories.contents,
-      },
-    };
+export const getStaticProps: GetStaticProps<
+  PageProps,
+  GetStaticPropsParams
+> = async ({ params }) => {
+  const article = await ApiRequests.article(params.id);
+  const categories = await ApiRequests.categories();
+  return {
+    props: {
+      layout: 'article',
+      article: article,
+      categories: categories.contents,
+    },
   };
+};

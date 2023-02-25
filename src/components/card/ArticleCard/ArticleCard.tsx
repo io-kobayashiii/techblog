@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styles from './ArticleCard.module.scss';
 import Link from 'next/link';
-import { ArticleCardTitle } from '@/components/card/ArticleCardTitle/ArticleCardTitle';
-import NeumorphismButton from '@/components/button/NeumorphismButton';
+import { ArticleCardTitle } from '@/components/Card/ArticleCardTitle/ArticleCardTitle';
+import { NeumorphismButton } from '@/components/NeumorphismButton';
 import Moment from 'react-moment';
 
 type Props = {

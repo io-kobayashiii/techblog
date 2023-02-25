@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.scss';
-import NeumorphismButton from '@/components/button/NeumorphismButton';
+import { NeumorphismButton } from '@/components/NeumorphismButton';
 import * as ArticleTypes from '@/types/ArticleTypes';
 import { useGlobalNavigationStateContext } from '@/hooks/useGlobalNavigationStateContext';
 import { useWindowDimensions } from '@/hooks/useWindowDimensions';
@@ -11,7 +11,7 @@ type Props = {
   categories: ArticleTypes.CategoryType[];
 };
 
-const Header = ({ categories }: Props) => {
+export const Header = ({ categories }: Props) => {
   const { width } = useWindowDimensions();
   const { isGlobalNavigationOpen, setIsGlobalNavigationOpen } =
     useGlobalNavigationStateContext();
@@ -130,5 +130,3 @@ const Header = ({ categories }: Props) => {
     </>
   );
 };
-
-export default Header;

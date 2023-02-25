@@ -1,5 +1,5 @@
 import * as ArticleTypes from '@/types/ArticleTypes';
-import ArticleCard from '@/components/card/ArticleCard';
+import { ArticleCard } from '@/components/Card/ArticleCard';
 import styles from '@/styles/pages/categories/categories.module.scss';
 import 'highlight.js/styles/stackoverflow-dark.css';
 import ApiRequests from '@/utils/ApiClient';
@@ -34,14 +34,6 @@ const CategoriesIndex = ({ articles, slugs }: Props) => {
                 href: `/articles/${article.id}`,
                 categories: article.categories.map((category) => category.name),
               }}
-              className={[
-                'default',
-                'bg-white',
-                'md:h-100p',
-                'md:flex',
-                'md:flex-col',
-                'md:justify-between',
-              ]}
             />
           </li>
         ))}
@@ -71,33 +63,34 @@ type GetStaticPropsParams = {
   slug: string;
 };
 
-export const getStaticProps: GetStaticProps<PageProps, GetStaticPropsParams> =
-  async ({ params }) => {
-    const articles = await ApiRequests.articles();
-    const matchedArticles: ArticleTypes.ArticleType[] =
-      articles.contents.reduce(
-        (
-          array: ArticleTypes.ArticleType[],
-          article: ArticleTypes.ArticleType
-        ): ArticleTypes.ArticleType[] =>
-          article.categories.reduce(
-            (bool: boolean, category: ArticleTypes.CategoryType): boolean =>
-              category.slug === params.slug ? true : bool,
-            false
-          )
-            ? array.concat([article])
-            : array,
-        []
-      );
-    const categories = await ApiRequests.categories();
-    return {
-      props: {
-        layout: 'default',
-        articles: matchedArticles,
-        categories: categories.contents,
-        slugs: categories.contents.map(
-          (category) => category.slug === params.slug && category.name
-        ),
-      },
-    };
+export const getStaticProps: GetStaticProps<
+  PageProps,
+  GetStaticPropsParams
+> = async ({ params }) => {
+  const articles = await ApiRequests.articles();
+  const matchedArticles: ArticleTypes.ArticleType[] = articles.contents.reduce(
+    (
+      array: ArticleTypes.ArticleType[],
+      article: ArticleTypes.ArticleType
+    ): ArticleTypes.ArticleType[] =>
+      article.categories.reduce(
+        (bool: boolean, category: ArticleTypes.CategoryType): boolean =>
+          category.slug === params.slug ? true : bool,
+        false
+      )
+        ? array.concat([article])
+        : array,
+    []
+  );
+  const categories = await ApiRequests.categories();
+  return {
+    props: {
+      layout: 'default',
+      articles: matchedArticles,
+      categories: categories.contents,
+      slugs: categories.contents.map(
+        (category) => category.slug === params.slug && category.name
+      ),
+    },
   };
+};

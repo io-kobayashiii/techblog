@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
-import Header from '@/components/header/Header';
-import Footer from '@/components/footer/Footer';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import { SiteConfig } from '@/configs/SiteConfig';
 import { useGlobalNavigation } from '@/hooks/useGlobalNavigation';
 import * as ArticleTypes from '@/types/ArticleTypes';

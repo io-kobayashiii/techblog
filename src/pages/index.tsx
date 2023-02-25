@@ -1,6 +1,6 @@
 import ApiClient from '@/utils/ApiClient';
 import * as ArticleTypes from '@/types/ArticleTypes';
-import { ArticleCard } from '@/components/card/ArticleCard';
+import { ArticleCard } from '@/components/Card/ArticleCard';
 import { LayoutType } from '@/types/LayoutTypes';
 
 type Props = {
