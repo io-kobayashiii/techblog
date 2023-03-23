@@ -12,6 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Display secrets
+        run: |
+          echo "${{ secrets.SSH_HOST }}"
+          echo "${{ secrets.SSH_USERNAME }}"
+          echo "${{ secrets.SSH_PRIVATE_KEY }}"
+
       - name: SSH to server and run command
         uses: appleboy/ssh-action@v0.0.4
         with:
@@ -21,4 +27,3 @@ jobs:
           port: 22
           script: |
             echo "Logged in to server"
-            echo ${{ secrets.SSH_HOST }}
