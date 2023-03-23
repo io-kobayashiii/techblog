@@ -12,18 +12,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Test SSH connection
-        run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
-          chmod 600 private_key.pem
-          ssh -i private_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -T ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
+      # - name: Test SSH connection
+      #   run: |
+      #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
+      #     chmod 600 private_key.pem
+      #     ssh -i private_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -T ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
 
-      # - name: SSH to server and run command
-      #   uses: appleboy/ssh-action@v0.0.4
-      #   with:
-      #     host: ${{ secrets.SSH_HOST }}
-      #     username: ${{ secrets.SSH_USERNAME }}
-      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     port: 22
-      #     script: |
-      #       echo "Logged in to server"
+      - name: SSH to server and run command
+        uses: appleboy/ssh-action@v0.0.4
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+          script: |
+            echo "Logged in to server"
