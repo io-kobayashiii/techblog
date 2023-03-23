@@ -21,3 +21,4 @@ jobs:
           port: 22
           script: |
             echo "Logged in to server"
+            echo ${{ secrets.SSH_HOST }}
