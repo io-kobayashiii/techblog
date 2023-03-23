@@ -19,4 +19,6 @@ jobs:
           ssh -i private_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -T ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "\
           echo "Logged in to server"; \
           sudo -i; \
+          whoami; \
+          alias; \
           release-for"
