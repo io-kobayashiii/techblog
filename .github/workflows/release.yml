@@ -25,6 +25,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
           script: |
             echo "Logged in to server"
+        env:
+          SSH_ARGS: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
