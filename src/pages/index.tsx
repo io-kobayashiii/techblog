@@ -15,7 +15,7 @@ const Index = ({ articles }: Props) => {
           <li
             key={article.id}
             className={
-              index == 0 ? 'md:w-100p' : 'md:w-[calc(50%-15px)] mt-15 md:mt-30'
+              index == 0 ? 'md:w-100p' : 'mt-15 md:mt-30 md:w-[calc(50%-15px)]'
             }
           >
             <ArticleCard
