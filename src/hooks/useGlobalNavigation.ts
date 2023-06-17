@@ -7,7 +7,7 @@ export const useGlobalNavigation = () => {
   const { isGlobalNavigationOpen } = useGlobalNavigationStateContext();
 
   const toggleOverflowHiddenClass = () => {
-    bodyElement.classList.toggle('overflow-hidden');
+    bodyElement?.classList.toggle('overflow-hidden');
   };
 
   useEffect(() => {
