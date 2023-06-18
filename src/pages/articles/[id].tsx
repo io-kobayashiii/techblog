@@ -1,7 +1,6 @@
 import { NeumorphismButton } from '@/components/NeumorphismButton';
 import 'highlight.js/styles/stackoverflow-dark.css';
 import ApiRequests from '@/utils/ApiClient';
-import Moment from 'react-moment';
 import * as ArticleTypes from '@/types/ArticleTypes';
 import { GetStaticProps } from 'next';
 import { useApplyHighlightJs } from '@/hooks/useApplyHighlightJs';
@@ -16,13 +15,17 @@ const Article = ({ article }: Props) => {
   useApplyHighlightJs();
   return (
     <>
-      <Moment format="YYYY.MM.DD" className="text-14 md:text-18">
-        {article.publishedAt}
-      </Moment>
-      <h1 className={`font-bold text-20 sm:text-24 md:text-28 mt-16 md:mt-22`}>
+      <p className="text-14 md:text-18">
+        {new Date(article.publishedAt)
+          .toLocaleDateString('ja-JP', {
+            timeZone: 'Asia/Tokyo',
+          })
+          .replaceAll('/', '.')}
+      </p>
+      <h1 className={`mt-16 text-20 font-bold sm:text-24 md:mt-22 md:text-28`}>
         {article.title}
       </h1>
-      <div className="flex flex-wrap m-minus-5 mt-15 md:mt-25">
+      <div className="m-minus-5 mt-15 flex flex-wrap md:mt-25">
         {article.categories.map((category, index) => {
           return (
             <NeumorphismButton
@@ -31,13 +34,13 @@ const Article = ({ article }: Props) => {
               shadowColor={'default'}
               displayText={category.name}
               className={
-                'm-5 py-5 px-15 md:py-8 md:px-12 rounded-100vh text-12 md:text-14 pointer-events-none'
+                'pointer-events-none m-5 rounded-100vh py-5 px-15 text-12 md:py-8 md:px-12 md:text-14'
               }
             />
           );
         })}
       </div>
-      <ArticleBody articleBody={article.body} />
+      <ArticleBody articleBody={article.body ?? ''} />
     </>
   );
 };
@@ -46,7 +49,7 @@ export default Article;
 
 export const getStaticPaths = async () => {
   const articles = await ApiRequests.articles();
-  const paths = articles.contents.map((content) => `/articles/${content.id}`);
+  const paths = articles.contents?.map((content) => `/articles/${content.id}`);
   return { paths, fallback: false };
 };
 
@@ -64,7 +67,7 @@ export const getStaticProps: GetStaticProps<
   PageProps,
   GetStaticPropsParams
 > = async ({ params }) => {
-  const article = await ApiRequests.article(params.id);
+  const article = await ApiRequests.article(params?.id ?? '');
   const categories = await ApiRequests.categories();
   return {
     props: {
