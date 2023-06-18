@@ -10,7 +10,7 @@ class ApiClient {
   fetch: (path: string) => Promise<Response>;
   constructor() {
     this.baseUrl = 'https://for.microcms.io/api/v1/';
-    this.headers = { headers: { 'X-API-KEY': process.env.API_KEY } };
+    this.headers = { headers: { 'X-API-KEY': process.env.API_KEY ?? '' } };
     this.fetch = (path: string) => fetch(this.baseUrl + path, this.headers);
   }
   async article(id: string): Promise<ResponseTypes.ArticleResponseType> {

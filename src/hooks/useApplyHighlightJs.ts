@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import styles from '@/components/ArticleBody/ArticleBody.module.scss';
 import Highlight from 'highlight.js';
