@@ -1,5 +1,3 @@
-'use client';
-
 import { GlobalNavigationStateContext } from '@/contexts/GlobalNavigationStateContext';
 import { useContext } from 'react';
 

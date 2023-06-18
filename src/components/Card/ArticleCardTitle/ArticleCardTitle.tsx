@@ -7,7 +7,9 @@ type Props = {
 
 export const ArticleCardTitle = ({ displayText, className }: Props) => {
   return (
-    <h3 className={`${className ?? ''} text-16 sm:text-18 lg:text-20`}>
+    <h3
+      className={`${className ?? ''} font-bold text-16 sm:text-18 lg:text-20`}
+    >
       {displayText}
     </h3>
   );

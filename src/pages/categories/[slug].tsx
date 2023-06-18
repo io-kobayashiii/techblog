@@ -7,21 +7,21 @@ import { LayoutType } from '@/types/LayoutTypes';
 
 type Props = {
   articles: ArticleTypes.ArticleType[];
-  slug: string | null;
+  slugs: string[];
 };
 
-const CategoriesIndex = ({ articles, slug }: Props) => {
+const CategoriesIndex = ({ articles, slugs }: Props) => {
   return (
     <>
-      <h1 className={`text-24 font-bold sm:text-28 md:text-32`}>
-        {slug ? <>Category: {slug}</> : <>Selected category is not exist.</>}
+      <h1 className={`font-bold text-24 sm:text-28 md:text-32`}>
+        Category: {slugs}
       </h1>
       <ul className="mt-30 md:mt-50 md:flex md:flex-wrap md:justify-between">
         {articles.map((article, index) => (
           <li
             key={article.id}
             className={
-              index == 0 ? 'md:w-100p' : 'mt-15 md:mt-30 md:w-[calc(50%-15px)]'
+              index == 0 ? 'md:w-100p' : 'md:w-[calc(50%-15px)] mt-15 md:mt-30'
             }
           >
             <ArticleCard
@@ -55,7 +55,7 @@ type PageProps = {
   layout: LayoutType;
   articles: ArticleTypes.ArticleType[];
   categories: ArticleTypes.CategoryType[];
-  slug: string | null;
+  slugs: string[];
 };
 
 type GetStaticPropsParams = {
@@ -67,36 +67,29 @@ export const getStaticProps: GetStaticProps<
   GetStaticPropsParams
 > = async ({ params }) => {
   const articles = await ApiRequests.articles();
+  const matchedArticles: ArticleTypes.ArticleType[] = articles.contents.reduce(
+    (
+      array: ArticleTypes.ArticleType[],
+      article: ArticleTypes.ArticleType
+    ): ArticleTypes.ArticleType[] =>
+      article.categories.reduce(
+        (bool: boolean, category: ArticleTypes.CategoryType): boolean =>
+          category.slug === params.slug ? true : bool,
+        false
+      )
+        ? array.concat([article])
+        : array,
+    []
+  );
   const categories = await ApiRequests.categories();
-  const paramsSlug = params?.slug ?? '';
-
-  if (!paramsSlug || articles.totalCount == 0) {
-    return {
-      props: {
-        layout: 'default',
-        articles: [],
-        categories: categories.contents,
-        slug: null,
-      },
-    };
-  }
-
-  const matchedArticles = articles.contents!.filter((article) => {
-    const slugs = Array.from(
-      new Set(article.categories.map((articleCategory) => articleCategory.slug))
-    );
-    return slugs.includes(paramsSlug);
-  });
-
   return {
     props: {
       layout: 'default',
       articles: matchedArticles,
       categories: categories.contents,
-      slug: categories.contents
-        .map((category) => category.slug === paramsSlug && category.name)
-        .filter((v) => v)
-        .join(''),
+      slugs: categories.contents.map(
+        (category) => category.slug === params.slug && category.name
+      ),
     },
   };
 };

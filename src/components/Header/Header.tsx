@@ -1,26 +1,24 @@
-'use client';
-
 import * as React from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import { NeumorphismButton } from '@/components/NeumorphismButton';
 import * as ArticleTypes from '@/types/ArticleTypes';
-import { Gemunu_Libre } from 'next/font/google';
-import { useGlobalNavigation } from '@/hooks/useGlobalNavigation';
-
-const gemunuLibreFont = Gemunu_Libre({
-  subsets: ['latin'],
-  weight: '200',
-  display: 'swap',
-});
+import { useGlobalNavigationStateContext } from '@/hooks/useGlobalNavigationStateContext';
+import { useWindowDimensions } from '@/hooks/useWindowDimensions';
 
 type Props = {
   categories: ArticleTypes.CategoryType[];
 };
 
 export const Header = ({ categories }: Props) => {
+  const { width } = useWindowDimensions();
   const { isGlobalNavigationOpen, setIsGlobalNavigationOpen } =
-    useGlobalNavigation();
+    useGlobalNavigationStateContext();
+
+  useEffect(() => {
+    if (width >= 768) setIsGlobalNavigationOpen(false);
+  }, [width]);
 
   return (
     <>
@@ -29,11 +27,9 @@ export const Header = ({ categories }: Props) => {
           isGlobalNavigationOpen ? styles.isGlobalNavigationOpen : ''
         } w-100p overflow-hidden bg-gray-800`}
       >
-        <div className="mx-auto flex h-56 w-100p max-w-lg items-center justify-between px-15 md:px-30">
+        <div className="flex justify-between items-center max-w-lg mx-auto px-15 md:px-30 w-100p h-56">
           <Link href="/" onClick={() => setIsGlobalNavigationOpen(false)}>
-            <p className={`text-24 md:text-40 ${gemunuLibreFont.className}`}>
-              For
-            </p>
+            <p className={`text-24 md:text-40 ${styles.logo}`}>For</p>
           </Link>
           <div
             onClick={() => setIsGlobalNavigationOpen(!isGlobalNavigationOpen)}
@@ -43,7 +39,7 @@ export const Header = ({ categories }: Props) => {
               unevenness={'bumps'}
               shadowColor={'default'}
               displayText={`<i class='cil-hamburger-menu'></i>`}
-              className={'rounded-6 p-8 text-16 leading-0 md:p-16 md:text-24'}
+              className={'rounded-6 leading-0 p-8 md:p-16 text-16 md:text-24'}
             />
           </div>
           <div className="hidden md:block">
@@ -53,7 +49,7 @@ export const Header = ({ categories }: Props) => {
                 shadowColor={'default'}
                 displayText={`<i class="cib-github"></i>`}
                 className={
-                  'ml-15 rounded-100vh bg-gray-800 p-16 text-24 leading-0 text-white'
+                  'rounded-100vh leading-0 ml-15 p-16 text-24 bg-gray-800 text-white'
                 }
               />
             </Link>
@@ -63,17 +59,17 @@ export const Header = ({ categories }: Props) => {
                 shadowColor={'default'}
                 displayText={`<i class="cib-twitter"></i>`}
                 className={
-                  'ml-15 rounded-100vh bg-gray-800 p-16 text-24 leading-0 text-white'
+                  'rounded-100vh leading-0 ml-15 p-16 text-24 bg-gray-800 text-white'
                 }
               />
             </Link>
           </div>
         </div>
         <div className={`p-15 md:hidden`}>
-          <div className={`${styles.dents} rounded-12 p-15`}>
-            <p className="text-bold text-16">Categories</p>
-            <div className={`mt-15 h-2 ${styles.border}`} />
-            <ul className="m-minus-5 flex flex-wrap pt-20">
+          <div className={`${styles.dents} p-15 rounded-12`}>
+            <p className="text-16 text-bold">Categories</p>
+            <div className={`h-2 mt-15 ${styles.border}`} />
+            <ul className="flex flex-wrap m-minus-5 pt-20">
               {categories.map((category, index) => {
                 return (
                   <Link
@@ -86,7 +82,7 @@ export const Header = ({ categories }: Props) => {
                         unevenness={'bumps'}
                         shadowColor={'default'}
                         displayText={category.name}
-                        className={'m-5 rounded-100vh p-16 text-14 leading-0'}
+                        className={'rounded-100vh leading-0 m-5 p-16 text-14'}
                       />
                     </li>
                   </Link>
@@ -96,16 +92,16 @@ export const Header = ({ categories }: Props) => {
           </div>
         </div>
         <div className="mt-30 p-15 md:hidden">
-          <div className={`${styles.dents} rounded-12 p-15`}>
-            <p className="text-bold text-16">Profile</p>
-            <div className={`mt-15 h-2 ${styles.border}`} />
+          <div className={`${styles.dents} p-15 rounded-12`}>
+            <p className="text-16 text-bold">Profile</p>
+            <div className={`h-2 mt-15 ${styles.border}`} />
             <div className="mt-15">
               <Link href="https://github.com/io-kobayashiii/techblog">
                 <NeumorphismButton
                   unevenness={'bumps'}
                   shadowColor={'default'}
                   displayText={`<i class="cib-github"></i>`}
-                  className={'rounded-100vh p-10 text-24 leading-0'}
+                  className={'rounded-100vh leading-0 p-10 text-24'}
                 />
               </Link>
               <Link href="https://twitter.com/iooo231">
@@ -113,7 +109,7 @@ export const Header = ({ categories }: Props) => {
                   unevenness={'bumps'}
                   shadowColor={'default'}
                   displayText={`<i class="cib-twitter"></i>`}
-                  className={'ml-10 rounded-100vh p-10 text-24 leading-0'}
+                  className={'rounded-100vh leading-0 ml-10 p-10 text-24'}
                 />
               </Link>
             </div>

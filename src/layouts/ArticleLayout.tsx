@@ -34,8 +34,8 @@ const ArticleLayout = ({ article, categories, children }: Props) => {
         <meta name="twitter:site" content="@iooo231" />
       </Head>
       <Header categories={categories} />
-      <main className="bg-gray-800 pt-106 pb-50 md:pt-180 md:pb-80">
-        <article className="mx-auto max-w-lg px-15 md:px-30">
+      <main className="pt-106 md:pt-180 pb-50 md:pb-80 bg-gray-800">
+        <article className="px-15 md:px-30 max-w-lg mx-auto">
           {children}
         </article>
       </main>

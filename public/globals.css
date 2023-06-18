@@ -534,14 +534,6 @@ video {
   margin-top: 15px;
 }
 
-.mt-40 {
-  margin-top: 40px;
-}
-
-.mt-20 {
-  margin-top: 20px;
-}
-
 .mt-30 {
   margin-top: 30px;
 }
@@ -556,6 +548,10 @@ video {
 
 .mt-16 {
   margin-top: 16px;
+}
+
+.mt-40 {
+  margin-top: 40px;
 }
 
 .mb-15 {
@@ -578,24 +574,12 @@ video {
   display: none;
 }
 
-.h-2 {
-  height: 2px;
-}
-
-.h-56 {
-  height: 56px;
-}
-
 .w-100p {
   width: 100%;
 }
 
 .max-w-lg {
   max-width: 992px;
-}
-
-.cursor-pointer {
-  cursor: pointer;
 }
 
 .resize {
@@ -630,8 +614,8 @@ video {
   border-radius: 6px;
 }
 
-.border {
-  border-width: 1px;
+.border-b-2 {
+  border-bottom-width: 2px;
 }
 
 .border-t-2 {
@@ -643,14 +627,19 @@ video {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.bg-gray-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-}
-
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-product-github {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 21 21 / var(--tw-bg-opacity));
 }
 
 .p-15 {
@@ -684,28 +673,24 @@ video {
   padding-bottom: 5px;
 }
 
-.pt-76 {
-  padding-top: 76px;
-}
-
-.pb-20 {
-  padding-bottom: 20px;
-}
-
-.pt-106 {
-  padding-top: 106px;
+.pt-70 {
+  padding-top: 70px;
 }
 
 .pb-50 {
   padding-bottom: 50px;
 }
 
-.pt-70 {
-  padding-top: 70px;
+.pb-10 {
+  padding-bottom: 10px;
 }
 
-.pt-20 {
-  padding-top: 20px;
+.pt-15 {
+  padding-top: 15px;
+}
+
+.pb-5 {
+  padding-bottom: 5px;
 }
 
 .text-center {
@@ -732,12 +717,12 @@ video {
   font-size: 12px;
 }
 
-.text-20 {
-  font-size: 20px;
+.text-32 {
+  font-size: 32px;
 }
 
-.text-11 {
-  font-size: 11px;
+.text-20 {
+  font-size: 20px;
 }
 
 .font-bold {
@@ -753,10 +738,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 html,
 body {
   padding: 0;
@@ -766,8 +747,7 @@ body {
 
 body {
   font-family: 'M PLUS 1p', sans-serif;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: #3c3c3c;
 }
 
 a {
@@ -802,10 +782,6 @@ a {
     margin-top: 30px;
   }
 
-  .md\:mt-80 {
-    margin-top: 80px;
-  }
-
   .md\:mt-50 {
     margin-top: 50px;
   }
@@ -816,6 +792,10 @@ a {
 
   .md\:mt-25 {
     margin-top: 25px;
+  }
+
+  .md\:mt-80 {
+    margin-top: 80px;
   }
 
   .md\:block {
@@ -912,10 +892,6 @@ a {
 
   .md\:text-32 {
     font-size: 32px;
-  }
-
-  .md\:text-12 {
-    font-size: 12px;
   }
 }
 
