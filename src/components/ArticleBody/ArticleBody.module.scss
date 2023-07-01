@@ -93,6 +93,7 @@
     margin: 1em 0;
     position: relative;
     code {
+      display: block;
       padding: 5em 2em 2em !important;
       border-radius: 12px;
       box-shadow: inset 5px 5px 10px #131921, inset -5px -5px 10px #2d3b4d;
@@ -124,7 +125,7 @@
     @apply bg-gray-800;
   }
   &::before {
-    content: attr(data-language);
+    content: attr(data-heading);
     padding: 0.5em 2em;
     font-size: 12px;
     color: #fff;

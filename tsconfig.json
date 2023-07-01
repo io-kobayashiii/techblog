@@ -17,13 +17,20 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/pages/_document.tsx"
+    // "src/_pages/_document.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
