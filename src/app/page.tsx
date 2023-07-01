@@ -1,14 +1,16 @@
 import { ArticleCard } from '@/components/Card/ArticleCard';
 import ApiClient from '@/utils/ApiClient';
+import { notFound } from 'next/navigation';
 
 export default async function Page() {
-  const { contents } = await ApiClient.articles();
+  const articles = await ApiClient.articles();
+  if (!articles) notFound();
   return (
     <>
       <main className="bg-gray-800 pt-76 pb-20 md:pt-180 md:pb-80">
         <div className="mx-auto max-w-lg px-15 md:px-30">
           <ul className="md:flex md:flex-wrap md:justify-between">
-            {contents?.map((article, index) => (
+            {articles.contents?.map((article, index) => (
               <li
                 key={article.id}
                 className={

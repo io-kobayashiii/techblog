@@ -5,10 +5,12 @@ import styles from '@/components/ArticleBody/ArticleBody.module.scss';
 import Highlight from 'highlight.js';
 
 export const useApplyHighlightJs = () => {
-  const [isInitialized, setIsInitialized] = useState<boolean>(false);
+  console.log('useApplyHighlightJs');
+  const [isInitialized, setIsInitialized] = useState(false);
   useEffect(() => {
     if (isInitialized) return;
     setIsInitialized(true);
+    console.log('useApplyHighlightJs: Start applying');
 
     const pres = document.querySelectorAll('pre');
     if (!pres.length) return;
@@ -19,7 +21,7 @@ export const useApplyHighlightJs = () => {
         const [language, heading, content] = code.innerHTML.split('_____');
         pre.classList.add(styles.preCodeLanguage);
         pre.setAttribute(
-          'data-language',
+          'data-heading',
           heading == 'none' ? language : heading
         );
         code.className = `hljs ${language === 'terminal' ? 'bash' : language}`;
@@ -27,6 +29,7 @@ export const useApplyHighlightJs = () => {
       }
     });
 
+    console.log('Do highlightAll');
     Highlight.highlightAll();
   }, [isInitialized]);
 };

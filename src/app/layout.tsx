@@ -1,10 +1,11 @@
 import '@/styles/globals.css';
 import { Metadata } from 'next';
-// import { M_PLUS_1p } from 'next/font/google';
 import ContextProviders from '@/contexts/ContextProviders';
 import ApiClient from '@/utils/ApiClient';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { notFound } from 'next/navigation';
+// import { M_PLUS_1p } from 'next/font/google';
 
 // const mPlus1pFont = M_PLUS_1p({
 //   subsets: ['latin-ext'],
@@ -12,7 +13,10 @@ import { Footer } from '@/components/Footer';
 // });
 
 export const metadata: Metadata = {
-  title: 'For',
+  title: {
+    default: 'For',
+    template: '%s | For',
+  },
   description:
     'Webアプリケーション開発における備忘録や実装メモなどを発信しています。',
 };
@@ -22,9 +26,10 @@ type Props = {
 };
 
 export default async function RootLayout({ children }: Props) {
-  const { contents } = await ApiClient.categories();
+  const categories = await ApiClient.categories();
+  if (!categories) notFound();
   return (
-    <html lang="jp">
+    <html lang="ja">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -32,6 +37,7 @@ export default async function RootLayout({ children }: Props) {
           rel="stylesheet"
           href="https://unpkg.com/@coreui/icons/css/all.min.css"
         />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200&family=M+PLUS+1p:wght@400&display=swap"
           rel="stylesheet"
@@ -54,11 +60,11 @@ gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`,
         />
       </head>
       {/* <body className={mPlus1pFont.className}> */}
-      <body>
+      <body id={'body'}>
         <ContextProviders>
-          <Header categories={contents} />
+          <Header categories={categories.contents} />
           {children}
-          <Footer categories={contents} />
+          <Footer categories={categories.contents} />
         </ContextProviders>
       </body>
     </html>

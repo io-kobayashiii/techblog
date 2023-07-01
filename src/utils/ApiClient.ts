@@ -1,4 +1,5 @@
 import * as ResponseTypes from '../types/ResponseTypes';
+import { notFound } from 'next/navigation';
 
 class ApiClient {
   baseUrl: string;
@@ -13,21 +14,51 @@ class ApiClient {
     this.headers = { headers: { 'X-API-KEY': process.env.API_KEY ?? '' } };
     this.fetch = (path: string) => fetch(this.baseUrl + path, this.headers);
   }
-  async article(id: string): Promise<ResponseTypes.ArticleResponseType> {
-    console.log(`ApiClient.article`);
-    return await this.fetch(`articles/${id}`).then((response) =>
-      response.json()
-    );
+  async article(
+    id: string
+  ): Promise<ResponseTypes.ArticleResponseType | undefined> {
+    try {
+      const response = await this.fetch(`articles/${id}`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      return response.json();
+    } catch (error) {
+      console.error(`An error occurred: ${error.message}`);
+      notFound();
+    }
   }
-  async articles(): Promise<ResponseTypes.ArticlesResponseType> {
+  async articles(): Promise<ResponseTypes.ArticlesResponseType | undefined> {
     console.log(`ApiClient.articles`);
-    const response = await this.fetch('articles?limit=100');
-    return response.json();
+    try {
+      const response = await this.fetch('articles?limit=100');
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      return response.json();
+    } catch (error) {
+      console.error(`An error occurred: ${error.message}`);
+    }
   }
-  async categories(): Promise<ResponseTypes.CategoriesResponseType> {
+  async categories(): Promise<
+    ResponseTypes.CategoriesResponseType | undefined
+  > {
     console.log(`ApiClient.categories`);
-    const response = await this.fetch('categories?limit=100');
-    return response.json();
+    try {
+      const response = await this.fetch('categories?limit=100');
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      return response.json();
+    } catch (error) {
+      console.error(`An error occurred: ${error.message}`);
+    }
   }
 }
 

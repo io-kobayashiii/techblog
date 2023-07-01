@@ -692,20 +692,16 @@ video {
   padding-bottom: 20px;
 }
 
+.pt-20 {
+  padding-top: 20px;
+}
+
 .pt-106 {
   padding-top: 106px;
 }
 
 .pb-50 {
   padding-bottom: 50px;
-}
-
-.pt-70 {
-  padding-top: 70px;
-}
-
-.pt-20 {
-  padding-top: 20px;
 }
 
 .text-center {
@@ -751,10 +747,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 html,
@@ -902,12 +894,12 @@ a {
     font-size: 14px;
   }
 
-  .md\:text-18 {
-    font-size: 18px;
-  }
-
   .md\:text-28 {
     font-size: 28px;
+  }
+
+  .md\:text-18 {
+    font-size: 18px;
   }
 
   .md\:text-32 {
