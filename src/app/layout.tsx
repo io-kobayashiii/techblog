@@ -5,12 +5,12 @@ import ApiClient from '@/utils/ApiClient';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { notFound } from 'next/navigation';
-// import { M_PLUS_1p } from 'next/font/google';
+import { M_PLUS_1p } from 'next/font/google';
 
-// const mPlus1pFont = M_PLUS_1p({
-//   subsets: ['latin-ext'],
-//   weight: ['400', '700'],
-// });
+const mPlus1pFont = M_PLUS_1p({
+  subsets: ['latin-ext'],
+  weight: ['400', '700'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -59,8 +59,7 @@ gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`,
           }}
         />
       </head>
-      {/* <body className={mPlus1pFont.className}> */}
-      <body id={'body'}>
+      <body id={'body'} className={mPlus1pFont.className}>
         <ContextProviders>
           <Header categories={categories.contents} />
           {children}
