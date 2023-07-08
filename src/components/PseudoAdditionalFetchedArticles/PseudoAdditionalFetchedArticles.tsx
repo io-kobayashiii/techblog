@@ -14,9 +14,6 @@ export default function PseudoAdditionalFetchedArticles({ articles }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const observedElementRef = useRef(null);
 
-  console.log('articles.length:', articles.length);
-  console.log('renderingArticles.length:', renderingArticles.length);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       async ([{ isIntersecting }]) => {
