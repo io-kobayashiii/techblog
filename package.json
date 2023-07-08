@@ -22,6 +22,9 @@
   "dependencies": {
     "@coreui/icons": "^3.0.0",
     "@coreui/icons-react": "^2.1.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.6",
     "highlight.js": "^11.7.0",
     "next": "^13.4.6",
     "react": "^18.2.0",

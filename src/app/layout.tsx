@@ -1,11 +1,11 @@
 import '@/styles/globals.css';
 import { Metadata } from 'next';
 import ContextProviders from '@/contexts/ContextProviders';
-import ApiClient from '@/utils/ApiClient';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { notFound } from 'next/navigation';
 import { M_PLUS_1p } from 'next/font/google';
+import { getCategories } from '@/utils/microCmsClient';
 
 const mPlus1pFont = M_PLUS_1p({
   subsets: ['latin-ext'],
@@ -26,22 +26,23 @@ type Props = {
 };
 
 export default async function RootLayout({ children }: Props) {
-  const categories = await ApiClient.categories();
+  const categories = await getCategories();
   if (!categories) notFound();
   return (
     <html lang="ja">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           rel="stylesheet"
           href="https://unpkg.com/@coreui/icons/css/all.min.css"
         />
+        {/* Google Fontsのfetchがエラーになる場合はアンコメントする */}
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" /> */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200&family=M+PLUS+1p:wght@400&display=swap"
+        {/* <link
+          href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200&family=M+PLUS+1p:wght@400;700&display=swap"
           rel="stylesheet"
-        />
+        /> */}
         <link rel="shortcut icon" href="/favicon.ico" />
         <script
           defer
@@ -61,9 +62,9 @@ gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`,
       </head>
       <body id={'body'} className={mPlus1pFont.className}>
         <ContextProviders>
-          <Header categories={categories.contents} />
+          <Header categories={categories} />
           {children}
-          <Footer categories={categories.contents} />
+          <Footer categories={categories} />
         </ContextProviders>
       </body>
     </html>
