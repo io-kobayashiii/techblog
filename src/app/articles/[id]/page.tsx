@@ -1,15 +1,15 @@
-import ApiClient from '@/utils/ApiClient';
 import { NeumorphismButton } from '@/components/NeumorphismButton';
 import { ArticleBody } from '@/components/ArticleBody';
 import { notFound } from 'next/navigation';
 import { ApplyHooks } from '@/components/ApplyHooks/ApplyHooks';
 import 'highlight.js/styles/base16/atelier-forest.css';
 import { Metadata } from 'next';
+import { getAllArticles, getArticle } from '@/utils/microCmsClient';
 
 export async function generateStaticParams() {
-  const articles = await ApiClient.articles();
+  const articles = await getAllArticles();
   if (!articles) return [];
-  return articles.contents?.map(({ id }) => ({ id })) ?? [];
+  return articles.map(({ id }) => ({ id })) ?? [];
 }
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
 export async function generateMetadata({
   params: { id },
 }: Props): Promise<Metadata> {
-  const article = await ApiClient.article(id);
+  const article = await getArticle(id);
 
   return {
     title: article?.title ?? 'For',
@@ -30,7 +30,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params: { id } }: Props) {
-  const article = await ApiClient.article(id);
+  const article = await getArticle(id);
   if (!article) notFound();
   return (
     <>

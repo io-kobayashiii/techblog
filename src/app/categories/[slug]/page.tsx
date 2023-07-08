@@ -1,12 +1,12 @@
 import { ArticleCard } from '@/components/Card/ArticleCard';
-import ApiClient from '@/utils/ApiClient';
 import * as ArticleTypes from '@/types/ArticleTypes';
+import { getAllArticles, getCategories } from '@/utils/microCmsClient';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
-  const categories = await ApiClient.categories();
+  const categories = await getCategories();
   if (!categories) notFound();
-  return categories.contents.map(({ slug }) => ({ slug }));
+  return categories.map(({ slug }) => ({ slug }));
 }
 
 type Props = {
@@ -16,10 +16,10 @@ type Props = {
 };
 
 export default async function Page({ params: { slug } }: Props) {
-  const articles = await ApiClient.articles();
+  const articles = await getAllArticles();
   if (!articles) notFound();
   const matchedArticles: ArticleTypes.ArticleType[] | undefined =
-    articles.contents?.reduce(
+    articles.reduce(
       (
         array: ArticleTypes.ArticleType[],
         article: ArticleTypes.ArticleType
@@ -34,11 +34,9 @@ export default async function Page({ params: { slug } }: Props) {
       []
     );
 
-  const categories = await ApiClient.categories();
+  const categories = await getCategories();
   if (!categories) notFound();
-  const category = categories.contents.find(
-    (category) => category.slug === slug
-  )?.name;
+  const category = categories.find((category) => category.slug === slug)?.name;
 
   return (
     <>
@@ -66,9 +64,7 @@ export default async function Page({ params: { slug } }: Props) {
                         title: article.title,
                         date: article.publishedAt,
                         href: `/articles/${article.id}`,
-                        categories: article.categories.map(
-                          (category) => category.name
-                        ),
+                        categories: article.categories.map(({ name }) => name),
                       }}
                     />
                   </li>

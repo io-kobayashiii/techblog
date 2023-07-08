@@ -1,11 +1,11 @@
 import '@/styles/globals.css';
 import { Metadata } from 'next';
 import ContextProviders from '@/contexts/ContextProviders';
-import ApiClient from '@/utils/ApiClient';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { notFound } from 'next/navigation';
 import { M_PLUS_1p } from 'next/font/google';
+import { getCategories } from '@/utils/microCmsClient';
 
 const mPlus1pFont = M_PLUS_1p({
   subsets: ['latin-ext'],
@@ -26,7 +26,7 @@ type Props = {
 };
 
 export default async function RootLayout({ children }: Props) {
-  const categories = await ApiClient.categories();
+  const categories = await getCategories();
   if (!categories) notFound();
   return (
     <html lang="ja">
@@ -62,9 +62,9 @@ gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`,
       </head>
       <body id={'body'} className={mPlus1pFont.className}>
         <ContextProviders>
-          <Header categories={categories.contents} />
+          <Header categories={categories} />
           {children}
-          <Footer categories={categories.contents} />
+          <Footer categories={categories} />
         </ContextProviders>
       </body>
     </html>
