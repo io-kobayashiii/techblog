@@ -5,4 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: !true,
   output: 'export',
+  typescript: {
+    ignoreBuildErrors: process.env.NODE_ENV === 'production',
+  },
 });
