@@ -5,12 +5,10 @@ import styles from '@/components/ArticleBody/ArticleBody.module.scss';
 import Highlight from 'highlight.js';
 
 export const useApplyHighlightJs = () => {
-  console.log('useApplyHighlightJs');
   const [isInitialized, setIsInitialized] = useState(false);
   useEffect(() => {
     if (isInitialized) return;
     setIsInitialized(true);
-    console.log('useApplyHighlightJs: Start applying');
 
     const pres = document.querySelectorAll('pre');
     if (!pres.length) return;
@@ -29,7 +27,6 @@ export const useApplyHighlightJs = () => {
       }
     });
 
-    console.log('Do highlightAll');
     Highlight.highlightAll();
   }, [isInitialized]);
 };
