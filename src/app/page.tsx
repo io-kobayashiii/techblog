@@ -10,11 +10,16 @@ export default async function Page() {
     <>
       <main className="bg-gray-800 pt-76 pb-20 md:pt-180 md:pb-80">
         <div className="mx-auto max-w-lg px-15 md:px-30">
-          <ul className="md:flex md:flex-wrap md:justify-between">
+          <ul className="flex flex-wrap justify-between gap-[15px] md:gap-[30px]">
             {articles
               .slice(0, 10)
               .map(({ id, title, publishedAt, categories }) => (
-                <li key={id} className={'mt-15 md:mt-30 md:w-[calc(50%-15px)]'}>
+                <li
+                  key={id}
+                  className={
+                    'basis-full md:shrink-0 md:grow-0 md:basis-[calc(100%/2-30px/2)]'
+                  }
+                >
                   <ArticleCard
                     unevenness="bumps"
                     shadowColor="default"

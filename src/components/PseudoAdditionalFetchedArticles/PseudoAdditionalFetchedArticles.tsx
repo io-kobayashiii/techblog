@@ -47,7 +47,12 @@ export default function PseudoAdditionalFetchedArticles({ articles }: Props) {
   return (
     <>
       {renderingArticles.map(({ id, title, publishedAt, categories }) => (
-        <li key={id} className={'mt-15 md:mt-30 md:w-[calc(50%-15px)]'}>
+        <li
+          key={id}
+          className={
+            'basis-full md:shrink-0 md:grow-0 md:basis-[calc(100%/2-30px/2)]'
+          }
+        >
           <ArticleCard
             unevenness="bumps"
             shadowColor="default"
@@ -65,10 +70,10 @@ export default function PseudoAdditionalFetchedArticles({ articles }: Props) {
 
       {isLoading && articles.length !== renderingArticles.length && (
         <>
-          <li className="mt-15 md:mt-30 md:w-[calc(50%-15px)]">
+          <li className="basis-full md:shrink-0 md:grow-0 md:basis-[calc(100%/2-30px/2)]">
             <ArticleCardInLoading />
           </li>
-          <li className="mt-15 md:mt-30 md:w-[calc(50%-15px)]">
+          <li className="basis-full md:shrink-0 md:grow-0 md:basis-[calc(100%/2-30px/2)]">
             <ArticleCardInLoading />
           </li>
         </>
