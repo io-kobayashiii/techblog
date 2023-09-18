@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from './Footer.module.scss';
 import { NeumorphismButton } from '@/components/NeumorphismButton';
 import * as ArticleTypes from '@/types/ArticleTypes';
+import { classNames } from '@/utils/classNames';
 
 type Props = {
   categories: ArticleTypes.CategoryType[];
@@ -11,13 +12,13 @@ type Props = {
 export const Footer = ({ categories }: Props) => {
   return (
     <>
-      <footer className={`${styles.bumps} py-30 md:py-50 bg-gray-800`}>
-        <div className="max-w-lg mx-auto px-15 md:px-30">
+      <footer className={classNames('bg-gray-800 py-30 md:py-50', styles.root)}>
+        <div className="mx-auto max-w-lg px-15 md:px-30">
           <div className="hidden md:block">
-            <div className={`${styles.dents} p-15 md:p-30 rounded-12`}>
-              <p className="text-16 text-bold">Categories</p>
-              <div className={`h-2 mt-20 ${styles.border}`} />
-              <ul className="flex flex-wrap m-minus-5 pt-20">
+            <div className="rounded-12 p-15 shadow-dent md:p-30">
+              <p className="text-bold text-16">Categories</p>
+              <div className="mt-20 h-2 shadow-border" />
+              <ul className="m-minus-5 flex flex-wrap pt-20">
                 {categories.map((category, index) => {
                   return (
                     <Link key={index} href={`/categories/${category.slug}`}>
@@ -26,7 +27,7 @@ export const Footer = ({ categories }: Props) => {
                           unevenness={'bumps'}
                           shadowColor={'default'}
                           displayText={category.name}
-                          className={'rounded-100vh leading-0 m-5 p-16 text-14'}
+                          className={'m-5 rounded-100vh p-16 text-14 leading-0'}
                         />
                       </li>
                     </Link>
@@ -36,16 +37,16 @@ export const Footer = ({ categories }: Props) => {
             </div>
           </div>
           <div className="mt-30 hidden md:block">
-            <div className={`${styles.dents} p-15 md:p-30 rounded-12`}>
-              <p className="text-16 text-bold">Profile</p>
-              <div className={`h-2 mt-20 ${styles.border}`} />
+            <div className="rounded-12 p-15 shadow-dent md:p-30">
+              <p className="text-bold text-16">Profile</p>
+              <div className="mt-20 h-2 shadow-border" />
               <div className="mt-20">
                 <Link href="https://github.com/io-kobayashiii/techblog">
                   <NeumorphismButton
                     unevenness={'bumps'}
                     shadowColor={'default'}
                     displayText={`<i class="cib-github"></i>`}
-                    className={'rounded-100vh leading-0 p-10 text-24'}
+                    className={'rounded-100vh p-10 text-24 leading-0'}
                   />
                 </Link>
                 <Link href="https://twitter.com/iooo231">
@@ -53,14 +54,14 @@ export const Footer = ({ categories }: Props) => {
                     unevenness={'bumps'}
                     shadowColor={'default'}
                     displayText={`<i class='cib-twitter'></i>`}
-                    className={'rounded-100vh leading-0 ml-10 p-10 text-24'}
+                    className={'ml-10 rounded-100vh p-10 text-24 leading-0'}
                   />
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <div className="text-12 text-center md:mt-50">
+        <div className="text-center text-12 md:mt-50">
           &copy; 2021 - {new Date().getFullYear()} io-kobayashiii All Rights
           Reserved.
         </div>

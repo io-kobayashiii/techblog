@@ -1,12 +1,10 @@
 import * as React from 'react';
-import styles from './ArticleCard.module.scss';
 import Link from 'next/link';
 import { ArticleCardTitle } from '@/components/Card/ArticleCardTitle/ArticleCardTitle';
 import { NeumorphismButton } from '@/components/NeumorphismButton';
+import { classNames } from '@/utils/classNames';
 
 type Props = {
-  unevenness: 'dents' | 'bumps';
-  shadowColor: 'default' | 'primary';
   data: {
     title: string;
     date: string;
@@ -16,18 +14,14 @@ type Props = {
   className?: string;
 };
 
-export const ArticleCard = ({
-  unevenness,
-  shadowColor,
-  data,
-  className,
-}: Props) => {
+export const ArticleCard = ({ data, className }: Props) => {
   return (
     <Link
       href={data.href}
-      className={`block rounded-12 p-15 md:flex md:h-100p md:flex-col md:justify-between md:p-30 ${
-        styles[`${unevenness}-${shadowColor}`]
-      } ${className ?? ''}`}
+      className={classNames(
+        'block rounded-12 p-15 shadow-bump md:flex md:h-100p md:flex-col md:justify-between md:p-30',
+        className
+      )}
     >
       <div>
         <ArticleCardTitle displayText={data.title} className={`mb-15`} />
