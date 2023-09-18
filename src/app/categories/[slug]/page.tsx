@@ -58,8 +58,6 @@ export default async function Page({ params: { slug } }: Props) {
                     }
                   >
                     <ArticleCard
-                      unevenness="bumps"
-                      shadowColor="default"
                       data={{
                         title: article.title,
                         date: article.publishedAt,

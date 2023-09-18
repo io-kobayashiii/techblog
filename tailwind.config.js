@@ -20,6 +20,11 @@ module.exports = {
         3: '3px',
         5: '5px',
       },
+      boxShadow: {
+        bump: '5px 5px 10px #131921, -5px -5px 10px #2d3b4d',
+        dent: 'inset 5px 5px 10px #131921, inset -5px -5px 10px #2d3b4d',
+        border: '0 -3px 3px #2d3b4d, 0 3px 3px #131921',
+      },
     },
     screens: {
       xs: '375px',

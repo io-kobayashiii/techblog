@@ -16,8 +16,6 @@ export default async function Page() {
               .map(({ id, title, publishedAt, categories }) => (
                 <li key={id} className={'mt-15 md:mt-30 md:w-[calc(50%-15px)]'}>
                   <ArticleCard
-                    unevenness="bumps"
-                    shadowColor="default"
                     data={{
                       title,
                       date: publishedAt,
