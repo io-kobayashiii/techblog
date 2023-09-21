@@ -1,3 +1,1 @@
-export declare const border: string;
-export declare const bumps: string;
-export declare const dents: string;
+export declare const root: string;

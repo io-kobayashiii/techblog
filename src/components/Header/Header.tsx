@@ -2,12 +2,15 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import styles from './Header.module.scss';
 import { NeumorphismButton } from '@/components/NeumorphismButton';
 import * as ArticleTypes from '@/types/ArticleTypes';
 import { Gemunu_Libre } from 'next/font/google';
 import { useGlobalNavigation } from '@/hooks/useGlobalNavigation';
 import { classNames } from '@/utils/classNames';
+import { IconButton } from '../IconButton';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const gemunuLibreFont = Gemunu_Libre({
   subsets: ['latin'],
@@ -41,33 +44,17 @@ export const Header = ({ categories }: Props) => {
             onClick={() => setIsGlobalNavigationOpen(!isGlobalNavigationOpen)}
             className="md:hidden"
           >
-            <NeumorphismButton
-              unevenness={'bumps'}
-              shadowColor={'default'}
-              displayText={`<i class='cil-hamburger-menu'></i>`}
-              className={'rounded-6 p-8 text-16 leading-0 md:p-16 md:text-24'}
-            />
+            <IconButton Icon={MenuIcon} size={'large'} />
           </div>
-          <div className="hidden md:block">
-            <Link href="https://github.com/io-kobayashiii/techblog">
-              <NeumorphismButton
-                unevenness={'bumps'}
-                shadowColor={'default'}
-                displayText={`<i class="cib-github"></i>`}
-                className={
-                  'ml-15 rounded-100vh bg-gray-800 p-16 text-24 leading-0 text-white'
-                }
-              />
+          <div className="hidden flex-row-reverse md:flex">
+            <Link
+              href="https://github.com/io-kobayashiii/techblog"
+              className="block"
+            >
+              <IconButton Icon={GitHubIcon} size={'large'} />
             </Link>
-            <Link href="https://twitter.com/iooo231">
-              <NeumorphismButton
-                unevenness={'bumps'}
-                shadowColor={'default'}
-                displayText={`<i class="cib-twitter"></i>`}
-                className={
-                  'ml-15 rounded-100vh bg-gray-800 p-16 text-24 leading-0 text-white'
-                }
-              />
+            <Link href="https://twitter.com/iooo231" className="mr-15 block">
+              <IconButton Icon={TwitterIcon} size={'large'} />
             </Link>
           </div>
         </div>
@@ -101,22 +88,15 @@ export const Header = ({ categories }: Props) => {
           <div className="rounded-12 p-15 shadow-dent">
             <p className="text-bold text-16">Profile</p>
             <div className="mt-15 h-2 shadow-border" />
-            <div className="mt-15">
-              <Link href="https://github.com/io-kobayashiii/techblog">
-                <NeumorphismButton
-                  unevenness={'bumps'}
-                  shadowColor={'default'}
-                  displayText={`<i class="cib-github"></i>`}
-                  className={'rounded-100vh p-10 text-24 leading-0'}
-                />
+            <div className="mt-15 flex">
+              <Link
+                href="https://github.com/io-kobayashiii/techblog"
+                className="block"
+              >
+                <IconButton Icon={GitHubIcon} size={'large'} />
               </Link>
-              <Link href="https://twitter.com/iooo231">
-                <NeumorphismButton
-                  unevenness={'bumps'}
-                  shadowColor={'default'}
-                  displayText={`<i class="cib-twitter"></i>`}
-                  className={'ml-10 rounded-100vh p-10 text-24 leading-0'}
-                />
+              <Link href="https://twitter.com/iooo231" className="ml-15 block">
+                <IconButton Icon={TwitterIcon} size={'large'} />
               </Link>
             </div>
           </div>

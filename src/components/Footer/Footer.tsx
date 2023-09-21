@@ -4,6 +4,9 @@ import styles from './Footer.module.scss';
 import { NeumorphismButton } from '@/components/NeumorphismButton';
 import * as ArticleTypes from '@/types/ArticleTypes';
 import { classNames } from '@/utils/classNames';
+import { IconButton } from '../IconButton';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 type Props = {
   categories: ArticleTypes.CategoryType[];
@@ -40,22 +43,18 @@ export const Footer = ({ categories }: Props) => {
             <div className="rounded-12 p-15 shadow-dent md:p-30">
               <p className="text-bold text-16">Profile</p>
               <div className="mt-20 h-2 shadow-border" />
-              <div className="mt-20">
-                <Link href="https://github.com/io-kobayashiii/techblog">
-                  <NeumorphismButton
-                    unevenness={'bumps'}
-                    shadowColor={'default'}
-                    displayText={`<i class="cib-github"></i>`}
-                    className={'rounded-100vh p-10 text-24 leading-0'}
-                  />
+              <div className="mt-20 flex">
+                <Link
+                  href="https://github.com/io-kobayashiii/techblog"
+                  className="block"
+                >
+                  <IconButton Icon={GitHubIcon} size={'large'} />
                 </Link>
-                <Link href="https://twitter.com/iooo231">
-                  <NeumorphismButton
-                    unevenness={'bumps'}
-                    shadowColor={'default'}
-                    displayText={`<i class='cib-twitter'></i>`}
-                    className={'ml-10 rounded-100vh p-10 text-24 leading-0'}
-                  />
+                <Link
+                  href="https://twitter.com/iooo231"
+                  className="ml-15 block"
+                >
+                  <IconButton Icon={TwitterIcon} size={'large'} />
                 </Link>
               </div>
             </div>
