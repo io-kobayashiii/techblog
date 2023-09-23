@@ -40,7 +40,7 @@ export default async function Page({ params: { slug } }: Props) {
 
   return (
     <>
-      <main className="bg-gray-800 pt-76 pb-20 md:pt-180 md:pb-80">
+      <main className="grow bg-gray-800 pt-76 pb-20 md:pt-180 md:pb-80">
         <div className="mx-auto max-w-lg px-15 md:px-30">
           {matchedArticles ? (
             <>

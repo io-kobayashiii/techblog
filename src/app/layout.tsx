@@ -1,16 +1,11 @@
 import '@/styles/globals.css';
 import { Metadata } from 'next';
-import ContextProviders from '@/contexts/ContextProviders';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { notFound } from 'next/navigation';
-import { M_PLUS_1p } from 'next/font/google';
 import { getCategories } from '@/utils/microCmsClient';
-
-const mPlus1pFont = M_PLUS_1p({
-  subsets: ['latin-ext'],
-  weight: ['400', '700'],
-});
+import { RecoilRootProvider } from '@/components/Provider/RecoilRootProvider';
+import { CustomizedBodyElement } from '@/components/CustomizedBodyElement';
 
 export const metadata: Metadata = {
   title: {
@@ -56,13 +51,13 @@ gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`,
           }}
         />
       </head>
-      <body id={'body'} className={mPlus1pFont.className}>
-        <ContextProviders>
+      <RecoilRootProvider>
+        <CustomizedBodyElement>
           <Header categories={categories} />
-          {children}
+          <div className="flex grow flex-col">{children}</div>
           <Footer categories={categories} />
-        </ContextProviders>
-      </body>
+        </CustomizedBodyElement>
+      </RecoilRootProvider>
     </html>
   );
 }
