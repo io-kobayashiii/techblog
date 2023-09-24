@@ -1,5 +1,6 @@
 'use client';
 
+import { useGlobalNavigationVisibilityControl } from '@/hooks/useGlobalNavigationVisibilityControl';
 import { useGlobalNavigationState } from '@/recoil/globalNavigation';
 import { classNames } from '@/utils/classNames';
 import { M_PLUS_1p } from 'next/font/google';
@@ -14,6 +15,7 @@ type Props = {
 };
 
 export const CustomizedBodyElement = ({ children }: Props) => {
+  useGlobalNavigationVisibilityControl();
   const isOpen = useGlobalNavigationState();
   return (
     <body
