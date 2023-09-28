@@ -21,9 +21,11 @@ module.exports = {
         5: '5px',
       },
       boxShadow: {
-        bump: '5px 5px 10px #131921, -5px -5px 10px #2d3b4d',
-        dent: 'inset 5px 5px 10px #131921, inset -5px -5px 10px #2d3b4d',
         border: '0 -3px 3px #2d3b4d, 0 3px 3px #131921',
+        'bump-sm': '5px 5px 7px #12171e, -5px -5px 7px #2e3d50',
+        'bump-md': '5px 5px 10px #131921, -5px -5px 10px #2d3b4d',
+        'dent-sm': 'inset 5px 5px 10px #131921, inset -5px -5px 10px #2d3b4d',
+        'dent-md': 'inset 5px 5px 10px #131921, inset -5px -5px 10px #2d3b4d',
       },
     },
     screens: {

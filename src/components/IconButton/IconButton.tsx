@@ -12,7 +12,7 @@ export const IconButton = ({ Icon, size, className }: Props) => {
     <>
       <button
         className={classNames(
-          'rounded-100vh bg-gray-800 p-8 text-white shadow-bump md:p-16',
+          'rounded-100vh bg-gray-800 p-8 text-white shadow-bump-md md:p-16',
           className
         )}
       >

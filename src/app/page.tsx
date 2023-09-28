@@ -20,7 +20,7 @@ export default async function Page() {
                       title,
                       date: publishedAt,
                       href: `/articles/${id}`,
-                      categories: categories.map(({ name }) => name),
+                      categoryNames: categories.map(({ name }) => name),
                     }}
                   />
                 </li>

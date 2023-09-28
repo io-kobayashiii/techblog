@@ -53,7 +53,7 @@ export default function PseudoAdditionalFetchedArticles({ articles }: Props) {
               title,
               date: publishedAt,
               href: `/articles/${id}`,
-              categories: categories.map(({ name }) => name),
+              categoryNames: categories.map(({ name }) => name),
             }}
           />
         </li>

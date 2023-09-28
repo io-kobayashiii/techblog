@@ -17,6 +17,6 @@ Default.args = {
     title: 'title',
     date: '2021.01.01',
     href: 'https://nextjs.org/',
-    categories: ['JavaScript', 'HTML', 'CSS', 'SCSS'],
+    categoryNames: ['JavaScript', 'HTML', 'CSS', 'SCSS'],
   },
 };
