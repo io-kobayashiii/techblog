@@ -17,9 +17,8 @@ export const NeumorphismButton = ({
     return 'shadow-dent-sm';
   })();
   return (
-    <button
-      className={classNames(className, unevennessClass)}
-      dangerouslySetInnerHTML={{ __html: displayText }}
-    />
+    <button className={classNames(className, unevennessClass)}>
+      {displayText}
+    </button>
   );
 };
