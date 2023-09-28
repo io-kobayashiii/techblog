@@ -62,7 +62,9 @@ export default async function Page({ params: { slug } }: Props) {
                         title: article.title,
                         date: article.publishedAt,
                         href: `/articles/${article.id}`,
-                        categories: article.categories.map(({ name }) => name),
+                        categoryNames: article.categories.map(
+                          ({ name }) => name
+                        ),
                       }}
                     />
                   </li>

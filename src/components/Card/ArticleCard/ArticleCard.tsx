@@ -9,7 +9,7 @@ type Props = {
     title: string;
     date: string;
     href: string;
-    categories?: string[];
+    categoryNames?: string[];
   };
   className?: string;
 };
@@ -26,8 +26,8 @@ export const ArticleCard = ({ data, className }: Props) => {
       <div>
         <ArticleCardTitle displayText={data.title} className={`mb-15`} />
         <div className="m-minus-5 flex flex-wrap">
-          {data.categories &&
-            data.categories.map((category, index) => {
+          {data.categoryNames &&
+            data.categoryNames.map((category, index) => {
               return (
                 <NeumorphismButton
                   key={index}
