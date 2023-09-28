@@ -15,7 +15,7 @@ export const GlobalNavigation = ({ categories }: Props) => {
   return (
     <>
       <div className={`p-15 md:hidden`}>
-        <div className="rounded-12 p-15 shadow-dent">
+        <div className="rounded-12 p-15 shadow-dent-md">
           <p className="text-bold text-16">Categories</p>
           <div className="mt-15 h-2 shadow-border" />
           <ul className="m-minus-5 flex flex-wrap pt-20">
@@ -28,8 +28,7 @@ export const GlobalNavigation = ({ categories }: Props) => {
                 >
                   <li>
                     <NeumorphismButton
-                      unevenness={'bumps'}
-                      shadowColor={'default'}
+                      unevenness={'bump'}
                       displayText={name}
                       className={'m-5 rounded-100vh p-16 text-14 leading-0'}
                     />
@@ -41,7 +40,7 @@ export const GlobalNavigation = ({ categories }: Props) => {
         </div>
       </div>
       <div className="mt-30 p-15 md:hidden">
-        <div className="rounded-12 p-15 shadow-dent">
+        <div className="rounded-12 p-15 shadow-dent-md">
           <p className="text-bold text-16">Profile</p>
           <div className="mt-15 h-2 shadow-border" />
           <div className="mt-15 flex">

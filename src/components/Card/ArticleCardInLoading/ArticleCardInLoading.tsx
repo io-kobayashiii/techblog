@@ -7,7 +7,7 @@ export const ArticleCardInLoading = () => {
   return (
     <div
       className={
-        'block rounded-12 p-15 shadow-bump md:flex md:h-100p md:flex-col md:justify-between md:p-30'
+        'block rounded-12 p-15 shadow-bump-md md:flex md:h-100p md:flex-col md:justify-between md:p-30'
       }
     >
       <div>

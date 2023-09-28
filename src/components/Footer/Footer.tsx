@@ -18,7 +18,7 @@ export const Footer = ({ categories }: Props) => {
       <footer className={classNames('bg-gray-800 py-30 md:py-50', styles.root)}>
         <div className="mx-auto max-w-lg px-15 md:px-30">
           <div className="hidden md:block">
-            <div className="rounded-12 p-15 shadow-dent md:p-30">
+            <div className="rounded-12 p-15 shadow-dent-md md:p-30">
               <p className="text-bold text-16">Categories</p>
               <div className="mt-20 h-2 shadow-border" />
               <ul className="m-minus-5 flex flex-wrap pt-20">
@@ -27,8 +27,7 @@ export const Footer = ({ categories }: Props) => {
                     <Link key={index} href={`/categories/${category.slug}`}>
                       <li>
                         <NeumorphismButton
-                          unevenness={'bumps'}
-                          shadowColor={'default'}
+                          unevenness={'bump'}
                           displayText={category.name}
                           className={'m-5 rounded-100vh p-16 text-14 leading-0'}
                         />
@@ -40,7 +39,7 @@ export const Footer = ({ categories }: Props) => {
             </div>
           </div>
           <div className="mt-30 hidden md:block">
-            <div className="rounded-12 p-15 shadow-dent md:p-30">
+            <div className="rounded-12 p-15 shadow-dent-md md:p-30">
               <p className="text-bold text-16">Profile</p>
               <div className="mt-20 h-2 shadow-border" />
               <div className="mt-20 flex">
