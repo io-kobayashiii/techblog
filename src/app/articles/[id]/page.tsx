@@ -26,6 +26,15 @@ export async function generateMetadata({
   return {
     title: article?.title ?? 'For',
     description: article?.description,
+    openGraph: {
+      title: article?.title ?? 'For',
+      description: article?.description,
+      url: `https://for.kobayashiii.dev/articles/${article?.id ?? ''}`,
+    },
+    twitter: {
+      title: article?.title ?? 'For',
+      description: article?.description,
+    },
   };
 }
 
