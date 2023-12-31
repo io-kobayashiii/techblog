@@ -13,8 +13,7 @@ const Template: ComponentStory<typeof NeumorphismButton> = (args) => (
 
 export const DentsDefault = Template.bind({});
 DentsDefault.args = {
-  unevenness: 'dents',
-  shadowColor: 'default',
+  unevenness: 'dent',
   displayText: 'button',
   className:
     'm-5 rounded-100vh py-5 px-15 md:py-8 md:px-12 text-12 md:text-14 bg-gray-100',
@@ -22,8 +21,7 @@ DentsDefault.args = {
 
 export const BumpsDefault = Template.bind({});
 BumpsDefault.args = {
-  unevenness: 'bumps',
-  shadowColor: 'default',
+  unevenness: 'bump',
   displayText: 'button',
   className:
     'm-5 rounded-100vh py-5 px-15 md:py-8 md:px-12 text-12 md:text-14 bg-gray-100',

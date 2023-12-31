@@ -1,23 +1,24 @@
 import * as React from 'react';
-import styles from './NeumorphismButton.module.scss';
+import { classNames } from '@/utils/classNames';
 
 type Props = {
-  unevenness: 'dents' | 'bumps';
-  shadowColor: 'default' | 'primary';
+  unevenness: 'dent' | 'bump';
   displayText: string;
   className?: string;
 };
 
 export const NeumorphismButton = ({
   unevenness,
-  shadowColor,
   displayText,
   className,
 }: Props) => {
+  const unevennessClass = (() => {
+    if (unevenness === 'bump') return 'shadow-bump-sm';
+    return 'shadow-dent-sm';
+  })();
   return (
-    <button
-      className={`${className ?? ''} ${styles[`${unevenness}-${shadowColor}`]}`}
-      dangerouslySetInnerHTML={{ __html: displayText }}
-    ></button>
+    <button className={classNames(className, unevennessClass)}>
+      {displayText}
+    </button>
   );
 };

@@ -8,7 +8,7 @@ export default async function Page() {
   if (!articles) notFound();
   return (
     <>
-      <main className="bg-gray-800 pt-76 pb-20 md:pt-180 md:pb-80">
+      <main className="grow bg-gray-800 pt-56 pb-20 md:pt-180 md:pb-80">
         <div className="mx-auto max-w-lg px-15 md:px-30">
           <ul className="md:flex md:flex-wrap md:justify-between">
             {articles
@@ -16,13 +16,11 @@ export default async function Page() {
               .map(({ id, title, publishedAt, categories }) => (
                 <li key={id} className={'mt-15 md:mt-30 md:w-[calc(50%-15px)]'}>
                   <ArticleCard
-                    unevenness="bumps"
-                    shadowColor="default"
                     data={{
                       title,
                       date: publishedAt,
                       href: `/articles/${id}`,
-                      categories: categories.map(({ name }) => name),
+                      categoryNames: categories.map(({ name }) => name),
                     }}
                   />
                 </li>

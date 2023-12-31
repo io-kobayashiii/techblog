@@ -13,12 +13,10 @@ const Template: ComponentStory<typeof ArticleCard> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  unevenness: 'bumps',
-  shadowColor: 'default',
   data: {
     title: 'title',
     date: '2021.01.01',
     href: 'https://nextjs.org/',
-    categories: ['JavaScript', 'HTML', 'CSS', 'SCSS'],
+    categoryNames: ['JavaScript', 'HTML', 'CSS', 'SCSS'],
   },
 };

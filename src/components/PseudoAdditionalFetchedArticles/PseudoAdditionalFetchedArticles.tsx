@@ -49,13 +49,11 @@ export default function PseudoAdditionalFetchedArticles({ articles }: Props) {
       {renderingArticles.map(({ id, title, publishedAt, categories }) => (
         <li key={id} className={'mt-15 md:mt-30 md:w-[calc(50%-15px)]'}>
           <ArticleCard
-            unevenness="bumps"
-            shadowColor="default"
             data={{
               title,
               date: publishedAt,
               href: `/articles/${id}`,
-              categories: categories.map(({ name }) => name),
+              categoryNames: categories.map(({ name }) => name),
             }}
           />
         </li>

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
-    "dev": "next dev --port 3100",
+    "dev": "concurrently \"next dev --port 3100\" \"yarn generate:scss-types:watch\"",
     "build": "next build && next-sitemap --config sitemap.config.cjs",
     "analyze": "ANALYZE=true next build",
     "analyze:windows": "cross-env ANALYZE=true next build",
@@ -17,18 +17,20 @@
     "build-storybook": "concurrently \"yarn:build:*\"",
     "build:css": "npx tailwindcss -i ./src/styles/globals.css -o ./public/globals.css",
     "build:storybook": "build-storybook -s ./public",
-    "storybook:test": "test-storybook --url http://localhost:6006 --coverage"
+    "storybook:test": "test-storybook --url http://localhost:6006 --coverage",
+    "generate:scss-types": "typed-scss-modules src",
+    "generate:scss-types:watch": "typed-scss-modules src --ignore **/global.scss --watch"
   },
   "dependencies": {
-    "@coreui/icons": "^3.0.0",
-    "@coreui/icons-react": "^2.1.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.6",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.10",
     "highlight.js": "^11.7.0",
     "next": "^13.4.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "recoil": "^0.7.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -65,6 +67,7 @@
     "serve": "^14.2.0",
     "storybook-addon-next": "^1.7.1",
     "tailwindcss": "^3.2.4",
+    "typed-scss-modules": "^7.1.4",
     "typescript": "^4.9.4"
   },
   "husky": {

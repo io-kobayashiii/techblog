@@ -1,24 +1,41 @@
 import '@/styles/globals.css';
 import { Metadata } from 'next';
-import ContextProviders from '@/contexts/ContextProviders';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { notFound } from 'next/navigation';
-import { M_PLUS_1p } from 'next/font/google';
 import { getCategories } from '@/utils/microCmsClient';
+import { RecoilRootProvider } from '@/components/Provider/RecoilRootProvider';
+import { CustomizedBodyElement } from '@/components/CustomizedBodyElement';
 
-const mPlus1pFont = M_PLUS_1p({
-  subsets: ['latin-ext'],
-  weight: ['400', '700'],
-});
+const siteConfig = {
+  title: 'For',
+  description:
+    'Webアプリケーション開発における備忘録や実装メモなどを発信しています。',
+  url: 'https://for.kobayashiii.dev/',
+};
 
 export const metadata: Metadata = {
   title: {
-    default: 'For',
-    template: '%s | For',
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.title}`,
   },
-  description:
-    'Webアプリケーション開発における備忘録や実装メモなどを発信しています。',
+  description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.title,
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    site: '@iooo231',
+    creator: '@iooo231',
+    images: 'https://for.kobayashiii.dev/for-icon-512.png',
+  },
 };
 
 type Props = {
@@ -31,10 +48,6 @@ export default async function RootLayout({ children }: Props) {
   return (
     <html lang="ja">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/@coreui/icons/css/all.min.css"
-        />
         {/* Google Fontsのfetchがエラーになる場合はアンコメントする */}
         {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" /> */}
@@ -60,13 +73,13 @@ gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`,
           }}
         />
       </head>
-      <body id={'body'} className={mPlus1pFont.className}>
-        <ContextProviders>
+      <RecoilRootProvider>
+        <CustomizedBodyElement>
           <Header categories={categories} />
-          {children}
+          <div className="flex grow flex-col">{children}</div>
           <Footer categories={categories} />
-        </ContextProviders>
-      </body>
+        </CustomizedBodyElement>
+      </RecoilRootProvider>
     </html>
   );
 }

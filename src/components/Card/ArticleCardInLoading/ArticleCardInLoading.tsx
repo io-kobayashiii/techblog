@@ -1,15 +1,14 @@
 'use client';
 
 import * as React from 'react';
-import styles from './ArticleCardInLoading.module.scss';
 import { Skeleton } from '@mui/material';
 
 export const ArticleCardInLoading = () => {
   return (
     <div
-      className={`block rounded-12 p-15 md:flex md:h-100p md:flex-col md:justify-between md:p-30 ${
-        styles[`bumps-default`]
-      }`}
+      className={
+        'block rounded-12 p-15 shadow-bump-md md:flex md:h-100p md:flex-col md:justify-between md:p-30'
+      }
     >
       <div>
         <Skeleton

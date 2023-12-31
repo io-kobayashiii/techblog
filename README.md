@@ -3,7 +3,7 @@
 ## version information
 | name | version |
 | --- | --- |
-| node | 16.13.2 |
+| node | 18.16.1 |
 | yarn | 1.22.10 |
 
 ## setup

@@ -49,8 +49,7 @@ export default async function Page({ params: { id } }: Props) {
           return (
             <NeumorphismButton
               key={index}
-              unevenness={'dents'}
-              shadowColor={'default'}
+              unevenness={'dent'}
               displayText={category.name}
               className={
                 'pointer-events-none m-5 rounded-100vh py-5 px-15 text-12 md:py-8 md:px-12 md:text-14'
