@@ -7,13 +7,35 @@ import { getCategories } from '@/utils/microCmsClient';
 import { RecoilRootProvider } from '@/components/Provider/RecoilRootProvider';
 import { CustomizedBodyElement } from '@/components/CustomizedBodyElement';
 
-export const metadata: Metadata = {
-  title: {
-    default: 'For',
-    template: '%s | For',
-  },
+const siteConfig = {
+  title: 'For',
   description:
     'Webアプリケーション開発における備忘録や実装メモなどを発信しています。',
+  url: 'https://for.kobayashiii.dev/',
+};
+
+export const metadata: Metadata = {
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.title}`,
+  },
+  description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.title,
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    site: '@iooo231',
+    creator: '@iooo231',
+    images: 'https://for.kobayashiii.dev/for-icon-512.png',
+  },
 };
 
 type Props = {
