@@ -30,10 +30,18 @@ export async function generateMetadata({
       title: article?.title ?? 'For',
       description: article?.description,
       url: `https://for.kobayashiii.dev/articles/${article?.id ?? ''}`,
+      siteName: article?.title ?? 'For',
+      locale: 'ja_JP',
+      type: 'website',
+      images: 'https://for.kobayashiii.dev/for-icon-512.png',
     },
     twitter: {
       title: article?.title ?? 'For',
       description: article?.description,
+      card: 'summary',
+      site: '@iooo231',
+      creator: '@iooo231',
+      images: 'https://for.kobayashiii.dev/for-icon-512.png',
     },
   };
 }

@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.title,
     locale: 'ja_JP',
     type: 'website',
+    images: 'https://for.kobayashiii.dev/for-icon-512.png',
   },
   twitter: {
     card: 'summary',
